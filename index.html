@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGILE · Agile Management with Agentic AI Workflow</title>
+<meta name="description" content="Bilingual interactive learning SPA: Agile management with agentic AI workflow — system, process, roles, controls and risks. Prof. Shihmin Lo, NCNU.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.7/babel.min.js"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: { extend: { fontFamily: { sans: ['Inter', '"Noto Sans TC"', '"Microsoft JhengHei"', 'sans-serif'], serif: ['Merriweather', '"Noto Serif TC"', 'serif'] } } }
+};
+</script>
+<style>
+@keyframes fadeInUp { from{opacity:0;transform:translateY(15px)} to{opacity:1;transform:translateY(0)} }
+.animate-fade-in { animation: fadeInUp 0.5s ease-out forwards; }
+.perspective { perspective: 1000px; }
+.transform-style-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+header, footer, button, [role="button"], .ui-decoration { -webkit-user-select: none; user-select: none; }
+input, textarea, select { -webkit-user-select: text; user-select: text; }
+.ovmap svg { width: 100%; height: auto; display: block; }
+#cp-toast { position: fixed; left: 50%; bottom: 48px; transform: translateX(-50%); background: #004030; color: #D8C3A5; padding: 10px 18px; border-radius: 10px; font: 600 13px Inter, sans-serif; box-shadow: 0 8px 24px rgba(0,0,0,.3); z-index: 9999; opacity: 0; pointer-events: none; transition: opacity .25s; border: 1px solid #D8C3A5; }
+#cp-toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<script>
+(function(){
+  var ALLOWED = ['lolopodcast.github.io','localhost','127.0.0.1'];
+  var REDIRECT = 'https://www.ibs.ncnu.edu.tw/index.php/faculty/tenured-professor/299-smlo';
+  if (!ALLOWED.some(function(d){ return location.hostname === d || location.hostname.endsWith('.' + d); })) {
+    window.__AGILE_BLOCKED__ = true;
+    document.body.innerHTML = '<div style="text-align:center;padding:60px;font-family:sans-serif"><h1>Access Denied</h1><p>This resource is not authorised on this domain.</p></div>';
+    setTimeout(function(){ location.href = REDIRECT; }, 3000);
+    return;
+  }
+  if (window.self !== window.top) {
+    try { window.top.location.href = window.self.location.href; }
+    catch (e) { window.__AGILE_BLOCKED__ = true; document.body.innerHTML = '<div style="text-align:center;padding:60px"><h1>Frame Blocked</h1><p>This content cannot be embedded.</p></div>'; return; }
+  }
+  var COPYRIGHT_MSG = 'Intellectual Property of Prof. Shihmin Lo';
+  var timer;
+  window.showCopyrightToast = function(){
+    var el = document.getElementById('cp-toast');
+    if (!el) { el = document.createElement('div'); el.id = 'cp-toast'; el.setAttribute('role','status'); document.body.appendChild(el); }
+    el.textContent = '© ' + COPYRIGHT_MSG;
+    el.classList.add('show'); clearTimeout(timer);
+    timer = setTimeout(function(){ el.classList.remove('show'); }, 2000);
+  };
+  document.addEventListener('contextmenu', function(e){
+    var selection = (window.getSelection() || '').toString().trim();
+    if (selection.length > 0) return true;
+    e.preventDefault(); window.showCopyrightToast();
+  });
+  document.addEventListener('keydown', function(e){
+    var k = (e.key || '').toLowerCase();
+    if (e.key === 'F12') { e.preventDefault(); window.showCopyrightToast(); return; }
+    if (e.ctrlKey && k === 'u') { e.preventDefault(); window.showCopyrightToast(); return; }
+    if (e.ctrlKey && e.shiftKey && ['i','j','c'].indexOf(k) > -1) { e.preventDefault(); window.showCopyrightToast(); return; }
+  });
+  document.addEventListener('dragstart', function(e){
+    if (e.target.tagName === 'IMG' || (e.target.closest && e.target.closest('svg'))) e.preventDefault();
+  });
+})();
+</script>
+<div id="root"></div>
+<script>
+const _SALT = 'AG2026';
+const _e = (s, n) => { const p = s + ':' + n; let r = ''; for (let i = 0; i < p.length; i++) r += String.fromCharCode(p.charCodeAt(i) ^ ((i + 7) * 3 & 0xFF)); return btoa(r); };
+const _d = (token) => { const decoded = atob(token); let r = ''; for (let i = 0; i < decoded.length; i++) r += String.fromCharCode(decoded.charCodeAt(i) ^ ((i + 7) * 3 & 0xFF)); return parseInt(r.split(':')[1], 10); };
+const _A0 = _e(_SALT, 0), _A1 = _e(_SALT, 1), _A2 = _e(_SALT, 2), _A3 = _e(_SALT, 3);
+const DZH = {
+  brand: "AGILE",
+  title: "代理式 AI 工作流下的敏捷管理",
+  subtitle: "系統 → 流程 → 角色 → 控制 → 風險",
+  nav_modules: "單元目錄", nav_prev: "上一單元", nav_next: "下一單元", nav_home: "首頁",
+  key_terms: "關鍵專有名詞", flip_prompt: "點擊翻轉",
+  flip_status: "已讀 {read} / 已顯示 {shown} / 總計 {total}",
+  flip_next: "下一組", flip_retry: "重新開始",
+  audio_read: "語音導覽", audio_pause: "暫停", audio_stop: "停止",
+  lang_toggle: "EN", theme_toggle: "主題",
+  quiz_title: "模組知識檢定",
+  quiz_status: "答對 {correct} / 已答 {answered} / 總計 {total}",
+  quiz_next: "下一組", quiz_retry: "重新測驗",
+  submit: "提交答案",
+  score: "得分", correct: "正確", incorrect: "錯誤", explanation: "解析",
+  overview_label: "Overview 概述", highlights_label: "Highlights 重點", deep_dive_label: "Deep Dive 深入解析", wrapup_label: "Wrap-up 總結",
+  diagram_label: "Diagram 圖解",
+  author_note: "作者架構：本模組刻意延伸或修正 Scrum Guide 2020 的原始定義。",
+  copyright_toast: "Intellectual Property of Prof. Shihmin Lo",
+  stage_names: ["探索", "規劃", "建置", "驗證", "發布與學習", "改善"],
+
+  analytics_title: "學習歷程分析",
+  analytics_desc: "您的學習歷程會自動儲存在本機瀏覽器。您可以檢視學習進度、找出較弱的模組，並匯出 CSV 紀錄繳交。",
+  analytics_form_title: "基本資料",
+  analytics_group: "組別", analytics_group_select: "請選擇", analytics_dept: "系級",
+  analytics_dept_ph: "例：IBS3",
+  analytics_id: "學號", analytics_id_ph: "例：113212599",
+  analytics_name_en: "英文姓名", analytics_name_en_ph: "例：Shihmin Lo",
+  analytics_name_zh: "中文姓名", analytics_name_zh_ph: "例：王阿吉",
+  analytics_export_csv: "匯出 CSV 歷程記錄",
+  analytics_fill_required: "請填寫完整資訊以解鎖匯出",
+  analytics_refresh_prompt: "網頁已更新，是否刷新紀錄儲存？",
+  group_options: ["G1","G2","G3","G4","G5","G6","G7","G8","G9","G10","G11","G12","Others"],
+  analytics_total_time: "總學習時間", analytics_total_clicks: "總互動點擊",
+  analytics_overall_acc: "總體測驗答對率",
+  analytics_card_usage: "學習卡使用率",
+  analytics_module: "模組", analytics_time: "停留時間",
+  analytics_clicks: "點擊次數", analytics_acc: "答對率",
+  analytics_correct_ans_total: "答對 / 已填答 / 總題數",
+  analytics_cards_read_total: "已讀 / 總卡數",
+  analytics_no_data: "尚未測驗", analytics_sec: "秒", analytics_times: "次",
+  analytics_progress_title: "整體學習進度",
+  analytics_progress_visited: "已瀏覽", analytics_progress_not_visited: "未瀏覽",
+  analytics_progress_quiz_partial: "作答中",
+  analytics_progress_quiz_done: "已測驗",
+  analytics_wp_title: "弱點分析與複習建議",
+  analytics_wp_incorrect: "答錯題目：",
+  analytics_wp_goto: "→ 前往複習此模組",
+  analytics_wp_allpass: "所有已測驗模組答對率均達 75% 以上，表現優異！",
+  analytics_wp_saved: "💾 學習歷程已自動儲存於本機瀏覽器",
+  analytics_wp_clear: "🗑 清除歷程",
+  analytics_wp_clear_confirm: "確定要清除所有學習歷程資料嗎？此操作無法復原。",
+  analytics_wp_tts_intro: "以下是您的弱點分析。",
+  analytics_wp_tts_module: "模組：{name}，答對率 {acc}%，建議複習。",
+  analytics_wp_tts_allpass: "恭喜！所有已測驗模組答對率均達 75% 以上。",
+
+  m0_nav: "0. 執行概要",
+  m0_title: "執行概要：代理式 AI 時代的敏捷管理",
+  m0_intro: "到了 2026 年底，AI 代理人已不只是協助開發者，而是能規劃、撰寫、測試與修復程式碼，協商需求規格，並全天候監測產品。這項轉變並未使敏捷過時，而是改變了瓶頸所在、當責歸屬，以及最關鍵的控制點。本教材以五個依序提出的問題重新組織敏捷管理：系統由什麼構成、價值如何流動、誰執行與誰當責、品質與方向在哪裡把關，以及各階段可能出現哪些風險。由此形成四層架構（策略、編排、執行、保證）、六階段端到端循環（探索、規劃、建置、驗證、發布與學習、改善）、每階段只有一位人類當責者的 RACI 矩陣，以及錨定於 Scrum 三項承諾的三道控制關卡：產品目標、Sprint 目標與完成的定義。本架構部分內容刻意偏離 Scrum Guide 2020，最明顯的是將 Scrum Master 重新定位為具明確權責的對內流程專案經理，因為在機器執行多數工作的系統中，沒有權責的角色無法真正發揮服務功能。學習過程中，您將被要求做出判斷而非死記：關卡何時應退回增量？速度指標何時會誤導？當客戶端代理人成為需求協商的對口時，管理者應如何回應？",
+  m0_why: "為什麼這對管理者很重要？",
+  m0_why_desc: "代理式 AI 把限制條件從「產出工作」移到「判斷工作」。若管理者仍以寫程式的產能做規劃，就會過度承諾、驗證不足、當責模糊；反之，圍繞人類判斷重新設計角色、關卡與指標的組織，才能取得速度而不承受不穩定。",
+  m0_stats: [
+    { val: "4", label: "系統層級" },
+    { val: "6", label: "流程階段" },
+    { val: "3", label: "控制關卡" },
+    { val: "1", label: "每階段人類當責者" }
+  ],
+  m0_modules: [
+    { num: "01", title: "系統架構", desc: "典範轉移與四層系統架構。" },
+    { num: "02", title: "端到端流程", desc: "六階段循環：輸入 → 活動 → 產出 → 關卡。" },
+    { num: "03", title: "當責", desc: "對外 PM、對內 PjM 與 RACI 矩陣。" },
+    { num: "04", title: "控制關卡", desc: "產品目標、Sprint 目標與完成的定義。" },
+    { num: "05", title: "四構面", desc: "串接敏捷價值、流程階段與 Scrum 元素。" },
+    { num: "06", title: "分階段風險", desc: "六項階段風險與控制措施。" }
+  ],
+  m0_start: "開始學習 →",
+  m0_map_title: "總覽圖",
+  m0_map_desc: "整套架構濃縮在一張圖上，各編號區塊對應一個學習模組。",
+
+  m1_nav: "1. 系統架構",
+  m1_title: "系統架構：從人類團隊到四層架構",
+  m1_overview: "代理式 AI 敏捷以 AI 代理人取代人類團隊作為執行引擎，人類則轉向指引、編排與保證。本模組界定這項典範轉移，以及貫穿整個架構的四層系統。",
+  m1_highlights: ["典範轉移", "非同步協調", "四層架構", "人機互動", "精實軟體開發"],
+  m1_p1: "傳統敏捷是以人為驅動、多為同步運作的系統。透過時間盒 Sprint、面對面互動與人工對齊，小型團隊得以持續交付價值。其限制條件是人力產能：團隊在一個 Sprint 內能設計、撰寫與測試多少工作。協調發生在會議中，對齊則仰賴人與人之間的溝通。",
+  m1_p2: "在代理式 AI 敏捷中，執行引擎改變了。AI 代理人負責產碼、測試與修復；協調轉為非同步、事件驅動；互動也從「人–人」擴展到「人–代理人」與「代理人–代理人」，包括供應商代理人直接與客戶端訓練好的代理人協商。",
+  m1_p3: "四層架構讓這項轉變更加明確。L1 策略層由對外的 PM 負責，定義價值，也就是「為何做」與「做什麼」；L2 編排層由對內的 PjM 負責，設計並治理工作流與代理人護欄；L3 執行層由代理人產出增量；L4 保證層由系統架構師負責，依完成的定義驗證產出，並掌握架構與資安。",
+  m1_p4: "設計原則簡單而嚴格：代理人在 L3 執行並輔助其他層級，但當責只存在於人類所在的層級。這延伸了精實軟體開發的精神：自動化消除浪費，人類則透過判斷代理人的產出來強化學習。",
+  m1_p5: "對管理者而言，四層架構也是一項診斷工具。出現問題時，第一個問題是：哪一層失效了？待辦清單方向錯誤屬於 L1 的問題；代理人越權指向 L2；有缺陷的程式碼到達使用者手上，代表 L4 薄弱。增加 L3 的代理人數量很少能解決問題，因為執行產能很少是真正的限制條件。把失效定位到正確的層級，可以避免把治理問題誤當成生產力問題，也能釐清應由哪一位人類負責者採取行動。",
+  m1_wrapup: "代理式 AI 敏捷不是同一套系統的加速版，而是一套不同的系統。執行引擎從人轉移到代理人，協調轉為非同步，互動也涵蓋商業關係兩端的代理人。四層架構讓這項轉變仍可治理：策略層定義價值、編排層治理工作流、執行層產出增量、保證層負責驗證。維繫整個架構的單一原則是：代理人可以負責執行工作，但只有人類能為結果當責。後續從流程循環到風險登錄的每個模組，都建立在這個區分之上。",
+  m1_terms: [
+    { front: "代理式 AI", back: "能自主規劃並執行多步驟任務以達成目標的 AI 系統，可運用工具，僅需有限的人類介入。" },
+    { front: "執行引擎", back: "系統中實際產出工作的部分；在代理式 AI 敏捷中，是位於 L3 的 AI 代理人。" },
+    { front: "編排層（L2）", back: "設計、排序並治理代理人工作流與護欄的層級，由 PjM 負責。" },
+    { front: "保證層（L4）", back: "依完成的定義驗證產出，並掌握架構與資安的層級，由系統架構師負責。" },
+    { front: "代理人對代理人互動（A2A）", back: "不同組織的代理人之間直接交流，例如供應商代理人與客戶端代理人協商規格。" },
+    { front: "精實軟體開發", back: "源自精實思維的敏捷方法：消除浪費、強化學習、快速交付、尊重人。" }
+  ],
+  m1_q: [
+    { q: "某公司導入程式代理人，卻仍保留每週協調會議，並依開發人數規劃 Sprint。它沒有重新設計的是什麼？", opts: ["L3 執行層，因為代理人不應撰寫程式", "協調模式與產能基準：仍把人類當成執行引擎", "L1 策略層，因為協調會議應由 PM 主持", "沒有問題；同步會議仍是代理式 AI 敏捷的核心"], ans: _A1, exp: "典範轉移同時改變了執行引擎與協調模式。依人數規劃、倚賴同步會議，仍是把人類當成執行引擎。" },
+    { q: "依四層架構的設計原則，下列何者正確？", opts: ["代理人在 L3 執行工作，因此可以當責", "當責由代理人與人類平均分攤", "客戶端代理人為需求當責", "當責只存在於人類所在的 L1、L2、L4"], ans: _A3, exp: "代理人在 L3 執行並輔助其他層級，但當責只存在於人類所在的層級。" },
+    { q: "某代理人多次在權限範圍外修改正式環境資料庫。哪一層的負責者應事先防止？方式為何？", opts: ["L1 PM，重新排序產品待辦清單", "L3 代理人，自行修正", "L2 PjM，設定並執行代理人護欄", "L4 架構師，於事件發生後處理"], ans: _A2, exp: "護欄屬於 L2 編排層的職責。L4 驗證產出，但護欄是在上游防止越權。" },
+    { q: "下列何者最能描述代理式 AI 敏捷中互動的改變？", opts: ["互動擴展到「人–代理人」與「代理人–代理人」，人類仍保有價值的最終判斷", "「人–人」互動被完全取代", "只剩「代理人–代理人」互動有意義", "互動變成完全同步"], ans: _A0, exp: "互動是擴展而非消失；價值判斷與當責仍由人類保留。" },
+    { q: "代理式 AI 敏捷如何延伸精實軟體開發？", opts: ["移除「尊重人」原則", "自動化消除浪費，人類透過判斷強化學習", "以長期規劃取代迭代", "不再需要回饋"], ans: _A1, exp: "自動化消除執行上的浪費；人類透過判斷代理人產出來強化學習。" },
+    { q: "客戶派出訓練好的採購代理人，與您的需求代理人協商規格。哪些事必須留在人類手上？", opts: ["規格文件的排版", "協商會議的排程", "代理人之間的術語轉譯", "價值的最終判斷，以及對協議範圍的當責"], ans: _A3, exp: "代理人可以協商與轉譯，但價值判斷與當責無法委託。" }
+  ],
+
+  m2_nav: "2. 端到端流程",
+  m2_title: "端到端流程：六階段循環",
+  m2_overview: "價值依序流經六個階段：探索、規劃、建置、驗證、發布與學習、改善。每一階段都以「輸入 → 活動 → 產出 → 關卡」界定，使 Scrum 事件與產出物落在同一個連續循環中，而非分散的清單。",
+  m2_highlights: ["輸入 → 活動 → 產出 → 關卡", "六階段循環", "審查產能", "退回建置", "驗證式學習"],
+  m2_p1: "第 1 階段「探索」的輸入是客戶需求、市場訊號，以及上一循環的遙測資料。代理人分析市場、把模糊回饋轉為規格，並與客戶端代理人協商；人類則與真實客戶驗證價值假設。產出是已排序的產品待辦清單，關卡是由 PM 掌握的產品目標。",
+  m2_p2: "第 2 階段「規劃」對應 Sprint 規劃。代理人提出工作拆解與排序，人類決定範圍。由於瓶頸已從寫程式的產能轉為審查產能，故事點速度必須重新校準。關卡是 Scrum 團隊共同確認的 Sprint 目標。",
+  m2_p3: "第 3 階段「建置」在 Sprint 中進行。代理人在 PjM 設定的護欄內產碼、測試與修復，並以非同步方式發布進度摘要。15 分鐘的每日 Scrum 仍然保留，但用來檢視 Sprint 目標的進度並排除障礙，而不是收集狀態報告。第 4 階段「驗證」結合自動掃描與人類的架構及資安審查，只有符合完成的定義的增量才能通過，其餘一律退回建置。",
+  m2_p4: "第 5 階段「發布與學習」結合 Sprint 審查與 MVP 循環：發布增量、全天候監測遙測資料，PM 與利害關係人共同檢視結果，決定假設成立、轉向或放棄。第 6 階段「改善」即 Sprint 回顧，重新校準護欄、DoD 與心理安全感，其產出再進入下一次探索，形成完整循環。",
+  m2_p5: "把循環視為流程，也能看出時間真正花在哪裡。在代理式團隊中，工作很少卡在建置，而是卡在驗證前的佇列，以及發布與學習階段等待利害關係人決策。因此，管理者應衡量整個循環的流動，包括審查等待時間，以及從驗證退回建置的比率，而不是只為產碼速度變快而慶祝。退回率上升是早期警訊，代表護欄、規格或 DoD 需要調整。",
+  m2_wrapup: "六階段循環把零散的 Scrum 事件與產出物，整合成一個具有明確輸入、活動、產出與關卡的流程。它與傳統 Scrum 循環有兩點不同：第一，規劃以人類審查產能為基礎，因為代理人已讓寫程式不再是限制條件；第二，驗證是明確的獨立階段，並設有退回路徑，確保建置的速度不會繞過品質。第 5、6 階段的遙測資料與改善事項回饋到下一次探索，使學習得以累積，而非一次性。",
+  m2_terms: [
+    { front: "關卡", back: "階段結束時的決策點，決定工作繼續、重做或停止。" },
+    { front: "審查產能", back: "人類在一段期間內能實質審查並核准的代理人產出量，是新的瓶頸。" },
+    { front: "候選增量", back: "第 3 階段代理人產出、尚未通過完成的定義的成果。" },
+    { front: "已完成增量", back: "符合完成的定義、可以發布的增量。" },
+    { front: "進度摘要", back: "由代理人以非同步方式產生的工作狀態摘要，取代口頭狀態報告。" },
+    { front: "驗證式學習", back: "透過真實使用者測試假設所獲得的客戶證據（建置–衡量–學習）。" }
+  ],
+  m2_q: [
+    { q: "某團隊的代理人每個 Sprint 產出三倍程式碼，但待審查項目大量堆積，Sprint 目標屢屢落空。最可能的原因是？", opts: ["代理人故意寫出低品質程式碼", "規劃忽略了已成為瓶頸的審查產能", "Sprint 長度太長", "產品目標不清楚"], ans: _A1, exp: "代理人讓寫程式不再是限制條件後，人類審查就成為瓶頸，規劃必須以審查產能為基礎。" },
+    { q: "關於第 3 階段的每日 Scrum，下列何者正確？", opts: ["因代理人會發布摘要而廢除", "變成代理人的狀態報告會議", "仍是 15 分鐘的事件，用來檢視 Sprint 目標進度並排除障礙", "由 Sprint 審查取代"], ans: _A2, exp: "摘要負責呈現進度；每日 Scrum 維持檢視 Sprint 目標進度的目的。" },
+    { q: "某候選增量通過自動測試，但未通過人類資安審查。接下來會如何？", opts: ["退回第 3 階段建置", "附上警示標籤後發布", "跳到第 6 階段改善", "因自動測試已通過而接受"], ans: _A0, exp: "只有符合 DoD 的增量能通過驗證，其餘一律退回建置。" },
+    { q: "第 5 階段的遙測資料顯示使用者忽略新功能。依 MVP 邏輯，關卡應如何決策？", opts: ["成立，因為功能已如期交付", "把增量退回驗證", "延長 Sprint", "轉向或放棄假設，並更新產品待辦清單"], ans: _A3, exp: "發布與學習是在測試假設；證據不支持時，應轉向或放棄。" },
+    { q: "什麼讓六階段循環得以完整銜接？", opts: ["Sprint 審查核准預算", "PjM 簽核已完成增量", "第 5、6 階段的產出（遙測、改善事項）進入第 1 階段探索", "代理人自動開啟新的 Sprint"], ans: _A2, exp: "遙測資料與回顧改善事項成為下一次探索的輸入。" },
+    { q: "為什麼每個階段都以「輸入 → 活動 → 產出 → 關卡」界定？", opts: ["讓交接、職責與控制點明確且可追溯", "讓 Scrum 事件時間更長", "取代 Scrum Guide", "減少階段數量"], ans: _A0, exp: "這種界定方式讓流程可追溯：輸入什麼、做什麼、產出什麼、由誰決定。" }
+  ],
+
+  m3_nav: "3. 當責矩陣",
+  m3_title: "當責：對外 PM、對內 PjM 與 RACI",
+  m3_overview: "當代理人執行大部分工作時，最關鍵的管理問題變成：誰為結果負責？本模組把 Scrum 的當責對應到對外 PM、對內 PjM 與系統架構師，並以 RACI 矩陣讓每個階段都只有一位人類當責者。",
+  m3_highlights: ["RACI", "每階段一位人類 A", "PM：對外價值", "PjM：對內流程", "有權責才能服務"],
+  m3_p1: "RACI 矩陣區分四種關係：R 執行（實際做事）、A 當責（為結果負責）、C 諮詢、I 告知。本架構訂有兩條規則：每個階段只有一位人類 A；代理人可以是 R，但永遠不能是 A。當責無法委託給一個無法被究責的系統。",
+  m3_p2: "產品負責人重新定位為對外的產品經理（PM）。PM 掌握市場價值、商業策略與產品目標，並為探索、規劃、發布與學習三個階段當責。代理人可以分析市場、草擬待辦項目，但價值當責不可委託。",
+  m3_p3: "Scrum Master 重新定位為對內的流程專案經理（PjM）。這刻意偏離了 Scrum Guide 2020，因為該指南並未設置專案經理角色。作者的立場是：沒有權責的 Scrum Master 無法真正發揮服務功能；在代理式工作流中，必須有人對代理人護欄、內部工作流與跨部門瓶頸擁有明確權責。PjM 為建置與改善兩個階段當責，並持續營造心理安全感。",
+  m3_p4: "開發人員轉型為系統架構師，負責架構、資安與完成的定義的合規，並為驗證階段當責。他們的工作從手寫程式轉為設計架構與審查代理人產出，也因此帶來長期隱憂：初階開發者失去了傳統上培養架構判斷力的實作路徑。",
+  m3_p5: "明確的當責也會改變事件處理方式。當代理人造成缺陷時，要問的不是哪個代理人犯錯，而是哪一位當責的人類掌握了該階段與其控制措施，這可以避免責任在系統中被稀釋。它也保護心理安全感：由於 RACI 矩陣已明訂由誰決策、由誰修正，成員可以公開回報代理人的失誤，而不必在事後爭論責任歸屬。從這個意義來說，當責是在工作開始前就做好的設計選擇。",
+  m3_wrapup: "代理式 AI 敏捷是重新分配當責，而不是取消當責。PM 對外，為價值負責；PjM 對內，為工作流與護欄負責；系統架構師則為增量是否真正完成負責。RACI 矩陣落實了「每個階段都有一位可被究責的人類」這項原則，而代理人承擔大部分的執行責任。把 SM 重新定位為 PjM 是有意識地偏離 Scrum Guide，理由是：當機器執行多數工作時，沒有權責的服務難以發揮作用。",
+  m3_terms: [
+    { front: "RACI", back: "責任分配矩陣：執行（R）、當責（A）、諮詢（C）、告知（I）。" },
+    { front: "當責（A）", back: "為某一階段結果負責的唯一人選；在本架構中一定是人類。" },
+    { front: "執行（R）", back: "實際執行工作者；代理人可以擔任此角色。" },
+    { front: "產品經理（PM，對外）", back: "重新定位的產品負責人，掌握市場價值、策略與產品目標。" },
+    { front: "流程專案經理（PjM，對內）", back: "重新定位的 Scrum Master，對內部工作流與代理人護欄擁有明確權責（作者立場）。" },
+    { front: "系統架構師", back: "重新定位的開發人員，負責架構、資安與 DoD 合規，以審查取代手寫程式。" }
+  ],
+  m3_q: [
+    { q: "下列哪一種 RACI 指派違反本架構的規則？", opts: ["第 3 階段：PjM = A，代理人 = R", "第 4 階段：架構師 = A/R，代理人 = R", "第 1 階段：代理人 = A，PM = R", "第 6 階段：PjM = A，PM = C"], ans: _A2, exp: "代理人可以是 R，但永遠不能是 A；每個階段需要一位人類 A。" },
+    { q: "本架構為什麼把 Scrum Master 重新定位為 PjM？", opts: ["因為 Scrum Guide 2020 要求設置專案經理", "因為在代理式系統中，對護欄與工作流沒有明確權責的服務難以發揮作用", "為了減輕 PM 的工作量", "讓代理人只向一個人回報"], ans: _A1, exp: "作者立場：在機器執行多數工作的系統中，沒有權責的角色無法真正服務。" },
+    { q: "市場分析代理人建議刪除某關鍵客群重視的功能。誰為最終決策當責？", opts: ["市場分析代理人", "PjM", "客戶端代理人", "PM"], ans: _A3, exp: "價值決策屬於 PM，PM 為探索階段與產品目標當責。" },
+    { q: "建置階段的代理人一再超出 API 成本上限，兩個部門為了誰該核准更高預算而爭執。誰應擔任當責者？", opts: ["PjM", "PM", "系統架構師", "代理人供應商"], ans: _A0, exp: "PjM 為建置階段當責，並對護欄與跨部門瓶頸擁有權責。" },
+    { q: "開發人員轉型為系統架構師，伴隨哪一項長期風險？", opts: ["手寫程式過多", "失去產品目標", "初階人才培育斷層", "每日 Scrum 時間變長"], ans: _A2, exp: "初階程式工作被自動化後，初階人員失去培養架構判斷力的路徑。" },
+    { q: "有人批評 PjM 的重新定位違背 Scrum Guide。下列哪一種回應最站得住腳？", opts: ["Scrum Guide 已經廢止", "這是明確且有理由的偏離：已標示為作者立場，並以治理代理人所需的權責作為依據", "PjM 與傳統專案經理完全相同", "Scrum Master 角色已完全不存在"], ans: _A1, exp: "站得住腳的偏離，會清楚說明改了什麼、為什麼改。" }
+  ],
+
+  m4_nav: "4. 控制關卡",
+  m4_title: "控制關卡：產出物與承諾",
+  m4_overview: "每項 Scrum 產出物都對應一項承諾；在本架構中，每項承諾都扮演一道控制關卡：產品目標控制方向、Sprint 目標控制聚焦、完成的定義控制品質。",
+  m4_highlights: ["G1 方向：產品目標", "G2 聚焦：Sprint 目標", "G3 品質：完成的定義", "AI 專屬檢核", "程式碼來源追溯"],
+  m4_p1: "Scrum Guide 2020 讓每項產出物搭配一項承諾：產品待辦清單搭配產品目標、Sprint 待辦清單搭配 Sprint 目標、增量搭配完成的定義。承諾讓產出物透明，也讓團隊有檢視的基準。在代理式工作流中，承諾更成為人類判斷約束機器活動的關鍵點。",
+  m4_p2: "G1「方向」位於探索階段結束時。代理人可以持續產生並重新排序待辦項目，但若缺少產品目標，它們會傾向追求最容易衡量的訊號。由 PM 掌握的產品目標，是所有代理人排序的錨點。",
+  m4_p3: "G2「聚焦」橫跨規劃與建置。代理人擅長拆解工作，卻容易只追求局部任務的最佳化。Sprint 目標讓 Sprint 有單一而一致的目標，也是每次每日 Scrum 的檢驗基準：目標是否仍可達成？若不可達成，需要與 PM 重新協商哪些範圍？",
+  m4_p4: "G3「品質」是最關鍵的關卡。由於代理人能大量產出看似合理卻有缺陷的成果，完成的定義必須明列 AI 專屬檢核：資安掃描、測試覆蓋率門檻、生成程式碼與相依套件的來源追溯，以及人類審查簽核。薄弱的 DoD 會把更高的產出量直接轉化為更高的不穩定。",
+  m4_p5: "關卡也需要負責者與證據。G1 由 PM 掌握，證據是代理人可以引用的書面產品目標；G2 由 Scrum 團隊共同確認，並每日檢驗；G3 由系統架構師掌握，證據包括掃描報告、測試結果、來源追溯紀錄，以及具名簽核。沒有負責者的關卡會流於形式，沒有證據的關卡則只是意見。在產出量龐大的代理式工作流中，兩者缺一不可，關卡才會只在應該攔阻時攔阻工作。",
+  m4_wrapup: "控制關卡把 Scrum 的承諾轉化為可落實的檢查點。G1 讓代理人的排序始終對準策略目標；G2 讓 Sprint 在代理人傾向局部最佳化的情況下仍保持一致；G3 判定產出是否真正完成。三者之中，完成的定義在代理式系統中最為關鍵，因為它是人類判斷能阻止「快速但有缺陷的產出」到達使用者手上的最後一道防線。因此，以 AI 專屬檢核強化 DoD，是團隊最有效的品質投資。",
+  m4_terms: [
+    { front: "承諾", back: "與每項 Scrum 產出物搭配的元素，提供檢視基準並提升透明度。" },
+    { front: "產品目標", back: "產品的長期目標；產品待辦清單的承諾，也是關卡 G1。" },
+    { front: "Sprint 目標", back: "一個 Sprint 的單一目標；Sprint 待辦清單的承諾，也是關卡 G2。" },
+    { front: "完成的定義（DoD）", back: "增量必須符合的正式品質標準；增量的承諾，也是關卡 G3。" },
+    { front: "程式碼來源追溯", back: "追溯生成程式碼與相依套件的出處，包括授權與來源。" },
+    { front: "人類簽核", back: "由當責的人類在增量被視為完成前明確核准。" }
+  ],
+  m4_q: [
+    { q: "下列哪一組產出物與承諾的搭配正確？", opts: ["Sprint 待辦清單 – 產品目標", "增量 – 完成的定義", "產品待辦清單 – Sprint 目標", "增量 – Sprint 目標"], ans: _A1, exp: "產品待辦清單–產品目標、Sprint 待辦清單–Sprint 目標、增量–完成的定義。" },
+    { q: "待辦清單代理人不斷把點擊率最高、而非策略價值最高的項目排在前面。缺少或薄弱的是哪一道關卡？", opts: ["G1 產品目標", "G2 Sprint 目標", "G3 完成的定義", "沒有問題，這是代理人的正常行為"], ans: _A0, exp: "缺少產品目標時，代理人會追求最容易衡量的訊號。" },
+    { q: "下列何者「不是」本架構提出的 AI 專屬 DoD 檢核？", opts: ["資安掃描", "程式碼來源追溯", "人類審查簽核", "使用的代理人數量"], ans: _A3, exp: "DoD 檢核的是品質與可追溯性，而不是使用了多少代理人。" },
+    { q: "Sprint 進行到一半，代理人回報外部 API 變更使 Sprint 目標無法達成。應該如何處理？", opts: ["代理人自行重新定義 Sprint 目標", "Sprint 自動延長", "開發人員與 PM 重新協商範圍，同時維持 Sprint 的一致性", "放寬 DoD"], ans: _A2, exp: "每日 Scrum 都會檢驗 Sprint 目標；無法達成時，應與 PM 重新協商範圍。" },
+    { q: "為什麼 G3 被視為代理式工作流中最關鍵的關卡？", opts: ["它是流程中的第一道關卡", "它是人類判斷能阻止快速但有缺陷的產出到達使用者的最後一道防線", "它由客戶掌握", "它取代 Sprint 審查"], ans: _A1, exp: "G3 是發布前最後的品質屏障。" },
+    { q: "某團隊產出量提高，但 DoD 仍是為純人工撰寫程式所設計。最可能的結果是？", opts: ["穩定度提高", "產出量下降", "沒有影響", "產出量轉化為不穩定"], ans: _A3, exp: "薄弱的 DoD 會把更高的產出量直接轉化為更高的不穩定。" }
+  ],
+
+  m5_nav: "5. 四構面",
+  m5_title: "四構面與對應總表",
+  m5_overview: "作者提出的四構面（客戶、開發、MVP、組織）說明代理式 AI 在哪些地方改變了敏捷。本模組把每個構面對應到一項敏捷宣言價值、一個流程階段與具體的 Scrum 元素，並與 Scrum 三大經驗主義支柱區分。",
+  m5_highlights: ["客戶互動協作", "漸進迭代", "MVP 回饋循環", "跨域融合", "可追溯性"],
+  m5_p1: "四構面是一套分析架構，並非 Scrum 三大經驗主義支柱（透明、檢視、調適）的改寫。它的價值在於可追溯性：每個構面都把一項宣言價值連結到循環中的一個階段與具體的 Scrum 元素，讓某一處的改變可以在整個系統中被追蹤。",
+  m5_p2: "「客戶：互動協作」對應「客戶協作重於合約協商」與第 1 階段。代理人擔任虛擬分析師，並越來越常與客戶端代理人直接協商。「開發：漸進迭代」對應「可用的軟體重於詳盡的文件」與第 2–4 階段；週期時間大幅縮短，但效益受審查產能與交付穩定度限制。",
+  m5_p3: "「MVP：回饋循環」對應「回應變化重於遵循計畫」與第 5 階段。代理人能快速組裝原型並全天候監測遙測資料，但 MVP 的本質仍是驗證式學習的工具，而非展示品。沒有可衡量假設、也沒有真實使用者的原型，不能稱為 MVP。",
+  m5_p4: "「組織：跨域融合」對應「個人與互動重於流程與工具」與第 6 階段，同時貫穿整個循環。多代理人系統可以跨領域轉譯並對齊知識庫，但源自誘因與權責的穀倉效應仍須人類治理；單靠資訊流通無法消除穀倉。",
+  m5_p5: "可追溯性在情況改變時最有用。假設客戶導入自己的協商代理人，客戶構面顯示受影響的是第 1 階段；對應總表接著指出需要調整的 Scrum 元素是產品待辦清單與待辦清單精煉，保障措施則是人類價值驗證。反向推理也成立：驗證階段退回率上升，可追溯到開發構面與 DoD。四構面因此能把策略層面的觀察，轉化為具體的流程決策。",
+  m5_wrapup: "四構面說明代理式 AI 在「哪裡」改變了敏捷，對應總表則說明這些改變「如何」彼此串接。客戶協作部分轉為代理人對代理人；開發在審查產能的限制內加速；MVP 循環持續運作，但仍取決於驗證式學習；跨域融合受益於代理人，但本質上仍是誘因與治理的問題。把四構面與 Scrum 經驗主義支柱清楚區分，可以避免概念混淆，也讓本架構自身的貢獻更加明確。",
+  m5_terms: [
+    { front: "四構面", back: "作者提出的分析架構：客戶、開發、MVP、組織。" },
+    { front: "經驗主義支柱", back: "Scrum 的三大支柱：透明、檢視、調適。" },
+    { front: "敏捷宣言價值", back: "2001 年提出的四項價值，例如「回應變化重於遵循計畫」。" },
+    { front: "對應總表", back: "把每個構面連結到價值、階段與 Scrum 元素的表格。" },
+    { front: "最小可行產品（MVP）", back: "以真實使用者測試假設、產生驗證式學習的最小產品。" },
+    { front: "組織穀倉", back: "不與其他單位分享資訊或目標的單位，常源自誘因與權責結構。" }
+  ],
+  m5_q: [
+    { q: "下列何者正確區分了四構面與 Scrum 支柱？", opts: ["兩者是同一概念換個名稱", "Scrum 有三大經驗主義支柱（透明、檢視、調適）；四構面是作者的分析架構", "Scrum 有四大支柱，與四構面一一對應", "四構面取代了敏捷宣言"], ans: _A1, exp: "四構面是分析架構，不應與 Scrum 三大支柱混淆。" },
+    { q: "MVP 構面對應哪一項敏捷宣言價值？", opts: ["客戶協作重於合約協商", "可用的軟體重於詳盡的文件", "回應變化重於遵循計畫", "個人與互動重於流程與工具"], ans: _A2, exp: "MVP 循環著重學習與調整，對應回應變化。" },
+    { q: "某團隊向高階主管展示代理人做出的原型，並稱之為 MVP。缺少的是什麼？", opts: ["以真實使用者測試的可衡量假設", "更多預算", "更多功能", "更長的 Sprint"], ans: _A0, exp: "MVP 產生驗證式學習；沒有假設與真實使用者的展示做不到這一點。" },
+    { q: "為什麼多代理人轉譯無法完全消除組織穀倉？", opts: ["代理人無法閱讀文件", "穀倉只存在於小公司", "轉譯速度太慢", "穀倉常源自誘因與權責，需要人類治理"], ans: _A3, exp: "資訊對齊有幫助，但誘因與權責結構仍須人類治理。" },
+    { q: "開發構面主要對應哪些階段？", opts: ["第 1 階段", "第 2–4 階段", "第 5 階段", "第 6 階段"], ans: _A1, exp: "開發構面涵蓋規劃、建置與驗證。" },
+    { q: "客戶端代理人與您的代理人協商需求。適用哪一個構面與保障措施？", opts: ["組織；由代理人決定範圍", "MVP；以遙測取代協商", "客戶；由人類保留價值驗證", "開發；由 DoD 管理協商"], ans: _A2, exp: "代理人對代理人協商屬於客戶構面，並由人類驗證價值。" }
+  ],
+
+  m6_nav: "6. 分階段風險",
+  m6_title: "分階段風險：風險與控制措施對應",
+  m6_overview: "當代理人接手執行，循環中的每個階段都會出現特有的風險。本模組把六項風險對應到各自的階段，並為每項風險搭配一項控制措施，讓風險管理成為流程的一部分，而不是事後補救。",
+  m6_highlights: ["合成回饋", "速度指標失真", "逾越護欄", "產出量與穩定度", "人才培育"],
+  m6_p1: "在探索階段，風險是以模擬使用者產生的合成回饋取代真實客戶，控制措施是由人類驗證價值假設。在規劃階段，故事點是依人類投入校準的，代理人產碼後故事點速度便失去意義，控制措施是改以審查產能規劃。",
+  m6_p2: "在建置階段，代理人可能逾越護欄，接觸權限範圍外的系統、資料或預算。控制措施是由 PjM 掌握護欄，並搭配稽核紀錄，讓代理人的每項行動都可追溯。",
+  m6_p3: "在驗證階段，產出量提高可能伴隨穩定度下降與資安漏洞。業界對 AI 輔助開發的研究也呈現此模式：產出增加，但若審查與平台能力跟不上，不穩定度也會上升。控制措施是含 AI 專屬檢核的 DoD。在發布與學習階段，原型可能被誤認為 MVP，控制措施是要求可衡量的假設。",
+  m6_p4: "在改善階段，風險較慢浮現也較不明顯：初階工作被自動化後，初階人才的培育管道逐漸流失。控制措施是在審查中刻意安排學習角色，例如讓初階開發者與架構師一同審查代理人產出，讓判斷力得以持續養成。",
+  m6_p5: "把這些風險當成風險登錄表而非檢查清單，十分重要。各階段的嚴重度不同，也會隨時間改變：驗證階段的不穩定往往急迫且明顯，改善階段的人才流失則緩慢發生，容易被忽略，直到資深人才短缺時才浮現。因此，管理者應在每次 Sprint 回顧中檢視風險登錄表，把每項風險交給該階段的當責者，並追蹤領先指標，例如審查等待時間、退回率、護欄事件，以及初階人員參與審查的比例。代理式工作流中的風險管理是持續性的，而非一次性的評估。",
+  m6_wrapup: "把風險對應到階段，讓風險管理成為循環的設計特色。每項風險都出現在代理人改變工作本質之處：探索的模擬客戶、規劃的指標失真、建置的越權、驗證的不穩定、發布與學習的假 MVP，以及改善階段的人才斷層。每項控制措施都依循模組 1 建立的原則：代理人執行，人類判斷並保有當責。能說出每個階段風險與控制措施的管理者，才是在治理代理式工作流，而不只是部署它。",
+  m6_terms: [
+    { front: "合成回饋", back: "由模擬使用者或虛擬人物而非真實客戶產生的回饋。" },
+    { front: "速度指標失真", back: "當故事點所依據的投入不再是限制條件時，速度指標失去意義。" },
+    { front: "護欄", back: "限制代理人可存取、修改或花費範圍的規則或上限。" },
+    { front: "稽核紀錄", back: "代理人每項行動的可追溯紀錄，用於究責與事件分析。" },
+    { front: "交付穩定度", back: "變更進入正式環境時不發生故障或回滾的可靠程度。" },
+    { front: "人才培育管道", back: "初階人員成長為資深專家的路徑。" }
+  ],
+  m6_q: [
+    { q: "哪一項控制措施對應建置階段「代理人逾越權限」的風險？", opts: ["由人類驗證假設", "由 PjM 掌握護欄並搭配稽核紀錄", "以審查產能規劃", "可衡量的假設"], ans: _A1, exp: "護欄防止越權；稽核紀錄讓代理人行動可追溯。" },
+    { q: "某產品團隊倚賴模擬使用者核准新功能。這屬於哪一個階段風險？", opts: ["探索：合成回饋取代真實客戶", "規劃：速度指標失真", "驗證：程式碼資安漏洞", "改善：人才流失"], ans: _A0, exp: "模擬使用者無法取代真實客戶的驗證。" },
+    { q: "業界對 AI 輔助開發的研究，最一致地呈現哪一種模式？", opts: ["產出量下降、穩定度上升", "沒有可衡量的影響", "部署次數減少", "產出量上升，但若審查與平台能力跟不上，不穩定度也上升"], ans: _A3, exp: "產出增加若沒有審查與平台能力配合，會伴隨不穩定。" },
+    { q: "下列何者最能因應人才培育斷層？", opts: ["只聘用資深架構師", "禁止代理人處理簡單任務", "在審查中安排學習角色，例如讓初階人員與架構師搭配", "延長 Sprint"], ans: _A2, exp: "刻意設計的學習角色，能讓判斷力持續養成。" },
+    { q: "為什麼代理人產碼後，速度指標會失真？", opts: ["故事點是依人類撰寫程式的投入校準，已無法反映真正的限制條件", "代理人拒絕估算", "Scrum Guide 要求使用速度指標", "Sprint 變長"], ans: _A0, exp: "限制條件已轉為審查產能，以投入為基礎的故事點因此失去意義。" },
+    { q: "六項控制措施背後的共同原則是什麼？", opts: ["代理人應為其產出當責", "代理人執行，人類判斷並保有當責", "風險管理只屬於 Sprint 回顧", "風險應由客戶承擔"], ans: _A1, exp: "每項控制措施都讓人類判斷與當責留在循環中。" }
+  ],
+
+  mlab_nav: "7. 互動實驗室",
+  mlab_title: "互動實驗室",
+  mlab_desc: "透過四個練習應用本架構：執行流程循環、指派當責、建構完成的定義，以及依審查產能規劃。",
+  mlab_labs: [
+    { title: "實驗 1 · 流程模擬器", desc: "逐步推進六階段循環，並在 G1、G2、G3 做出關卡決策。" },
+    { title: "實驗 2 · RACI 指派練習", desc: "點擊儲存格指派 R、A、C、I，再依規則檢查您的矩陣。" },
+    { title: "實驗 3 · DoD 建構器", desc: "勾選完成的定義要包含的檢核項目，觀察品質風險的變化。" },
+    { title: "實驗 4 · 審查產能計算器", desc: "調整代理人產出量與人類審查產能，找出真正的瓶頸。" }
+  ],
+  sim_stage_desc: [
+    "代理人分析市場並與客戶端代理人協商；人類驗證價值假設。",
+    "代理人提出工作拆解；人類依審查產能決定範圍。",
+    "代理人在 PjM 護欄內產碼、測試、修復；每日 Scrum 排除障礙。",
+    "自動掃描加上人類架構與資安審查，依 DoD 驗證。",
+    "發布、全天候監測遙測，並與利害關係人檢視結果。",
+    "Sprint 回顧：重新校準護欄、DoD 與心理安全感。"
+  ],
+  sim_gates: [
+    { stage: 0, gate: "G1 · 產品目標", scenario: "代理人已依預測點擊率排序待辦清單，但產品目標尚未訂定。", correct: "fail", fb: "沒有產品目標，代理人的排序就缺少策略錨點，G1 不應通過。" },
+    { stage: 1, gate: "G2 · Sprint 目標", scenario: "團隊已確認單一 Sprint 目標，並依審查人員可用時數決定範圍。", correct: "pass", fb: "以審查產能規劃、目標一致的 Sprint 符合 G2。" },
+    { stage: 3, gate: "G3 · 完成的定義", scenario: "所有自動測試皆通過，但尚無人類完成資安審查簽核。", correct: "fail", fb: "人類簽核是考量 AI 的 DoD 的一部分，增量應退回建置。" }
+  ],
+  sim_pass: "通過", sim_fail: "未通過／退回", sim_next: "下一階段 →", sim_restart: "重新開始循環",
+  sim_correct: "決策正確。", sim_wrong: "請再想想：", sim_score: "關卡決策正確：{n} / 3",
+  sim_loop_done: "循環完成。第 6 階段的產出將進入下一次探索。",
+  sim_returned: "已退回建置。修正問題後再次驗證。",
+  raci_roles: ["PM", "PjM", "架構師", "AI 代理人", "客戶"],
+  raci_hint: "點擊儲存格循環切換：— → R → A → C → I",
+  raci_check: "檢查矩陣", raci_reset: "重設", raci_show: "顯示參考答案", raci_hide: "隱藏參考答案",
+  raci_err_oneA: "{stage}：需要剛好一位 A。",
+  raci_err_agentA: "{stage}：AI 代理人或客戶不能是 A。",
+  raci_ok: "符合所有規則：每階段一位人類 A，代理人沒有擔任 A。",
+  raci_match: "與參考答案相符的儲存格：{n} / 30",
+  dod_title: "勾選完成的定義要包含的檢核項目",
+  dod_items: [
+    { label: "生成程式碼的資安掃描", ai: true },
+    { label: "測試覆蓋率達約定門檻", ai: true },
+    { label: "程式碼與相依套件來源追溯", ai: true },
+    { label: "人類審查簽核", ai: true },
+    { label: "效能測試通過", ai: false },
+    { label: "文件已更新", ai: false },
+    { label: "授權與法規遵循檢查", ai: false },
+    { label: "已備妥回滾計畫", ai: false }
+  ],
+  dod_risk: "品質風險", dod_levels: ["低", "中", "高"],
+  dod_missing: "缺少的 AI 專屬檢核：", dod_none: "已包含所有 AI 專屬檢核。",
+  cap_output: "代理人產出（每 Sprint 變更數）", cap_reviewers: "人類審查人員", cap_rate: "每人每日審查件數", cap_days: "每 Sprint 工作天數",
+  cap_capacity: "審查產能", cap_commit: "可承諾變更數", cap_backlog: "未審查積壓", cap_util: "審查人員負荷率",
+  cap_bottleneck_review: "瓶頸：人類審查。請依審查產能規劃 Sprint，而非代理人產出量。",
+  cap_bottleneck_agent: "瓶頸：代理人產出。本 Sprint 的審查產能足夠。",
+  cap_note: "可承諾 = min（代理人產出, 審查產能）。超出產能的部分會成為未審查積壓與品質風險。",
+
+  mres_nav: "8. 外部學習資源",
+  mres_title: "外部學習資源",
+  mres_desc: "本教材相關概念的原始文獻與延伸閱讀。",
+  mres_groups: [
+    { name: "基礎文獻", links: [
+      { label: "The Scrum Guide (2020)", url: "https://scrumguides.org/scrum-guide.html", desc: "Scrum 當責、事件、產出物與承諾的官方定義。" },
+      { label: "Manifesto for Agile Software Development", url: "https://agilemanifesto.org/", desc: "敏捷宣言四大價值（2001）。" },
+      { label: "Principles behind the Agile Manifesto", url: "https://agilemanifesto.org/principles.html", desc: "支持敏捷宣言的十二項原則。" }
+    ]},
+    { name: "研究與實務", links: [
+      { label: "DORA Research", url: "https://dora.dev/research/", desc: "軟體交付績效研究計畫，包含 AI 輔助開發。" },
+      { label: "The Lean Startup: Principles", url: "https://theleanstartup.com/principles", desc: "建置–衡量–學習、MVP 與驗證式學習。" },
+      { label: "What is a Scrum Master? (Scrum.org)", url: "https://www.scrum.org/resources/what-is-a-scrum-master", desc: "Scrum Guide 對 Scrum Master 的定義，可與 PjM 重新定位對照。" }
+    ]}
+  ],
+
+  date: "Version 2026.10.24",
+  copyright: "For Educational Use Only",
+  architect_label: "Architect:",
+  architect_name: "Prof. Shihmin Lo",
+  architect_url: "https://www.ibs.ncnu.edu.tw/index.php/faculty/tenured-professor/299-smlo"
+};
+
+const DEN = {
+  brand: "AGILE",
+  title: "Agile Management with Agentic AI Workflow",
+  subtitle: "System → Process → Roles → Controls → Risks",
+  nav_modules: "Modules", nav_prev: "Previous", nav_next: "Next", nav_home: "Home",
+  key_terms: "Key Terms", flip_prompt: "Click to flip",
+  flip_status: "Read {read} / Shown {shown} / Total {total}",
+  flip_next: "Next", flip_retry: "Restart",
+  audio_read: "Audio Guide", audio_pause: "Pause", audio_stop: "Stop",
+  lang_toggle: "中文", theme_toggle: "Theme",
+  quiz_title: "Module Knowledge Check",
+  quiz_status: "Correct {correct} / Answered {answered} / Total {total}",
+  quiz_next: "Next", quiz_retry: "Retry",
+  submit: "Submit",
+  score: "Score", correct: "Correct", incorrect: "Incorrect", explanation: "Explanation",
+  overview_label: "Overview", highlights_label: "Highlights", deep_dive_label: "Deep Dive", wrapup_label: "Wrap-up",
+  diagram_label: "Diagram",
+  author_note: "Author's framework: this module intentionally extends or departs from the Scrum Guide 2020.",
+  copyright_toast: "Intellectual Property of Prof. Shihmin Lo",
+  stage_names: ["Discover", "Plan", "Build", "Verify", "Release & Learn", "Improve"],
+
+  analytics_title: "Learning Analytics",
+  analytics_desc: "Your learning record is saved automatically in this browser. Review your progress, identify weak modules, and export a CSV record for submission.",
+  analytics_form_title: "Student Information",
+  analytics_group: "Group", analytics_group_select: "Select", analytics_dept: "Dept. & Year",
+  analytics_dept_ph: "e.g. IBS3",
+  analytics_id: "Student ID", analytics_id_ph: "e.g. 113212599",
+  analytics_name_en: "English Name", analytics_name_en_ph: "e.g. Shihmin Lo",
+  analytics_name_zh: "Chinese Name", analytics_name_zh_ph: "e.g. 王阿吉",
+  analytics_export_csv: "Export CSV Learning Record",
+  analytics_fill_required: "Complete all fields to unlock export",
+  analytics_refresh_prompt: "This page has been updated. Refresh saved records?",
+  group_options: ["G1","G2","G3","G4","G5","G6","G7","G8","G9","G10","G11","G12","Others"],
+  analytics_total_time: "Total Study Time", analytics_total_clicks: "Total Interactions",
+  analytics_overall_acc: "Overall Quiz Accuracy",
+  analytics_card_usage: "Flashcard Usage",
+  analytics_module: "Module", analytics_time: "Time",
+  analytics_clicks: "Clicks", analytics_acc: "Accuracy",
+  analytics_correct_ans_total: "Correct / Answered / Total",
+  analytics_cards_read_total: "Read / Total",
+  analytics_no_data: "Not attempted", analytics_sec: "s", analytics_times: "",
+  analytics_progress_title: "Overall Learning Progress",
+  analytics_progress_visited: "Visited", analytics_progress_not_visited: "Not visited",
+  analytics_progress_quiz_partial: "In progress",
+  analytics_progress_quiz_done: "Quiz done",
+  analytics_wp_title: "Weak Points & Review Suggestions",
+  analytics_wp_incorrect: "Incorrect questions:",
+  analytics_wp_goto: "→ Review this module",
+  analytics_wp_allpass: "All attempted modules are at or above 75% accuracy. Excellent work!",
+  analytics_wp_saved: "💾 Learning record saved automatically in this browser",
+  analytics_wp_clear: "🗑 Clear Record",
+  analytics_wp_clear_confirm: "Clear all learning records? This cannot be undone.",
+  analytics_wp_tts_intro: "Here is your weak point analysis.",
+  analytics_wp_tts_module: "Module: {name}, accuracy {acc} percent. Review recommended.",
+  analytics_wp_tts_allpass: "Congratulations! All attempted modules are at or above 75 percent accuracy.",
+
+  m0_nav: "0. Executive Summary",
+  m0_title: "Executive Summary: Agile Management in the Agentic AI Era",
+  m0_intro: "By late 2026, AI agents no longer merely assist developers. They plan, write, test and repair code, negotiate specifications, and monitor products around the clock. This shift does not make Agile obsolete; it changes where the bottleneck sits, who holds accountability, and which controls matter most. This learning module reorganises Agile management around five questions asked in sequence: what the system is made of, how value flows through it, who does what and who answers for it, where quality and direction are enforced, and what can go wrong at each stage. The answers form a four-layer architecture (Strategy, Orchestration, Execution, Assurance), a six-stage end-to-end loop (Discover, Plan, Build, Verify, Release & Learn, Improve), a RACI matrix in which every stage has exactly one human accountable owner, and three control gates anchored in Scrum's commitments: the Product Goal, the Sprint Goal and the Definition of Done. Parts of this framework deliberately depart from the Scrum Guide 2020. Most notably, the Scrum Master is reframed as an internal Process Project Manager with explicit authority over the workflow and agent guardrails, because a role without authority cannot effectively serve a system in which machines execute most of the work. Throughout, you will be asked to judge rather than memorise: when should a gate fail an Increment, when does velocity mislead, and how should a manager respond when a client's own agents become the counterpart in requirement negotiation?",
+  m0_why: "Why Does This Matter for Managers?",
+  m0_why_desc: "Agentic AI moves the constraint from producing work to judging it. Managers who keep planning by coding capacity will over-commit, under-verify and blur accountability. Organisations that redesign roles, gates and metrics around human judgement capture the speed without inheriting the instability.",
+  m0_stats: [
+    { val: "4", label: "System Layers" },
+    { val: "6", label: "Process Stages" },
+    { val: "3", label: "Control Gates" },
+    { val: "1", label: "Human Accountable per Stage" }
+  ],
+  m0_modules: [
+    { num: "01", title: "System Architecture", desc: "Paradigm shift and the four-layer architecture." },
+    { num: "02", title: "End-to-End Process", desc: "The six-stage loop: Input → Activities → Output → Gate." },
+    { num: "03", title: "Accountability", desc: "External PM, internal PjM and the RACI matrix." },
+    { num: "04", title: "Control Gates", desc: "Product Goal, Sprint Goal and Definition of Done." },
+    { num: "05", title: "Four Dimensions", desc: "Tracing values, stages and Scrum elements." },
+    { num: "06", title: "Risks by Stage", desc: "Six stage risks and their controls." }
+  ],
+  m0_start: "Start Learning →",
+  m0_map_title: "Overview Map",
+  m0_map_desc: "The complete framework on one page. Each numbered panel corresponds to a learning module.",
+
+  m1_nav: "1. System Architecture",
+  m1_title: "System Architecture: From Human Teams to Four Layers",
+  m1_overview: "Agentic AI Agile replaces the human team as the execution engine with AI agents, while humans move to directing, orchestrating and assuring. This module defines the paradigm shift and the four-layer architecture that structures the rest of the framework.",
+  m1_highlights: ["Paradigm Shift", "Asynchronous Coordination", "Four-Layer Architecture", "Human–Agent Interaction", "Lean Software Development"],
+  m1_p1: "Traditional Agile is a human-driven and largely synchronous system. Time-boxed Sprints, face-to-face interaction and manual alignment allow a small team to deliver value iteratively. Its constraint is human capacity: how much a team can design, code and test within a Sprint. Coordination happens in meetings, and alignment depends on people talking to people.",
+  m1_p2: "In Agentic AI Agile, the execution engine changes. AI agents generate, test and repair code; coordination becomes asynchronous and event-driven; and interaction expands from human–human to human–agent and agent–agent, including a vendor's agents negotiating directly with a client's trained agents.",
+  m1_p3: "The four-layer architecture makes this shift explicit. L1 Strategy, owned by the external-facing PM, defines value: the Why and the What. L2 Orchestration, owned by the internal PjM, designs and governs the workflow and agent guardrails. L3 Execution is where agents produce the Increment. L4 Assurance, owned by System Architects, verifies output against the Definition of Done and owns architecture and security.",
+  m1_p4: "The design rule is simple but strict: agents operate in L3 and assist the other layers, yet accountability exists only in the human layers. This extends Lean Software Development: automation eliminates waste, while humans amplify learning by judging what the agents produce.",
+  m1_p5: "For managers, the architecture is also a diagnostic tool. When something goes wrong, the first question is which layer failed. A misdirected backlog is an L1 problem; agents acting beyond their scope point to L2; defective code that reaches users signals a weakness in L4. Problems are rarely solved by adding more agents to L3, because execution capacity is seldom the true constraint. Locating a failure in the correct layer prevents the common mistake of treating governance problems as productivity problems, and it clarifies which human owner must act.",
+  m1_wrapup: "Agentic AI Agile is not a faster version of the same system; it is a different system. The execution engine moves from people to agents, coordination becomes asynchronous, and interaction now includes agents on both sides of a business relationship. The four-layer architecture keeps this change governable: Strategy defines value, Orchestration governs the workflow, Execution produces the Increment, and Assurance verifies it. The single rule that holds the architecture together is that agents can be responsible for work, but only humans can be accountable for outcomes. Every later module, from the process loop to the risk register, builds on this distinction.",
+  m1_terms: [
+    { front: "Agentic AI", back: "AI systems that plan and execute multi-step tasks autonomously toward a goal, using tools with limited human intervention." },
+    { front: "Execution Engine", back: "The part of the system that actually produces work; in Agentic AI Agile, the AI agents in L3." },
+    { front: "Orchestration Layer (L2)", back: "The layer that designs, sequences and governs agent workflows and guardrails; owned by the PjM." },
+    { front: "Assurance Layer (L4)", back: "The layer that verifies output against the Definition of Done and owns architecture and security; owned by System Architects." },
+    { front: "Agent-to-Agent (A2A) Interaction", back: "Direct exchange between agents of different parties, such as a vendor's agent negotiating specifications with a client's agent." },
+    { front: "Lean Software Development", back: "An Agile approach adapted from lean thinking: eliminate waste, amplify learning, deliver fast, respect people." }
+  ],
+  m1_q: [
+    { q: "A firm deploys coding agents but keeps its weekly coordination meetings and plans Sprints by developer headcount. What is it failing to redesign?", opts: ["L3 Execution, because agents should not write code", "Its coordination mode and capacity basis: it still treats humans as the execution engine", "L1 Strategy, because the PM should run coordination meetings", "Nothing; synchronous meetings remain the core of Agentic AI Agile"], ans: _A1, exp: "The paradigm shift changes both the execution engine and the coordination mode. Planning by headcount and relying on synchronous meetings still treats humans as the engine." },
+    { q: "Under the design rule of the four-layer architecture, which statement is correct?", opts: ["Agents may be accountable in L3 because they execute the work", "Accountability is shared equally between agents and humans", "The client's agents hold accountability for requirements", "Accountability exists only in L1, L2 and L4, where humans sit"], ans: _A3, exp: "Agents operate in L3 and assist other layers, but accountability exists only in the human layers." },
+    { q: "An agent repeatedly modifies a production database outside its permitted scope. Which layer's owner should have prevented this, and how?", opts: ["L1 PM, by reprioritising the Product Backlog", "L3 agents, by self-correcting", "L2 PjM, by setting and enforcing agent guardrails", "L4 Architects, only after the incident"], ans: _A2, exp: "Guardrails are an L2 Orchestration responsibility. L4 verifies output, but guardrails prevent scope violations upstream." },
+    { q: "Which description best captures the change in interaction in Agentic AI Agile?", opts: ["Interaction expands to human–agent and agent–agent, while humans keep final judgement on value", "Human–human interaction is eliminated", "Only agent–agent interaction remains relevant", "Interaction becomes fully synchronous"], ans: _A0, exp: "Interaction widens rather than disappears; humans retain final judgement on value and accountability." },
+    { q: "How does Agentic AI Agile extend Lean Software Development?", opts: ["It removes the 'respect people' principle", "Automation eliminates waste while humans amplify learning through judgement", "It replaces iteration with long-range planning", "It eliminates the need for feedback"], ans: _A1, exp: "Automation removes waste in execution; humans amplify learning by judging agent output." },
+    { q: "A client sends a trained procurement agent to negotiate specifications with your requirements agent. What must remain with humans?", opts: ["Formatting the specification document", "Scheduling the negotiation sessions", "Translating terminology between the agents", "Final judgement on value and accountability for the agreed scope"], ans: _A3, exp: "Agents can negotiate and translate, but value judgement and accountability cannot be delegated." }
+  ],
+
+  m2_nav: "2. End-to-End Process",
+  m2_title: "End-to-End Process: The Six-Stage Loop",
+  m2_overview: "Value flows through six stages: Discover, Plan, Build, Verify, Release & Learn, and Improve. Each stage is specified as Input → Activities → Output → Gate, so that Scrum events and artifacts sit inside one continuous loop rather than in separate lists.",
+  m2_highlights: ["Input → Activities → Output → Gate", "Six-Stage Loop", "Review Capacity", "Fail-back to Build", "Validated Learning"],
+  m2_p1: "Stage 1, Discover, starts from customer needs, market signals and telemetry from the previous cycle. Agents analyse markets, translate ambiguous feedback into specifications and negotiate with client-side agents, while humans validate value hypotheses with real customers. The output is an ordered Product Backlog, gated by a Product Goal owned by the PM.",
+  m2_p2: "Stage 2, Plan, corresponds to Sprint Planning. Agents propose decomposition and sequencing; humans decide scope. Because review capacity, not coding capacity, becomes the bottleneck, story-point velocity must be recalibrated. The gate is a Sprint Goal agreed by the Scrum Team.",
+  m2_p3: "Stage 3, Build, runs within the Sprint. Agents generate, test and repair code inside guardrails set by the PjM and publish progress digests asynchronously. The fifteen-minute Daily Scrum remains, but it inspects progress toward the Sprint Goal and resolves blockers rather than collecting status reports. Stage 4, Verify, combines automated scans with human architecture and security review. Only an Increment that meets the Definition of Done passes; anything else returns to Build.",
+  m2_p4: "Stage 5, Release & Learn, merges the Sprint Review with the MVP loop: the Increment is released, telemetry is monitored around the clock, and the PM inspects results with stakeholders to confirm, pivot or drop the hypothesis. Stage 6, Improve, is the Retrospective, recalibrating guardrails, the DoD and psychological safety. Its output feeds the next Discover stage, closing the loop.",
+  m2_p5: "Reading the loop as a process also reveals where time is really spent. In agentic teams, work rarely waits in Build; it waits in queues before Verify and before stakeholder decisions in Release & Learn. Managers should therefore measure flow across the whole loop, including review wait time and the rate of fail-backs from Verify to Build, rather than celebrating faster code generation. A rising fail-back rate is an early warning that guardrails, specifications or the DoD need attention.",
+  m2_wrapup: "The six-stage loop turns a collection of Scrum events and artifacts into a single process with defined inputs, activities, outputs and gates. Two features distinguish it from a conventional Scrum cycle. First, planning is based on human review capacity, because agents remove coding as the constraint. Second, Verify is an explicit stage with a fail-back path, so speed in Build never bypasses quality. The loop closes when telemetry and retrospective improvements from Stages 5 and 6 feed the next Discover stage, making learning cumulative rather than episodic.",
+  m2_terms: [
+    { front: "Stage Gate", back: "A decision point at the end of a stage that determines whether work proceeds, is reworked or is stopped." },
+    { front: "Review Capacity", back: "The volume of agent output that humans can meaningfully review and approve within a period; the new bottleneck." },
+    { front: "Candidate Increment", back: "Agent-built output from Stage 3 that has not yet passed the Definition of Done." },
+    { front: "Done Increment", back: "An Increment that meets the Definition of Done and may be released." },
+    { front: "Progress Digest", back: "An asynchronous, agent-generated summary of work status that replaces verbal status reporting." },
+    { front: "Validated Learning", back: "Evidence about customers obtained by testing a hypothesis with real users (Build–Measure–Learn)." }
+  ],
+  m2_q: [
+    { q: "A team's agents produce three times more code per Sprint, yet the team keeps missing its Sprint Goals while reviews pile up. What is the most likely cause?", opts: ["Agents are writing deliberately low-quality code", "Planning ignores review capacity, which has become the bottleneck", "The Sprint length is too long", "The Product Goal is unclear"], ans: _A1, exp: "When agents remove coding as the constraint, human review becomes the bottleneck. Planning must be based on review capacity." },
+    { q: "Which statement about the Daily Scrum in Stage 3 is correct?", opts: ["It is abolished because agents publish digests", "It becomes a status reporting session for agents", "It remains a 15-minute event to inspect progress toward the Sprint Goal and resolve blockers", "It is replaced by the Sprint Review"], ans: _A2, exp: "Digests handle visibility; the Daily Scrum keeps its purpose of inspecting progress toward the Sprint Goal." },
+    { q: "A Candidate Increment passes automated tests but fails the human security review. What happens next?", opts: ["It returns to Stage 3 Build", "It is released with a warning label", "It skips to Stage 6 Improve", "It is accepted because automated tests passed"], ans: _A0, exp: "Only an Increment that meets the DoD passes Verify; anything else fails back to Build." },
+    { q: "In Stage 5, telemetry shows that users ignore the new feature. Which gate decision fits the MVP logic?", opts: ["Confirm, because the feature was delivered on time", "Return the Increment to Verify", "Extend the Sprint", "Pivot or drop the hypothesis and update the Product Backlog"], ans: _A3, exp: "Release & Learn tests a hypothesis. Evidence against it calls for a pivot or drop decision." },
+    { q: "What closes the six-stage loop?", opts: ["The Sprint Review approves the budget", "The PjM signs off the Done Increment", "Outputs from Stages 5 and 6 (telemetry, improvements) feed Stage 1 Discover", "Agents automatically start a new Sprint"], ans: _A2, exp: "Telemetry and retrospective improvements become inputs to the next Discover stage." },
+    { q: "Why is each stage specified as Input → Activities → Output → Gate?", opts: ["To make handoffs, responsibilities and control points explicit and traceable", "To make Scrum events longer", "To replace the Scrum Guide", "To reduce the number of stages"], ans: _A0, exp: "The specification makes the process traceable: what enters, what happens, what leaves and who decides." }
+  ],
+
+  m3_nav: "3. Accountability",
+  m3_title: "Accountability: External PM, Internal PjM and RACI",
+  m3_overview: "When agents perform most of the work, the critical management question becomes who answers for outcomes. This module maps Scrum accountabilities to an external PM, an internal PjM and System Architects, and uses a RACI matrix to assign exactly one human accountable owner to each stage.",
+  m3_highlights: ["RACI", "One Human A per Stage", "PM: External Value", "PjM: Internal Process", "Authority to Serve"],
+  m3_p1: "The RACI matrix distinguishes four relationships: Responsible (does the work), Accountable (answers for the outcome), Consulted and Informed. The framework imposes two rules: each stage has exactly one human A, and agents may be R but never A. Accountability cannot be delegated to a system that cannot be held to account.",
+  m3_p2: "The Product Owner is reframed as an external-facing Product Manager. The PM owns market value, business strategy and the Product Goal, and is accountable for Discover, Plan and Release & Learn. Agents can analyse markets and draft backlog items, but value accountability is non-delegable.",
+  m3_p3: "The Scrum Master is reframed as an internal Process Project Manager. This deliberately departs from the Scrum Guide 2020, which has no project-manager role. The author's position is that a Scrum Master without authority cannot effectively serve: in agentic workflows, someone must hold explicit authority over agent guardrails, the internal workflow and cross-departmental bottlenecks. The PjM is accountable for Build and Improve, and remains responsible for fostering psychological safety.",
+  m3_p4: "Developers become System Architects. They own architecture, security and compliance with the Definition of Done, and are accountable for Verify. Their work shifts from hand-writing code to designing structures and reviewing agent output, which raises a long-term concern: junior developers lose the hands-on path through which architectural judgement is traditionally built.",
+  m3_p5: "Clear accountability also changes how incidents are handled. When an agent causes a defect, the question is not which agent made the mistake but which accountable human owned the stage and its controls. This prevents blame from dissolving into the system. It also protects psychological safety: people can report agent failures openly because the RACI matrix specifies who decides and who fixes, rather than leaving the team to argue over responsibility after the fact. Accountability, in this sense, is a design choice made before work begins.",
+  m3_wrapup: "Agentic AI Agile reallocates accountability rather than removing it. The PM faces outward and answers for value; the PjM faces inward and answers for the workflow and its guardrails; System Architects answer for whether the Increment is truly done. The RACI matrix enforces the principle that every stage has one human who can be held to account, while agents carry much of the responsibility for execution. The PjM reframing is a conscious departure from the Scrum Guide, justified by the view that service without authority is ineffective when machines execute most of the work.",
+  m3_terms: [
+    { front: "RACI", back: "A responsibility matrix: Responsible, Accountable, Consulted, Informed." },
+    { front: "Accountable (A)", back: "The single person who answers for the outcome of a stage; always a human in this framework." },
+    { front: "Responsible (R)", back: "Those who perform the work; agents may hold this role." },
+    { front: "Product Manager (PM, external)", back: "Reframed Product Owner who owns market value, strategy and the Product Goal." },
+    { front: "Process Project Manager (PjM, internal)", back: "Reframed Scrum Master with explicit authority over the internal workflow and agent guardrails (author's position)." },
+    { front: "System Architect", back: "Reframed Developer who owns architecture, security and DoD compliance, reviewing rather than hand-writing code." }
+  ],
+  m3_q: [
+    { q: "Which RACI assignment violates the framework's rules?", opts: ["Stage 3: PjM = A, agents = R", "Stage 4: Architects = A/R, agents = R", "Stage 1: agents = A, PM = R", "Stage 6: PjM = A, PM = C"], ans: _A2, exp: "Agents may be R but never A. Each stage needs exactly one human A." },
+    { q: "Why does the framework reframe the Scrum Master as a PjM?", opts: ["Because the Scrum Guide 2020 requires a project manager", "Because service without explicit authority over guardrails and workflow is ineffective in agentic systems", "To reduce the PM's workload", "To let agents report to a single person"], ans: _A1, exp: "The author's position: a role without authority cannot effectively serve a system in which machines execute most of the work." },
+    { q: "A market-analysis agent recommends dropping a feature valued by a key client segment. Who is accountable for the final decision?", opts: ["The market-analysis agent", "The PjM", "The client's agent", "The PM"], ans: _A3, exp: "Value decisions belong to the PM, who is accountable for Discover and the Product Goal." },
+    { q: "Agents in Build keep exceeding API cost limits, and two departments dispute who should approve a higher budget. Who should act as the accountable owner?", opts: ["The PjM", "The PM", "System Architects", "The agents' vendor"], ans: _A0, exp: "The PjM is accountable for Build and holds authority over guardrails and cross-departmental bottlenecks." },
+    { q: "Which long-term risk is associated with Developers becoming System Architects?", opts: ["Excess hand-written code", "Loss of the Product Goal", "Erosion of the junior talent pipeline", "Longer Daily Scrums"], ans: _A2, exp: "When entry-level coding is automated, juniors lose the path through which architectural judgement is built." },
+    { q: "A critic says the PjM reframing contradicts the Scrum Guide. Which response is most defensible?", opts: ["The Scrum Guide has been withdrawn", "It is an explicit, reasoned departure, labelled as the author's position and justified by the authority needed to govern agents", "The PjM is identical to a traditional project manager", "The Scrum Master role no longer exists in any form"], ans: _A1, exp: "A defensible departure is transparent about what it changes and why." }
+  ],
+
+  m4_nav: "4. Control Gates",
+  m4_title: "Control Gates: Artifacts and Commitments",
+  m4_overview: "Each Scrum artifact carries one commitment, and in this framework each commitment functions as a control gate: the Product Goal controls direction, the Sprint Goal controls focus, and the Definition of Done controls quality.",
+  m4_highlights: ["G1 Direction: Product Goal", "G2 Focus: Sprint Goal", "G3 Quality: Definition of Done", "AI-specific Checks", "Code Provenance"],
+  m4_p1: "The Scrum Guide 2020 pairs each artifact with a commitment: the Product Backlog with the Product Goal, the Sprint Backlog with the Sprint Goal, and the Increment with the Definition of Done. Commitments make artifacts transparent and give the team something to inspect against. In an agentic workflow, they also become the points where human judgement constrains machine activity.",
+  m4_p2: "G1, Direction, sits at the end of Discover. Agents can generate and reorder backlog items continuously, but without a Product Goal they optimise for whatever signal is easiest to measure. The PM-owned Product Goal anchors all agent prioritisation.",
+  m4_p3: "G2, Focus, spans Plan and Build. Agents decompose work efficiently, yet they tend to optimise local tasks. The Sprint Goal gives the Sprint a single coherent objective, and it is the test applied in every Daily Scrum: is the goal still achievable, and if not, what scope must be renegotiated with the PM?",
+  m4_p4: "G3, Quality, is the most critical gate. Because agents can produce large volumes of plausible but flawed output, the Definition of Done must explicitly include AI-specific checks: security scanning, test coverage thresholds, provenance tracing of generated code and dependencies, and a human review sign-off. A weak DoD converts higher throughput directly into higher instability.",
+  m4_p5: "Gates also need owners and evidence. G1 is owned by the PM and evidenced by a written Product Goal that agents can reference. G2 is agreed by the Scrum Team and tested daily. G3 is owned by System Architects and evidenced by scan reports, test results, provenance records and a named sign-off. A gate without an owner becomes a formality, and a gate without evidence becomes an opinion. In agentic workflows, where output volume is high, both conditions are necessary for a gate to slow work down only when it should.",
+  m4_wrapup: "Control gates convert Scrum's commitments into enforceable checkpoints. G1 keeps agent prioritisation pointed at a strategic objective, G2 keeps the Sprint coherent despite agents' tendency to optimise locally, and G3 decides whether output is genuinely done. Of the three, the Definition of Done carries the greatest weight in an agentic system, because it is the last place where human judgement can stop fast but flawed output from reaching users. Strengthening the DoD with AI-specific checks is therefore the most effective quality investment a team can make.",
+  m4_terms: [
+    { front: "Commitment", back: "The element paired with each Scrum artifact that provides a target for inspection and transparency." },
+    { front: "Product Goal", back: "The long-term objective of the product; commitment of the Product Backlog and gate G1." },
+    { front: "Sprint Goal", back: "The single objective of a Sprint; commitment of the Sprint Backlog and gate G2." },
+    { front: "Definition of Done (DoD)", back: "The formal quality standard an Increment must meet; commitment of the Increment and gate G3." },
+    { front: "Code Provenance", back: "Traceability of where generated code and its dependencies came from, including licences and sources." },
+    { front: "Human Sign-off", back: "An explicit approval by an accountable human before an Increment is considered done." }
+  ],
+  m4_q: [
+    { q: "Which pairing of artifact and commitment is correct?", opts: ["Sprint Backlog – Product Goal", "Increment – Definition of Done", "Product Backlog – Sprint Goal", "Increment – Sprint Goal"], ans: _A1, exp: "Product Backlog–Product Goal, Sprint Backlog–Sprint Goal, Increment–Definition of Done." },
+    { q: "Backlog agents keep promoting items that maximise click-through rather than strategic value. Which gate is missing or weak?", opts: ["G1 Product Goal", "G2 Sprint Goal", "G3 Definition of Done", "None; this is normal agent behaviour"], ans: _A0, exp: "Without a Product Goal, agents optimise for the easiest measurable signal." },
+    { q: "Which item is NOT one of the proposed AI-specific DoD checks?", opts: ["Security scanning", "Code provenance tracing", "Human review sign-off", "The number of agents used"], ans: _A3, exp: "The DoD checks quality and traceability, not how many agents were involved." },
+    { q: "Midway through a Sprint, agents report that an external API change makes the Sprint Goal unattainable. What should happen?", opts: ["Agents silently redefine the Sprint Goal", "The Sprint is automatically extended", "Developers renegotiate scope with the PM while keeping the Sprint coherent", "The DoD is relaxed"], ans: _A2, exp: "The Sprint Goal is tested at each Daily Scrum; if unattainable, scope is renegotiated with the PM." },
+    { q: "Why is G3 considered the most critical gate in agentic workflows?", opts: ["It is the first gate in the process", "It is the last point where human judgement can stop fast but flawed output from reaching users", "It is owned by the client", "It replaces the Sprint Review"], ans: _A1, exp: "G3 is the final quality barrier before release." },
+    { q: "A team increases throughput but keeps a DoD written for human-only coding. What is the likely outcome?", opts: ["Higher stability", "Lower throughput", "No effect", "Throughput converts into instability"], ans: _A3, exp: "A weak DoD converts higher throughput directly into higher instability." }
+  ],
+
+  m5_nav: "5. Four Dimensions",
+  m5_title: "Four Dimensions and Traceability",
+  m5_overview: "The author's four dimensions—Customer, Development, MVP and Organization—describe where Agentic AI changes Agile. This module traces each dimension to an Agile Manifesto value, a process stage and specific Scrum elements, and distinguishes the framework from Scrum's three empirical pillars.",
+  m5_highlights: ["Customer Collaboration", "Progressive Iteration", "MVP Feedback Loop", "Cross-domain Integration", "Traceability"],
+  m5_p1: "The four dimensions are an analytical framework, not a restatement of Scrum's three empirical pillars of Transparency, Inspection and Adaptation. Their value lies in traceability: each dimension links a Manifesto value to a stage of the loop and to concrete Scrum elements, so that a change in one place can be followed through the system.",
+  m5_p2: "Customer: Interactive Collaboration traces to 'customer collaboration over contract negotiation' and to Stage 1. Agents act as virtual analysts and increasingly negotiate with client-side agents. Development: Progressive Iteration traces to 'working software over comprehensive documentation' and to Stages 2–4; cycle time falls sharply, but gains are bounded by review capacity and delivery stability.",
+  m5_p3: "MVP: Feedback Loop traces to 'responding to change over following a plan' and to Stage 5. Agents assemble prototypes quickly and monitor telemetry around the clock, but the MVP remains a vehicle for validated learning, not a demonstration. A prototype without a measurable hypothesis and real users is not an MVP.",
+  m5_p4: "Organization: Cross-domain Integration traces to 'individuals and interactions over processes and tools' and to Stage 6, while cutting across the whole loop. Multi-agent systems can translate between domains and align knowledge bases, but silos rooted in incentives and authority still require human governance; information alone does not dissolve them.",
+  m5_p5: "Traceability is most useful when something changes. Suppose a client deploys its own negotiation agent. The Customer dimension shows that Stage 1 is affected; the matrix then points to the Product Backlog and Backlog Refinement as the Scrum elements to adjust, and to human value validation as the safeguard. The same reasoning works in reverse: a rising fail-back rate in Verify traces to the Development dimension and the DoD. The four dimensions thus turn strategic observations into specific process decisions.",
+  m5_wrapup: "The four dimensions explain where Agentic AI changes Agile, and the traceability matrix explains how those changes connect. Customer collaboration becomes partly agent-to-agent, development accelerates within the limits of review capacity, the MVP loop runs continuously but still depends on validated learning, and cross-domain integration benefits from agents but remains a matter of incentives and governance. Keeping the dimensions distinct from Scrum's empirical pillars prevents conceptual confusion and makes the framework's own contribution clear.",
+  m5_terms: [
+    { front: "Four Dimensions", back: "The author's framework: Customer, Development, MVP and Organization." },
+    { front: "Empirical Pillars", back: "Scrum's three pillars: Transparency, Inspection and Adaptation." },
+    { front: "Agile Manifesto Values", back: "Four value statements of 2001, e.g. 'responding to change over following a plan'." },
+    { front: "Traceability Matrix", back: "A table linking each dimension to a value, a stage and Scrum elements." },
+    { front: "Minimum Viable Product (MVP)", back: "The smallest product that tests a hypothesis with real users to generate validated learning." },
+    { front: "Organizational Silo", back: "A unit that does not share information or goals with others, often due to incentives and authority structures." }
+  ],
+  m5_q: [
+    { q: "Which statement correctly distinguishes the four dimensions from Scrum's pillars?", opts: ["They are the same concepts renamed", "Scrum has three empirical pillars (Transparency, Inspection, Adaptation); the four dimensions are the author's analytical framework", "Scrum has four pillars matching the dimensions", "The dimensions replace the Agile Manifesto"], ans: _A1, exp: "The four dimensions are an analytical framework and should not be confused with Scrum's three pillars." },
+    { q: "Which Manifesto value does the MVP dimension trace to?", opts: ["Customer collaboration over contract negotiation", "Working software over comprehensive documentation", "Responding to change over following a plan", "Individuals and interactions over processes and tools"], ans: _A2, exp: "The MVP loop is about learning and adapting, which maps to responding to change." },
+    { q: "A team demonstrates an agent-built prototype to executives and calls it an MVP. What is missing?", opts: ["A measurable hypothesis tested with real users", "A larger budget", "More features", "A longer Sprint"], ans: _A0, exp: "An MVP generates validated learning; a demo without a hypothesis and real users does not." },
+    { q: "Why can multi-agent translation not fully dissolve organizational silos?", opts: ["Agents cannot read documents", "Silos only exist in small firms", "Translation is too slow", "Silos are often rooted in incentives and authority, which require human governance"], ans: _A3, exp: "Information alignment helps, but incentive and authority structures need human governance." },
+    { q: "Which stages does the Development dimension primarily trace to?", opts: ["Stage 1", "Stages 2–4", "Stage 5", "Stage 6"], ans: _A1, exp: "Development spans Plan, Build and Verify." },
+    { q: "A client's agent negotiates requirements with your agent. Which dimension and safeguard apply?", opts: ["Organization; agents decide the scope", "MVP; telemetry replaces negotiation", "Customer; humans retain value validation", "Development; the DoD governs negotiation"], ans: _A2, exp: "Agent-to-agent negotiation belongs to the Customer dimension, with humans validating value." }
+  ],
+
+  m6_nav: "6. Risks by Stage",
+  m6_title: "Risks by Stage: Mapping Risks to Controls",
+  m6_overview: "Every stage of the loop introduces a characteristic risk when agents take over execution. This module maps six risks to their stages and pairs each with a control, so that risk management becomes part of the process rather than an afterthought.",
+  m6_highlights: ["Synthetic Feedback", "Velocity Distortion", "Guardrail Breach", "Throughput vs Stability", "Talent Pipeline"],
+  m6_p1: "In Discover, the risk is that synthetic feedback from simulated personas replaces real customers. The control is human validation of value hypotheses. In Plan, story-point velocity loses meaning once agents write the code, because points were calibrated on human effort; the control is to plan by review capacity.",
+  m6_p2: "In Build, agents may act outside their guardrails, touching systems, data or budgets beyond their scope. The control is PjM-owned guardrails combined with audit logs that make every agent action traceable.",
+  m6_p3: "In Verify, higher throughput can come with lower stability and insecure code. Industry research on AI-assisted development reports this pattern: more output, but more instability unless review and platform capabilities keep pace. The control is a DoD with AI-specific checks. In Release & Learn, a prototype may be mistaken for an MVP; the control is to require a measurable hypothesis.",
+  m6_p4: "In Improve, the risk is slower and less visible: the junior talent pipeline erodes because entry-level work is automated. The control is to design learning roles into review deliberately, for example by pairing junior developers with architects on agent-output review, so that judgement continues to be built.",
+  m6_p5: "Treating these risks as a register rather than a checklist matters. Severity differs across stages and changes over time: instability in Verify tends to be acute and visible, while talent erosion in Improve is gradual and easy to ignore until senior expertise runs short. Managers should therefore review the register in every Retrospective, assign each risk to the accountable owner of its stage, and track leading indicators such as review wait time, fail-back rate, guardrail incidents and the share of review work done by junior staff. Risk management in an agentic workflow is continuous, not a one-time assessment.",
+  m6_wrapup: "Mapping risks to stages turns risk management into a design feature of the loop. Each risk arises where agents change the nature of work: simulated customers in Discover, distorted metrics in Plan, scope violations in Build, instability in Verify, false MVPs in Release & Learn, and an eroding talent pipeline in Improve. Each control relies on the principle established in Module 1: agents execute, while humans judge and remain accountable. A manager who can name the risk and control for every stage can govern an agentic workflow rather than merely deploy one.",
+  m6_terms: [
+    { front: "Synthetic Feedback", back: "Feedback generated by simulated users or personas rather than real customers." },
+    { front: "Velocity Distortion", back: "Loss of meaning in story-point velocity when the effort it was calibrated on is no longer the constraint." },
+    { front: "Guardrail", back: "A rule or limit that constrains what an agent may access, change or spend." },
+    { front: "Audit Log", back: "A traceable record of every agent action, used for accountability and incident analysis." },
+    { front: "Delivery Stability", back: "How reliably changes reach production without failures or rollbacks." },
+    { front: "Talent Pipeline", back: "The pathway through which junior staff develop into senior experts." }
+  ],
+  m6_q: [
+    { q: "Which control matches the Build-stage risk of agents exceeding their scope?", opts: ["Human validation of hypotheses", "PjM-owned guardrails with audit logs", "Planning by review capacity", "Measurable hypotheses"], ans: _A1, exp: "Guardrails prevent scope violations; audit logs make agent actions traceable." },
+    { q: "A product team relies on simulated user personas to approve features. Which stage risk is this?", opts: ["Discover: synthetic feedback replaces real customers", "Plan: velocity distortion", "Verify: insecure code", "Improve: talent erosion"], ans: _A0, exp: "Simulated personas cannot replace validation with real customers." },
+    { q: "Industry research on AI-assisted development most consistently reports which pattern?", opts: ["Lower throughput and higher stability", "No measurable effect", "Fewer deployments", "Higher throughput, with instability rising unless review and platform capabilities keep pace"], ans: _A3, exp: "Gains in output can come with instability unless review and platform capabilities keep up." },
+    { q: "Which response best addresses talent pipeline erosion?", opts: ["Hire only senior architects", "Ban agents from simple tasks", "Design learning roles into review, such as pairing juniors with architects", "Extend the Sprint length"], ans: _A2, exp: "Deliberate learning roles preserve the development of judgement." },
+    { q: "Why is velocity distorted when agents write code?", opts: ["Story points were calibrated on human coding effort, which no longer reflects the true constraint", "Agents refuse to estimate", "Velocity is required by the Scrum Guide", "Sprints become longer"], ans: _A0, exp: "The constraint has moved to review capacity, so effort-based points lose meaning." },
+    { q: "Which principle underlies all six controls?", opts: ["Agents should be accountable for their output", "Agents execute; humans judge and remain accountable", "Risk management belongs only in the Retrospective", "Clients should own risk"], ans: _A1, exp: "Every control keeps human judgement and accountability in the loop." }
+  ],
+
+  mlab_nav: "7. Interactive Lab",
+  mlab_title: "Interactive Lab",
+  mlab_desc: "Apply the framework in four exercises: run the process loop, assign accountability, build a Definition of Done, and plan by review capacity.",
+  mlab_labs: [
+    { title: "Lab 1 · Process Simulator", desc: "Step through the six-stage loop and make the gate decision at G1, G2 and G3." },
+    { title: "Lab 2 · RACI Assignment", desc: "Click cells to assign R, A, C or I, then check your matrix against the rules." },
+    { title: "Lab 3 · DoD Builder", desc: "Select the checks in your Definition of Done and watch the quality risk change." },
+    { title: "Lab 4 · Review Capacity Calculator", desc: "Adjust agent output and human review capacity to find the real bottleneck." }
+  ],
+  sim_stage_desc: [
+    "Agents analyse markets and negotiate with client agents; humans validate value hypotheses.",
+    "Agents propose decomposition; humans decide scope based on review capacity.",
+    "Agents code, test and repair within PjM guardrails; Daily Scrum resolves blockers.",
+    "Automated scans plus human architecture and security review against the DoD.",
+    "Release, monitor telemetry 24/7 and inspect results with stakeholders.",
+    "Retrospective: recalibrate guardrails, the DoD and psychological safety."
+  ],
+  sim_gates: [
+    { stage: 0, gate: "G1 · Product Goal", scenario: "Agents have ranked the backlog by predicted click-through. No Product Goal has been written yet.", correct: "fail", fb: "Without a Product Goal, agent prioritisation has no strategic anchor. G1 should not pass." },
+    { stage: 1, gate: "G2 · Sprint Goal", scenario: "The team agreed a single Sprint Goal and sized scope to the reviewers' available hours.", correct: "pass", fb: "A coherent Sprint Goal planned on review capacity meets G2." },
+    { stage: 3, gate: "G3 · Definition of Done", scenario: "All automated tests pass, but no human has signed off the security review.", correct: "fail", fb: "Human sign-off is part of an AI-aware DoD. The Increment returns to Build." }
+  ],
+  sim_pass: "Pass", sim_fail: "Fail / Return", sim_next: "Next Stage →", sim_restart: "Restart Loop",
+  sim_correct: "Correct decision.", sim_wrong: "Reconsider:", sim_score: "Gate decisions correct: {n} / 3",
+  sim_loop_done: "Loop complete. Stage 6 outputs feed the next Discover stage.",
+  sim_returned: "Returned to Build. Fix the issue, then verify again.",
+  raci_roles: ["PM", "PjM", "Architects", "AI Agents", "Client"],
+  raci_hint: "Click a cell to cycle: — → R → A → C → I",
+  raci_check: "Check Matrix", raci_reset: "Reset", raci_show: "Show Reference", raci_hide: "Hide Reference",
+  raci_err_oneA: "{stage}: needs exactly one A.",
+  raci_err_agentA: "{stage}: AI agents or the client cannot be A.",
+  raci_ok: "All rules satisfied: one human A per stage, no agent A.",
+  raci_match: "Cells matching the reference: {n} / 30",
+  dod_title: "Select the checks in your Definition of Done",
+  dod_items: [
+    { label: "Security scanning of generated code", ai: true },
+    { label: "Test coverage above an agreed threshold", ai: true },
+    { label: "Provenance tracing of code and dependencies", ai: true },
+    { label: "Human review sign-off", ai: true },
+    { label: "Performance tests passed", ai: false },
+    { label: "Documentation updated", ai: false },
+    { label: "Licence and compliance check", ai: false },
+    { label: "Rollback plan prepared", ai: false }
+  ],
+  dod_risk: "Quality risk", dod_levels: ["Low", "Medium", "High"],
+  dod_missing: "Missing AI-specific checks:", dod_none: "All AI-specific checks are included.",
+  cap_output: "Agent output (changes per Sprint)", cap_reviewers: "Human reviewers", cap_rate: "Reviews per reviewer per day", cap_days: "Working days per Sprint",
+  cap_capacity: "Review capacity", cap_commit: "Committable changes", cap_backlog: "Unreviewed backlog", cap_util: "Reviewer utilisation",
+  cap_bottleneck_review: "Bottleneck: human review. Plan the Sprint on review capacity, not agent output.",
+  cap_bottleneck_agent: "Bottleneck: agent output. Review capacity is sufficient for this Sprint.",
+  cap_note: "Committable = min(agent output, review capacity). Anything above capacity becomes unreviewed backlog and quality risk.",
+
+  mres_nav: "8. Learning Resources",
+  mres_title: "Learning Resources",
+  mres_desc: "Primary sources and further reading for the concepts in this module.",
+  mres_groups: [
+    { name: "Foundations", links: [
+      { label: "The Scrum Guide (2020)", url: "https://scrumguides.org/scrum-guide.html", desc: "Official definition of Scrum accountabilities, events, artifacts and commitments." },
+      { label: "Manifesto for Agile Software Development", url: "https://agilemanifesto.org/", desc: "The four Agile values (2001)." },
+      { label: "Principles behind the Agile Manifesto", url: "https://agilemanifesto.org/principles.html", desc: "The twelve principles supporting the Manifesto." }
+    ]},
+    { name: "Research & Practice", links: [
+      { label: "DORA Research", url: "https://dora.dev/research/", desc: "Research programme on software delivery performance, including AI-assisted development." },
+      { label: "The Lean Startup: Principles", url: "https://theleanstartup.com/principles", desc: "Build–Measure–Learn, MVP and validated learning." },
+      { label: "What is a Scrum Master? (Scrum.org)", url: "https://www.scrum.org/resources/what-is-a-scrum-master", desc: "The Scrum Guide view of the Scrum Master, for comparison with the PjM reframing." }
+    ]}
+  ],
+
+  date: "Version 2026.10.24",
+  copyright: "For Educational Use Only",
+  architect_label: "Architect:",
+  architect_name: "Prof. Shihmin Lo",
+  architect_url: "https://www.ibs.ncnu.edu.tw/index.php/faculty/tenured-professor/299-smlo"
+};
+
+const dict = { zh: DZH, en: DEN };
+const OVERVIEW_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1920\" height=\"1180\" viewBox=\"0 0 1920 1180\" font-family=\"'Noto Sans CJK TC','Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif\" xmlns:c2pa=\"http://c2pa.org/manifest\"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYToyMzQyOGY0YS1lOTQ2LTQ0NGQtYjBlNi01NmQ5ODRkZTdhMzcAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaP/HfmAyb+DPQDoEj/bGzj4AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo1ZGI3YTJhMC03MjA2LTQyOWUtYjA1ZS0yNThjMTQ1OTRhMWZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNosOqv66u37Si2h2womsJgHgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggAXNBeC/PmkURRoHQ1JNgb1i+vIb/TwAhNipYccwC0EikZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaKlHhRIye65hy4wEzwEPMj8AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCB+4Xjs2RanZiOiawY9xdUIUL18L5Fx4AG+pwYXCdQTZWRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBj4Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjIzNDI4ZjRhLWU5NDYtNDQ0ZC1iMGU2LTU2ZDk4NGRlN2EzNy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjQwNmZhMzE1LTQzMDgtNDA2OC05ZGVhLTYwZTZjZWE3YzAxYXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCABc0F4L8+aRRFGgdDUk2BvWL68hv9PACE2KlhxzALQSKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggQceTwqHM1XSIYEG4iE1eEVqMD+Tnnf+hsT4YCaDZbQmiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgglDp06tRyJj6oABDempK3WDG1rMvbUpf9Fjovh+Ue6p90Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQFNvnRZuhsrKK2X825P9Ury6z8uZ+6TOwKEjuYbVAriRWKZDqyfgyi7FrC1E0yZ4wtPLHF9BmQhz9kDRG9sZUyQ=<\/c2pa:manifest><\/metadata>\n<title>Agile Management with Agentic AI Workflow \u4ee3\u7406\u5f0f AI \u5de5\u4f5c\u6d41\u4e0b\u7684\u654f\u6377\u7ba1\u7406<\/title>\n<defs><marker id=\"ar\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#004030\"/><\/marker><marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#A23B2A\"/><\/marker><\/defs>\n<rect x=\"0\" y=\"0\" width=\"1920\" height=\"1180\" rx=\"0\" fill=\"#FAF8F3\" stroke=\"none\" stroke-width=\"1\" />\n<rect x=\"0\" y=\"0\" width=\"1920\" height=\"110\" rx=\"0\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"40\" y=\"52\" font-size=\"34\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Agile Management with Agentic AI Workflow<\/text>\n<text x=\"40\" y=\"92\" font-size=\"24\" fill=\"#D8C3A5\" font-weight=\"bold\" text-anchor=\"start\"  >\u4ee3\u7406\u5f0f AI \u5de5\u4f5c\u6d41\u4e0b\u7684\u654f\u6377\u7ba1\u7406\uff1a\u7cfb\u7d71\u5316\u30fb\u7d50\u69cb\u5316\u30fb\u6d41\u7a0b\u5c0e\u5411\u67b6\u69cb<\/text>\n<text x=\"1880\" y=\"45\" font-size=\"19\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"end\"  >System \u2192 Process \u2192 Roles \u2192 Controls \u2192 Risks<\/text>\n<text x=\"1880\" y=\"72\" font-size=\"17\" fill=\"#D8C3A5\" font-weight=\"normal\" text-anchor=\"end\"  >\u7cfb\u7d71 \u2192 \u6d41\u7a0b \u2192 \u89d2\u8272 \u2192 \u63a7\u5236 \u2192 \u98a8\u96aa<\/text>\n<text x=\"1880\" y=\"97\" font-size=\"13\" fill=\"#CFE0DA\" font-weight=\"normal\" text-anchor=\"end\"  >Prof. Shihmin Lo \u99f1\u4e16\u6c11\uff5cv3\uff5c2026-10-23<\/text>\n<rect x=\"30\" y=\"130\" width=\"380\" height=\"700\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#D5DED9\" stroke-width=\"1.2\" />\n<text x=\"48\" y=\"164\" font-size=\"18\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >\u2460 System Architecture\uff5c\u56db\u5c64\u7cfb\u7d71\u67b6\u69cb<\/text>\n<rect x=\"50\" y=\"190\" width=\"340\" height=\"125\" rx=\"10\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"66\" y=\"220\" font-size=\"17\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >L1 Strategy\uff5c\u7b56\u7565\u5c64<\/text>\n<rect x=\"300\" y=\"203\" width=\"78\" height=\"24\" rx=\"12\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"339\" y=\"220\" font-size=\"11.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >HUMAN \u00b7 A<\/text>\n<text x=\"66\" y=\"247\" font-size=\"13\" fill=\"#E3ECE8\" font-weight=\"normal\" text-anchor=\"start\"  >Define value: Why / What<\/text>\n<text x=\"66\" y=\"268\" font-size=\"13\" fill=\"#E3ECE8\" font-weight=\"normal\" text-anchor=\"start\"  >\u5b9a\u7fa9\u50f9\u503c\uff1a\u70ba\u4f55\u505a\u3001\u505a\u4ec0\u9ebc<\/text>\n<text x=\"66\" y=\"298\" font-size=\"13.5\" fill=\"#D8C3A5\" font-weight=\"bold\" text-anchor=\"start\"  >Owner: PM (External \u5c0d\u5916)<\/text>\n<line x1=\"220\" y1=\"315\" x2=\"220\" y2=\"327\" stroke=\"#5F6B66\" stroke-width=\"2\"/>\n<rect x=\"50\" y=\"327\" width=\"340\" height=\"125\" rx=\"10\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"66\" y=\"357\" font-size=\"17\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >L2 Orchestration\uff5c\u7de8\u6392\u5c64<\/text>\n<rect x=\"300\" y=\"340\" width=\"78\" height=\"24\" rx=\"12\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"339\" y=\"357\" font-size=\"11.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >HUMAN \u00b7 A<\/text>\n<text x=\"66\" y=\"384\" font-size=\"13\" fill=\"#E3ECE8\" font-weight=\"normal\" text-anchor=\"start\"  >Design &amp; govern the workflow<\/text>\n<text x=\"66\" y=\"405\" font-size=\"13\" fill=\"#E3ECE8\" font-weight=\"normal\" text-anchor=\"start\"  >\u8a2d\u8a08\u4e26\u6cbb\u7406\u5de5\u4f5c\u6d41\u8207\u8b77\u6b04<\/text>\n<text x=\"66\" y=\"435\" font-size=\"13.5\" fill=\"#D8C3A5\" font-weight=\"bold\" text-anchor=\"start\"  >Owner: PjM (Internal \u5c0d\u5167)<\/text>\n<line x1=\"220\" y1=\"452\" x2=\"220\" y2=\"464\" stroke=\"#5F6B66\" stroke-width=\"2\"/>\n<rect x=\"50\" y=\"464\" width=\"340\" height=\"125\" rx=\"10\" fill=\"#D8C3A5\" stroke=\"#004030\" stroke-width=\"1.5\" stroke-dasharray=\"6 4\"/>\n<text x=\"66\" y=\"494\" font-size=\"17\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >L3 Execution\uff5c\u57f7\u884c\u5c64<\/text>\n<rect x=\"300\" y=\"477\" width=\"78\" height=\"24\" rx=\"12\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"339\" y=\"494\" font-size=\"11.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >AGENT \u00b7 R<\/text>\n<text x=\"66\" y=\"521\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Produce the Increment<\/text>\n<text x=\"66\" y=\"542\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u7522\u78bc\u3001\u6e2c\u8a66\u3001\u4fee\u5fa9\uff0c\u7522\u51fa\u589e\u91cf<\/text>\n<text x=\"66\" y=\"572\" font-size=\"13.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >Operator: AI Agents \u4ee3\u7406\u4eba\uff08R only\uff09<\/text>\n<line x1=\"220\" y1=\"589\" x2=\"220\" y2=\"601\" stroke=\"#5F6B66\" stroke-width=\"2\"/>\n<rect x=\"50\" y=\"601\" width=\"340\" height=\"125\" rx=\"10\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"66\" y=\"631\" font-size=\"17\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >L4 Assurance\uff5c\u4fdd\u8b49\u5c64<\/text>\n<rect x=\"300\" y=\"614\" width=\"78\" height=\"24\" rx=\"12\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"339\" y=\"631\" font-size=\"11.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >HUMAN \u00b7 A<\/text>\n<text x=\"66\" y=\"658\" font-size=\"13\" fill=\"#E3ECE8\" font-weight=\"normal\" text-anchor=\"start\"  >Verify against DoD; own architecture<\/text>\n<text x=\"66\" y=\"679\" font-size=\"13\" fill=\"#E3ECE8\" font-weight=\"normal\" text-anchor=\"start\"  >\u4f9d DoD \u9a57\u8b49\uff0c\u8ca0\u8cac\u67b6\u69cb\u8207\u8cc7\u5b89<\/text>\n<text x=\"66\" y=\"709\" font-size=\"13.5\" fill=\"#D8C3A5\" font-weight=\"bold\" text-anchor=\"start\"  >Owner: System Architects \u67b6\u69cb\u5e2b<\/text>\n<rect x=\"50\" y=\"744\" width=\"340\" height=\"70\" rx=\"10\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1\" />\n<text x=\"66\" y=\"770\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >Agents act in L3 and assist other layers;<\/text>\n<text x=\"66\" y=\"788\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >accountability exists only in human layers.<\/text>\n<text x=\"66\" y=\"806\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u4ee3\u7406\u4eba\u5728 L3 \u57f7\u884c\u4e26\u8f14\u52a9\uff1b\u7576\u8cac\u53ea\u5728\u4eba\u985e\u5c64\u7d1a\u3002<\/text>\n<rect x=\"430\" y=\"130\" width=\"1080\" height=\"700\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#D5DED9\" stroke-width=\"1.2\" />\n<text x=\"448\" y=\"164\" font-size=\"18\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >\u2461 End-to-End Process\uff5c\u7aef\u5230\u7aef\u6d41\u7a0b\uff08\u516d\u968e\u6bb5\u5faa\u74b0\uff1a\u8f38\u5165 \u2192 \u6d3b\u52d5 \u2192 \u7522\u51fa \u2192 \u95dc\u5361\uff09<\/text>\n<rect x=\"460\" y=\"200\" width=\"300\" height=\"200\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.6\" />\n<path d=\"M460,240 V210 a10,10 0 0 1 10,-10 H750 a10,10 0 0 1 10,10 V240 Z\" fill=\"#004030\"/>\n<circle cx=\"482\" cy=\"220\" r=\"13\" fill=\"#D8C3A5\"/>\n<text x=\"482\" y=\"225\" font-size=\"15\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >1<\/text>\n<text x=\"502\" y=\"226\" font-size=\"16.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Discover\uff5c\u63a2\u7d22<\/text>\n<text x=\"474\" y=\"262\" font-size=\"13\" fill=\"#7A5C2E\" font-weight=\"bold\" text-anchor=\"start\" font-style=\"italic\" >Backlog Refinement<\/text>\n<text x=\"474\" y=\"288\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Agents: market analysis, A2A talks<\/text>\n<text x=\"474\" y=\"309\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u4ee3\u7406\u4eba\uff1a\u5e02\u5834\u5206\u6790\u3001\u8207\u5ba2\u6236\u7aef\u4ee3\u7406\u4eba\u5c0d\u53e3<\/text>\n<text x=\"474\" y=\"336\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Output: Product Backlog \u7522\u54c1\u5f85\u8fa6\u6e05\u55ae<\/text>\n<rect x=\"660\" y=\"247\" width=\"88\" height=\"24\" rx=\"12\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1\" />\n<text x=\"704\" y=\"264\" font-size=\"12\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >A: PM<\/text>\n<path d=\"M460,356 H760 V390 a10,10 0 0 1 -10,10 H470 a10,10 0 0 1 -10,-10 Z\" fill=\"#D8C3A5\"/>\n<text x=\"610.0\" y=\"384\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >G1 \u00b7 Product Goal \u7522\u54c1\u76ee\u6a19<\/text>\n<rect x=\"805\" y=\"200\" width=\"300\" height=\"200\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.6\" />\n<path d=\"M805,240 V210 a10,10 0 0 1 10,-10 H1095 a10,10 0 0 1 10,10 V240 Z\" fill=\"#004030\"/>\n<circle cx=\"827\" cy=\"220\" r=\"13\" fill=\"#D8C3A5\"/>\n<text x=\"827\" y=\"225\" font-size=\"15\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >2<\/text>\n<text x=\"847\" y=\"226\" font-size=\"16.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Plan\uff5c\u898f\u5283<\/text>\n<text x=\"819\" y=\"262\" font-size=\"13\" fill=\"#7A5C2E\" font-weight=\"bold\" text-anchor=\"start\" font-style=\"italic\" >Sprint Planning<\/text>\n<text x=\"819\" y=\"288\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Agents propose; humans decide scope<\/text>\n<text x=\"819\" y=\"309\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u4ee3\u7406\u4eba\u63d0\u6848\u3001\u4eba\u985e\u6c7a\u5b9a\u7bc4\u570d\uff1b\u4f9d\u5be9\u67e5\u7522\u80fd<\/text>\n<text x=\"819\" y=\"336\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Output: Sprint Backlog Sprint \u5f85\u8fa6\u6e05\u55ae<\/text>\n<rect x=\"1005\" y=\"247\" width=\"88\" height=\"24\" rx=\"12\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1\" />\n<text x=\"1049\" y=\"264\" font-size=\"12\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >A: PM<\/text>\n<path d=\"M805,356 H1105 V390 a10,10 0 0 1 -10,10 H815 a10,10 0 0 1 -10,-10 Z\" fill=\"#D8C3A5\"/>\n<text x=\"955.0\" y=\"384\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >G2 \u00b7 Sprint Goal Sprint \u76ee\u6a19<\/text>\n<rect x=\"1150\" y=\"200\" width=\"300\" height=\"200\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.6\" />\n<path d=\"M1150,240 V210 a10,10 0 0 1 10,-10 H1440 a10,10 0 0 1 10,10 V240 Z\" fill=\"#004030\"/>\n<circle cx=\"1172\" cy=\"220\" r=\"13\" fill=\"#D8C3A5\"/>\n<text x=\"1172\" y=\"225\" font-size=\"15\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >3<\/text>\n<text x=\"1192\" y=\"226\" font-size=\"16.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Build\uff5c\u5efa\u7f6e<\/text>\n<text x=\"1164\" y=\"262\" font-size=\"13\" fill=\"#7A5C2E\" font-weight=\"bold\" text-anchor=\"start\" font-style=\"italic\" >Sprint + Daily Scrum<\/text>\n<text x=\"1164\" y=\"288\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Agents code / test / repair in guardrails<\/text>\n<text x=\"1164\" y=\"309\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u4ee3\u7406\u4eba\u5728\u8b77\u6b04\u5167\u7522\u78bc\u3001\u6e2c\u8a66\u3001\u4fee\u5fa9<\/text>\n<text x=\"1164\" y=\"336\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Output: Candidate Increment \u5019\u9078\u589e\u91cf<\/text>\n<rect x=\"1350\" y=\"247\" width=\"88\" height=\"24\" rx=\"12\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1\" />\n<text x=\"1394\" y=\"264\" font-size=\"12\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >A: PjM<\/text>\n<path d=\"M1150,356 H1450 V390 a10,10 0 0 1 -10,10 H1160 a10,10 0 0 1 -10,-10 Z\" fill=\"#D8C3A5\"/>\n<text x=\"1300.0\" y=\"384\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >Sprint Goal still achievable? \u4ecd\u53ef\u9054\u6210\uff1f<\/text>\n<rect x=\"1150\" y=\"600\" width=\"300\" height=\"200\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.6\" />\n<path d=\"M1150,640 V610 a10,10 0 0 1 10,-10 H1440 a10,10 0 0 1 10,10 V640 Z\" fill=\"#004030\"/>\n<circle cx=\"1172\" cy=\"620\" r=\"13\" fill=\"#D8C3A5\"/>\n<text x=\"1172\" y=\"625\" font-size=\"15\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >4<\/text>\n<text x=\"1192\" y=\"626\" font-size=\"16.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Verify\uff5c\u9a57\u8b49<\/text>\n<text x=\"1164\" y=\"662\" font-size=\"13\" fill=\"#7A5C2E\" font-weight=\"bold\" text-anchor=\"start\" font-style=\"italic\" >Definition of Done<\/text>\n<text x=\"1164\" y=\"688\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Agent scans + human sign-off<\/text>\n<text x=\"1164\" y=\"709\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u81ea\u52d5\u6383\u63cf\u6e2c\u8a66\uff1b\u67b6\u69cb\u8cc7\u5b89\u5be9\u67e5\u8207\u7c3d\u6838<\/text>\n<text x=\"1164\" y=\"736\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Output: Done Increment \u5df2\u5b8c\u6210\u589e\u91cf<\/text>\n<rect x=\"1350\" y=\"647\" width=\"88\" height=\"24\" rx=\"12\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1\" />\n<text x=\"1394\" y=\"664\" font-size=\"12\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >A: Architects<\/text>\n<path d=\"M1150,756 H1450 V790 a10,10 0 0 1 -10,10 H1160 a10,10 0 0 1 -10,-10 Z\" fill=\"#D8C3A5\"/>\n<text x=\"1300.0\" y=\"784\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >G3 \u00b7 Definition of Done \u5b8c\u6210\u7684\u5b9a\u7fa9 \u2605<\/text>\n<rect x=\"805\" y=\"600\" width=\"300\" height=\"200\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.6\" />\n<path d=\"M805,640 V610 a10,10 0 0 1 10,-10 H1095 a10,10 0 0 1 10,10 V640 Z\" fill=\"#004030\"/>\n<circle cx=\"827\" cy=\"620\" r=\"13\" fill=\"#D8C3A5\"/>\n<text x=\"827\" y=\"625\" font-size=\"15\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >5<\/text>\n<text x=\"847\" y=\"626\" font-size=\"16.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Release &amp; Learn\uff5c\u767c\u5e03\u8207\u5b78\u7fd2<\/text>\n<text x=\"819\" y=\"662\" font-size=\"13\" fill=\"#7A5C2E\" font-weight=\"bold\" text-anchor=\"start\" font-style=\"italic\" >Sprint Review + MVP Loop<\/text>\n<text x=\"819\" y=\"688\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Release, 24/7 telemetry, stakeholders<\/text>\n<text x=\"819\" y=\"709\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u767c\u5e03\u300124/7 \u9059\u6e2c\u3001\u8207\u5229\u5bb3\u95dc\u4fc2\u4eba\u6aa2\u8996<\/text>\n<text x=\"819\" y=\"736\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Output: Validated Learning \u9a57\u8b49\u5f0f\u5b78\u7fd2<\/text>\n<rect x=\"1005\" y=\"647\" width=\"88\" height=\"24\" rx=\"12\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1\" />\n<text x=\"1049\" y=\"664\" font-size=\"12\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >A: PM<\/text>\n<path d=\"M805,756 H1105 V790 a10,10 0 0 1 -10,10 H815 a10,10 0 0 1 -10,-10 Z\" fill=\"#D8C3A5\"/>\n<text x=\"955.0\" y=\"784\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >Confirm / Pivot / Drop \u6210\u7acb\u30fb\u8f49\u5411\u30fb\u653e\u68c4<\/text>\n<rect x=\"460\" y=\"600\" width=\"300\" height=\"200\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.6\" />\n<path d=\"M460,640 V610 a10,10 0 0 1 10,-10 H750 a10,10 0 0 1 10,10 V640 Z\" fill=\"#004030\"/>\n<circle cx=\"482\" cy=\"620\" r=\"13\" fill=\"#D8C3A5\"/>\n<text x=\"482\" y=\"625\" font-size=\"15\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >6<\/text>\n<text x=\"502\" y=\"626\" font-size=\"16.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Improve\uff5c\u6539\u5584<\/text>\n<text x=\"474\" y=\"662\" font-size=\"13\" fill=\"#7A5C2E\" font-weight=\"bold\" text-anchor=\"start\" font-style=\"italic\" >Sprint Retrospective<\/text>\n<text x=\"474\" y=\"688\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Recalibrate human\u2013AI workflow<\/text>\n<text x=\"474\" y=\"709\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u6aa2\u8996\u4eba\u6a5f\u5de5\u4f5c\u6d41\u3001\u6821\u6e96\u8b77\u6b04\u8207\u5fc3\u7406\u5b89\u5168<\/text>\n<text x=\"474\" y=\"736\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Output: Guardrails &amp; DoD \u66f4\u65b0\u8b77\u6b04\u8207 DoD<\/text>\n<rect x=\"660\" y=\"647\" width=\"88\" height=\"24\" rx=\"12\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1\" />\n<text x=\"704\" y=\"664\" font-size=\"12\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >A: PjM<\/text>\n<path d=\"M460,756 H760 V790 a10,10 0 0 1 -10,10 H470 a10,10 0 0 1 -10,-10 Z\" fill=\"#D8C3A5\"/>\n<text x=\"610.0\" y=\"784\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >\u2265 1 improvement adopted \u81f3\u5c11\u843d\u5be6\u4e00\u9805<\/text>\n<path d=\"M760,300 H802\" fill=\"none\" stroke=\"#004030\" stroke-width=\"3\" marker-end=\"url(#ar)\" />\n<path d=\"M1105,300 H1147\" fill=\"none\" stroke=\"#004030\" stroke-width=\"3\" marker-end=\"url(#ar)\" />\n<path d=\"M1300,400 V597\" fill=\"none\" stroke=\"#004030\" stroke-width=\"3\" marker-end=\"url(#ar)\" />\n<path d=\"M1150,700 H1108\" fill=\"none\" stroke=\"#004030\" stroke-width=\"3\" marker-end=\"url(#ar)\" />\n<path d=\"M805,700 H763\" fill=\"none\" stroke=\"#004030\" stroke-width=\"3\" marker-end=\"url(#ar)\" />\n<path d=\"M610,600 V403\" fill=\"none\" stroke=\"#004030\" stroke-width=\"3\" marker-end=\"url(#ar)\" />\n<path d=\"M1450,690 H1482 V320 H1453\" fill=\"none\" stroke=\"#A23B2A\" stroke-width=\"3\" marker-end=\"url(#arr)\" stroke-dasharray=\"7 5\"/>\n<text x=\"1497\" y=\"505\" font-size=\"12.5\" fill=\"#A23B2A\" font-weight=\"bold\" text-anchor=\"middle\"  transform=\"rotate(-90 1497 505)\">Fail \u672a\u901a\u904e \u2192 \u9000\u56de\u5efa\u7f6e<\/text>\n<text x=\"1310\" y=\"470\" font-size=\"12\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"start\"  >\u5019\u9078\u589e\u91cf<\/text>\n<text x=\"1310\" y=\"488\" font-size=\"12\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"start\"  >\u2192 \u9a57\u8b49<\/text>\n<text x=\"560\" y=\"470\" font-size=\"12\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"end\"  >\u9059\u6e2c\u8207<\/text>\n<text x=\"560\" y=\"488\" font-size=\"12\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"end\"  >\u5b78\u7fd2\u56de\u994b<\/text>\n<rect x=\"660\" y=\"432\" width=\"580\" height=\"136\" rx=\"14\" fill=\"#E7EFEC\" stroke=\"#004030\" stroke-width=\"1.2\" stroke-dasharray=\"5 4\"/>\n<text x=\"950\" y=\"462\" font-size=\"16\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >Humans are Accountable (A) \u00b7 Agents are Responsible (R)<\/text>\n<text x=\"950\" y=\"487\" font-size=\"15\" fill=\"#1F2A26\" font-weight=\"bold\" text-anchor=\"middle\"  >\u4eba\u985e\u7576\u8cac\u30fb\u4ee3\u7406\u4eba\u57f7\u884c\uff1a\u6bcf\u968e\u6bb5\u53ea\u6709\u4e00\u4f4d\u4eba\u985e\u7576\u8cac\u8005<\/text>\n<text x=\"950\" y=\"514\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"middle\"  >Gates G1 \u2192 G2 \u2192 G3 control direction, focus, and quality<\/text>\n<text x=\"950\" y=\"535\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"middle\"  >\u4e09\u9053\u95dc\u5361\u4f9d\u5e8f\u628a\u95dc\uff1a\u65b9\u5411\uff08\u7522\u54c1\u76ee\u6a19\uff09\u2192 \u805a\u7126\uff08Sprint \u76ee\u6a19\uff09\u2192 \u54c1\u8cea\uff08DoD\uff09<\/text>\n<text x=\"950\" y=\"556\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"middle\"  >Telemetry from Stage 5 feeds Stage 1 \u00b7 \u9059\u6e2c\u56de\u994b\u91cd\u65b0\u9032\u5165\u63a2\u7d22<\/text>\n<rect x=\"1530\" y=\"130\" width=\"360\" height=\"700\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#D5DED9\" stroke-width=\"1.2\" />\n<text x=\"1548\" y=\"164\" font-size=\"18\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >\u2462 Accountability\uff5c\u7576\u8cac\u77e9\u9663\uff08RACI\uff09<\/text>\n<rect x=\"1545\" y=\"180\" width=\"340\" height=\"34\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1555\" y=\"202\" font-size=\"12.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Stage \u968e\u6bb5<\/text>\n<text x=\"1678.0\" y=\"202\" font-size=\"12\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >PM<\/text>\n<text x=\"1724.0\" y=\"202\" font-size=\"12\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >PjM<\/text>\n<text x=\"1770.0\" y=\"202\" font-size=\"12\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >Arch.<\/text>\n<text x=\"1816.0\" y=\"202\" font-size=\"12\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >AI<\/text>\n<text x=\"1862.0\" y=\"202\" font-size=\"12\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >Client<\/text>\n<rect x=\"1545\" y=\"214\" width=\"340\" height=\"38\" rx=\"0\" fill=\"#F4F6F5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1555\" y=\"238\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"bold\" text-anchor=\"start\"  >1 Discover<\/text>\n<rect x=\"1658\" y=\"219\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1678.0\" y=\"238\" font-size=\"13\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >A<\/text>\n<text x=\"1724.0\" y=\"238\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >I<\/text>\n<rect x=\"1750\" y=\"219\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1770.0\" y=\"238\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1796\" y=\"219\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1816.0\" y=\"238\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >R<\/text>\n<rect x=\"1842\" y=\"219\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1862.0\" y=\"238\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1545\" y=\"252\" width=\"340\" height=\"38\" rx=\"0\" fill=\"#FFFFFF\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1555\" y=\"276\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"bold\" text-anchor=\"start\"  >2 Plan<\/text>\n<rect x=\"1658\" y=\"257\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1678.0\" y=\"276\" font-size=\"13\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >A<\/text>\n<rect x=\"1704\" y=\"257\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1724.0\" y=\"276\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >R<\/text>\n<rect x=\"1750\" y=\"257\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1770.0\" y=\"276\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1796\" y=\"257\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1816.0\" y=\"276\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >R<\/text>\n<text x=\"1862.0\" y=\"276\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >I<\/text>\n<rect x=\"1545\" y=\"290\" width=\"340\" height=\"38\" rx=\"0\" fill=\"#F4F6F5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1555\" y=\"314\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"bold\" text-anchor=\"start\"  >3 Build<\/text>\n<text x=\"1678.0\" y=\"314\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >I<\/text>\n<rect x=\"1704\" y=\"295\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1724.0\" y=\"314\" font-size=\"13\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >A<\/text>\n<rect x=\"1750\" y=\"295\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1770.0\" y=\"314\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1796\" y=\"295\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1816.0\" y=\"314\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >R<\/text>\n<text x=\"1862.0\" y=\"314\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >\u2014<\/text>\n<rect x=\"1545\" y=\"328\" width=\"340\" height=\"38\" rx=\"0\" fill=\"#FFFFFF\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1555\" y=\"352\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"bold\" text-anchor=\"start\"  >4 Verify<\/text>\n<text x=\"1678.0\" y=\"352\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >I<\/text>\n<rect x=\"1704\" y=\"333\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1724.0\" y=\"352\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1750\" y=\"333\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1770.0\" y=\"352\" font-size=\"13\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >A/R<\/text>\n<rect x=\"1796\" y=\"333\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1816.0\" y=\"352\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >R<\/text>\n<text x=\"1862.0\" y=\"352\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >\u2014<\/text>\n<rect x=\"1545\" y=\"366\" width=\"340\" height=\"38\" rx=\"0\" fill=\"#F4F6F5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1555\" y=\"390\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"bold\" text-anchor=\"start\"  >5 Release<\/text>\n<rect x=\"1658\" y=\"371\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1678.0\" y=\"390\" font-size=\"13\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >A<\/text>\n<text x=\"1724.0\" y=\"390\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >I<\/text>\n<rect x=\"1750\" y=\"371\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1770.0\" y=\"390\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1796\" y=\"371\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1816.0\" y=\"390\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >R<\/text>\n<rect x=\"1842\" y=\"371\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1862.0\" y=\"390\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1545\" y=\"404\" width=\"340\" height=\"38\" rx=\"0\" fill=\"#FFFFFF\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1555\" y=\"428\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"bold\" text-anchor=\"start\"  >6 Improve<\/text>\n<rect x=\"1658\" y=\"409\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1678.0\" y=\"428\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1704\" y=\"409\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1724.0\" y=\"428\" font-size=\"13\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"middle\"  >A<\/text>\n<rect x=\"1750\" y=\"409\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#E7EFEC\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1770.0\" y=\"428\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >C<\/text>\n<rect x=\"1796\" y=\"409\" width=\"40\" height=\"28\" rx=\"6\" fill=\"#D8C3A5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1816.0\" y=\"428\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"middle\"  >R<\/text>\n<text x=\"1862.0\" y=\"428\" font-size=\"13\" fill=\"#5F6B66\" font-weight=\"bold\" text-anchor=\"middle\"  >\u2014<\/text>\n<text x=\"1545\" y=\"468\" font-size=\"12.5\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"start\"  >R \u57f7\u884c \u00b7 A \u7576\u8cac \u00b7 C \u8aee\u8a62 \u00b7 I \u544a\u77e5<\/text>\n<text x=\"1545\" y=\"490\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >One human A per stage; agents = R, never A.<\/text>\n<text x=\"1545\" y=\"510\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u6bcf\u968e\u6bb5\u4e00\u4f4d\u4eba\u985e\u7576\u8cac\uff1b\u4ee3\u7406\u4eba\u53ea\u80fd\u662f R\u3002<\/text>\n<text x=\"1545\" y=\"536\" font-size=\"12\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"start\"  >PjM: SM with explicit authority (author's position)<\/text>\n<text x=\"1545\" y=\"554\" font-size=\"12\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"start\"  >PjM\uff1a\u5177\u660e\u78ba\u6b0a\u8cac\u7684 SM\uff08\u4f5c\u8005\u7acb\u5834\uff09<\/text>\n<text x=\"1548\" y=\"592\" font-size=\"18\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >\u2463 Control Gates\uff5c\u63a7\u5236\u95dc\u5361<\/text>\n<rect x=\"1545\" y=\"608\" width=\"340\" height=\"58\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#D8C3A5\" stroke-width=\"1.5\" />\n<path d=\"M1568,623 l13,14 l-13,14 l-13,-14 z\" fill=\"#D8C3A5\" stroke=\"#004030\" stroke-width=\"1\"/>\n<text x=\"1592\" y=\"632\" font-size=\"13.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >G1 Direction\uff5c\u65b9\u5411 \u00b7 Stage 1<\/text>\n<text x=\"1592\" y=\"653\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Product Backlog \u2192 Product Goal \u7522\u54c1\u76ee\u6a19<\/text>\n<rect x=\"1545\" y=\"674\" width=\"340\" height=\"58\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#D8C3A5\" stroke-width=\"1.5\" />\n<path d=\"M1568,689 l13,14 l-13,14 l-13,-14 z\" fill=\"#D8C3A5\" stroke=\"#004030\" stroke-width=\"1\"/>\n<text x=\"1592\" y=\"698\" font-size=\"13.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >G2 Focus\uff5c\u805a\u7126 \u00b7 Stage 2\u20133<\/text>\n<text x=\"1592\" y=\"719\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Sprint Backlog \u2192 Sprint Goal Sprint \u76ee\u6a19<\/text>\n<rect x=\"1545\" y=\"740\" width=\"340\" height=\"58\" rx=\"8\" fill=\"#E7EFEC\" stroke=\"#D8C3A5\" stroke-width=\"1.5\" />\n<path d=\"M1568,755 l13,14 l-13,14 l-13,-14 z\" fill=\"#D8C3A5\" stroke=\"#004030\" stroke-width=\"1\"/>\n<text x=\"1592\" y=\"764\" font-size=\"13.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >G3 Quality\uff5c\u54c1\u8cea \u00b7 Stage 4 \u2605<\/text>\n<text x=\"1592\" y=\"785\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Increment \u2192 Definition of Done \u5b8c\u6210\u7684\u5b9a\u7fa9<\/text>\n<text x=\"1548\" y=\"818\" font-size=\"12\" fill=\"#A23B2A\" font-weight=\"bold\" text-anchor=\"start\"  >G3 \u9808\u542b\uff1a\u8cc7\u5b89\u6383\u63cf\u30fb\u6e2c\u8a66\u8986\u84cb\u30fb\u4f86\u6e90\u8ffd\u6eaf\u30fb\u4eba\u985e\u7c3d\u6838<\/text>\n<rect x=\"30\" y=\"850\" width=\"1090\" height=\"270\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#D5DED9\" stroke-width=\"1.2\" />\n<text x=\"48\" y=\"884\" font-size=\"18\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >\u2464 Four Dimensions \u00d7 Process\uff5c\u56db\u69cb\u9762\u8207\u6d41\u7a0b\u5c0d\u61c9\uff08\u4f5c\u8005\u67b6\u69cb\uff09<\/text>\n<text x=\"1102\" y=\"884\" font-size=\"12.5\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"end\"  >\u2260 Scrum \u4e09\u652f\u67f1\uff1a\u900f\u660e\u30fb\u6aa2\u8996\u30fb\u8abf\u9069<\/text>\n<rect x=\"48\" y=\"900\" width=\"253\" height=\"205\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.2\" />\n<path d=\"M48,936 V910 a10,10 0 0 1 10,-10 H291 a10,10 0 0 1 10,10 V936 Z\" fill=\"#004030\"/>\n<text x=\"60\" y=\"924\" font-size=\"15\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Customer\uff5c\u4e92\u52d5\u5354\u4f5c<\/text>\n<text x=\"60\" y=\"960\" font-size=\"12.5\" fill=\"#7A5C2E\" font-style=\"italic\">Manifesto: Customer collaboration<\/text>\n<text x=\"60\" y=\"984\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Stage 1 \u00b7 Discover \u63a2\u7d22<\/text>\n<text x=\"60\" y=\"1014\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >A2A with client-side agents<\/text>\n<text x=\"60\" y=\"1036\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u8207\u5ba2\u6236\u7aef\u4ee3\u7406\u4eba\u5c0d\u53e3\u5354\u5546<\/text>\n<text x=\"60\" y=\"1058\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u4eba\u985e\u4fdd\u7559\u50f9\u503c\u9a57\u8b49<\/text>\n<rect x=\"314\" y=\"900\" width=\"253\" height=\"205\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.2\" />\n<path d=\"M314,936 V910 a10,10 0 0 1 10,-10 H557 a10,10 0 0 1 10,10 V936 Z\" fill=\"#004030\"/>\n<text x=\"326\" y=\"924\" font-size=\"15\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Development\uff5c\u6f38\u9032\u8fed\u4ee3<\/text>\n<text x=\"326\" y=\"960\" font-size=\"12.5\" fill=\"#7A5C2E\" font-style=\"italic\">Manifesto: Working software<\/text>\n<text x=\"326\" y=\"984\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Stages 2\u20134 \u00b7 Plan \u2192 Verify<\/text>\n<text x=\"326\" y=\"1014\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Faster cycles, bounded by review<\/text>\n<text x=\"326\" y=\"1036\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u9031\u671f\u7e2e\u77ed\uff0c\u53d7\u5be9\u67e5\u7522\u80fd\u9650\u5236<\/text>\n<text x=\"326\" y=\"1058\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u4ee5 DoD \u78ba\u4fdd\u4ea4\u4ed8\u7a69\u5b9a\u5ea6<\/text>\n<rect x=\"580\" y=\"900\" width=\"253\" height=\"205\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.2\" />\n<path d=\"M580,936 V910 a10,10 0 0 1 10,-10 H823 a10,10 0 0 1 10,10 V936 Z\" fill=\"#004030\"/>\n<text x=\"592\" y=\"924\" font-size=\"15\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >MVP\uff5c\u56de\u994b\u5faa\u74b0<\/text>\n<text x=\"592\" y=\"960\" font-size=\"12.5\" fill=\"#7A5C2E\" font-style=\"italic\">Manifesto: Responding to change<\/text>\n<text x=\"592\" y=\"984\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Stage 5 \u00b7 Release &amp; Learn<\/text>\n<text x=\"592\" y=\"1014\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >24/7 telemetry, validated learning<\/text>\n<text x=\"592\" y=\"1036\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >MVP \u662f\u9a57\u8b49\u5f0f\u5b78\u7fd2<\/text>\n<text x=\"592\" y=\"1058\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u800c\u975e\u5c55\u793a\u54c1<\/text>\n<rect x=\"846\" y=\"900\" width=\"253\" height=\"205\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#004030\" stroke-width=\"1.2\" />\n<path d=\"M846,936 V910 a10,10 0 0 1 10,-10 H1089 a10,10 0 0 1 10,10 V936 Z\" fill=\"#004030\"/>\n<text x=\"858\" y=\"924\" font-size=\"15\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Organization\uff5c\u8de8\u57df\u878d\u5408<\/text>\n<text x=\"858\" y=\"960\" font-size=\"12.5\" fill=\"#7A5C2E\" font-style=\"italic\">Manifesto: Individuals &amp; interactions<\/text>\n<text x=\"858\" y=\"984\" font-size=\"13\" fill=\"#004030\" font-weight=\"bold\">Stage 6 + cross-cutting \u8cab\u7a7f\u5168\u7a0b<\/text>\n<text x=\"858\" y=\"1014\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Agents translate across domains<\/text>\n<text x=\"858\" y=\"1036\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u591a\u4ee3\u7406\u4eba\u8de8\u57df\u8f49\u8b6f<\/text>\n<text x=\"858\" y=\"1058\" font-size=\"13\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >\u8a98\u56e0\u578b\u7a40\u5009\u4ecd\u9808\u4eba\u985e\u6cbb\u7406<\/text>\n<rect x=\"1140\" y=\"850\" width=\"750\" height=\"270\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#D5DED9\" stroke-width=\"1.2\" />\n<text x=\"1158\" y=\"884\" font-size=\"18\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >\u2465 Risks by Stage\uff5c\u5206\u968e\u6bb5\u98a8\u96aa\u8207\u63a7\u5236<\/text>\n<rect x=\"1158\" y=\"898\" width=\"732\" height=\"30\" rx=\"6\" fill=\"#004030\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1168\" y=\"918\" font-size=\"12.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Stage \u968e\u6bb5<\/text>\n<text x=\"1286\" y=\"918\" font-size=\"12.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Risk \u98a8\u96aa<\/text>\n<text x=\"1596\" y=\"918\" font-size=\"12.5\" fill=\"#FFFFFF\" font-weight=\"bold\" text-anchor=\"start\"  >Control \u63a7\u5236\u63aa\u65bd<\/text>\n<rect x=\"1158\" y=\"928\" width=\"732\" height=\"30\" rx=\"0\" fill=\"#F4F6F5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1168\" y=\"948\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >1 Discover<\/text>\n<text x=\"1286\" y=\"948\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Synthetic feedback \u5408\u6210\u56de\u994b\u53d6\u4ee3\u5ba2\u6236<\/text>\n<text x=\"1596\" y=\"948\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Human validation \u4eba\u985e\u9a57\u8b49\u5047\u8a2d<\/text>\n<rect x=\"1158\" y=\"958\" width=\"732\" height=\"30\" rx=\"0\" fill=\"#FFFFFF\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1168\" y=\"978\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >2 Plan<\/text>\n<text x=\"1286\" y=\"978\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Velocity loses meaning \u901f\u5ea6\u6307\u6a19\u5931\u771f<\/text>\n<text x=\"1596\" y=\"978\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Plan by review capacity \u4f9d\u5be9\u67e5\u7522\u80fd<\/text>\n<rect x=\"1158\" y=\"988\" width=\"732\" height=\"30\" rx=\"0\" fill=\"#F4F6F5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1168\" y=\"1008\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >3 Build<\/text>\n<text x=\"1286\" y=\"1008\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Agents exceed guardrails \u903e\u8d8a\u8b77\u6b04<\/text>\n<text x=\"1596\" y=\"1008\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Guardrails + audit logs \u8b77\u6b04\u8207\u7a3d\u6838<\/text>\n<rect x=\"1158\" y=\"1018\" width=\"732\" height=\"30\" rx=\"0\" fill=\"#FFFFFF\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1168\" y=\"1038\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >4 Verify<\/text>\n<text x=\"1286\" y=\"1038\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Lower stability, insecure code \u7a69\u5b9a\u5ea6\u964d<\/text>\n<text x=\"1596\" y=\"1038\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >AI-specific DoD AI \u5c08\u5c6c\u6aa2\u6838<\/text>\n<rect x=\"1158\" y=\"1048\" width=\"732\" height=\"30\" rx=\"0\" fill=\"#F4F6F5\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1168\" y=\"1068\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >5 Release<\/text>\n<text x=\"1286\" y=\"1068\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Prototype \u2260 MVP \u539f\u578b\u8aa4\u8a8d\u70ba MVP<\/text>\n<text x=\"1596\" y=\"1068\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Measurable hypothesis \u53ef\u8861\u91cf\u5047\u8a2d<\/text>\n<rect x=\"1158\" y=\"1078\" width=\"732\" height=\"30\" rx=\"0\" fill=\"#FFFFFF\" stroke=\"none\" stroke-width=\"1\" />\n<text x=\"1168\" y=\"1098\" font-size=\"12.5\" fill=\"#004030\" font-weight=\"bold\" text-anchor=\"start\"  >6 Improve<\/text>\n<text x=\"1286\" y=\"1098\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Junior pipeline erodes \u521d\u968e\u4eba\u624d\u65b7\u5c64<\/text>\n<text x=\"1596\" y=\"1098\" font-size=\"12.5\" fill=\"#1F2A26\" font-weight=\"normal\" text-anchor=\"start\"  >Learning roles in review \u5be9\u67e5\u4e2d\u5b78\u7fd2<\/text>\n<text x=\"40\" y=\"1155\" font-size=\"12.5\" fill=\"#5F6B66\" font-weight=\"normal\" text-anchor=\"start\"  >Sources \u53c3\u8003\uff1aAgile Manifesto (2001)\uff1bScrum Guide (2020)\uff1bPoppendieck &amp; Poppendieck (2003)\uff1bRies (2011)\uff1bDORA (2026)\uff5cSections \u2460\u2013\u2462 include the author's framework \u542b\u4f5c\u8005\u67b6\u69cb<\/text>\n<\/svg>";
+
+</script>
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef } = React;
+
+const NUM_LEARN = 6;
+const TOTAL = 1 + NUM_LEARN + 3;
+const IDX_LAB = NUM_LEARN + 1;
+const IDX_RES = NUM_LEARN + 2;
+const IDX_ANA = NUM_LEARN + 3;
+const APP_VERSION = '2026.10.24.2';
+const AUTHOR_NOTE_MODULES = [1, 3, 5];
+const MODULE_ICONS = ['📋','🏛️','🔄','👥','🚦','🧭','⚠️','🧪','🌐','📊'];
+
+/* ---------- Icons ---------- */
+const mkIcon = (children) => ({ size = 20, className = '' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">{children}</svg>
+);
+const IconBookOpen = mkIcon(<><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></>);
+const IconAlertTriangle = mkIcon(<><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></>);
+const IconCheckCircle = mkIcon(<><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>);
+const IconGlobe = mkIcon(<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>);
+const IconChevronRight = mkIcon(<polyline points="9 18 15 12 9 6"/>);
+const IconChevronUp = mkIcon(<polyline points="18 15 12 9 6 15"/>);
+const IconMenu = mkIcon(<><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>);
+const IconX = mkIcon(<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>);
+const IconMoon = mkIcon(<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>);
+const IconSun = mkIcon(<><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></>);
+const IconPlay = mkIcon(<polygon points="5 3 19 12 5 21 5 3"/>);
+const IconPause = mkIcon(<><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></>);
+const IconSquare = mkIcon(<rect x="3" y="3" width="18" height="18" rx="2"/>);
+const IconArrowRight = mkIcon(<><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></>);
+const IconActivity = mkIcon(<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>);
+const IconCpu = mkIcon(<><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></>);
+const IconTrendingUp = mkIcon(<><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></>);
+const IconLayers = mkIcon(<><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></>);
+const IconFlag = mkIcon(<><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></>);
+const IconZap = mkIcon(<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>);
+const IconFlask = mkIcon(<path d="M9 3h6M10 3v6L4 20a1 1 0 0 0 1 1.5h14a1 1 0 0 0 1-1.5L14 9V3"/>);
+const IconZapLab = mkIcon(<><path d="M9 3h6M10 3v6L4 20a1 1 0 0 0 1 1.5h14a1 1 0 0 0 1-1.5L14 9V3"/><polyline points="13 12 11 15 13 15 11 18"/></>);
+const IconHome = mkIcon(<><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></>);
+
+/* ---------- Helpers ---------- */
+const palette = (isDark) => isDark
+  ? { pri: '#D8C3A5', sec: '#004030', text: '#e2e8f0', card: '#1e293b', mute: '#94a3b8', line: '#475569', soft: '#0f2a22', red: '#f87171' }
+  : { pri: '#004030', sec: '#D8C3A5', text: '#1f2937', card: '#ffffff', mute: '#64748b', line: '#cbd5e1', soft: '#e7efec', red: '#b91c1c' };
+const guard = (e) => { e.preventDefault(); window.showCopyrightToast && window.showCopyrightToast(); };
+
+/* ---------- Generic components ---------- */
+const H2 = ({ children, icon, number }) => (
+  <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-black text-[#004030] dark:text-[#D8C3A5] mb-6 flex items-center gap-3 flex-wrap">
+    {icon && <span className="text-2xl" aria-hidden="true">{icon}</span>}
+    {number !== undefined && <span>{number}.</span>}
+    <span>{children}</span>
+  </h2>
+);
+
+const LinkCard = ({ label, url, desc }) => (
+  <a href={url} target="_blank" rel="noopener noreferrer"
+    className="block bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 hover:border-[#004030] dark:hover:border-[#D8C3A5] hover:shadow-md transition-all group">
+    <span className="font-bold font-serif text-sm text-[#004030] dark:text-[#D8C3A5] group-hover:underline">{label}</span>
+    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1">{desc}</p>
+  </a>
+);
+
+const FlipCardDeck = ({ terms, t, moduleId, onCardRead }) => {
+  const [groupIdx, setGroupIdx] = useState(0);
+  const [flipped, setFlipped] = useState({});
+  const [readSet, setReadSet] = useState(new Set());
+  const [shownSet, setShownSet] = useState(new Set());
+  const [shuffledOrder] = useState(() => [...Array(terms.length).keys()].sort(() => Math.random() - 0.5));
+  const groupSize = 2;
+  const totalGroups = Math.ceil(terms.length / groupSize);
+  const startIdx = groupIdx * groupSize;
+  const currentCardIndices = shuffledOrder.slice(startIdx, startIdx + groupSize);
+
+  useEffect(() => {
+    const newShown = new Set(shownSet);
+    currentCardIndices.forEach(idx => newShown.add(idx));
+    if (newShown.size !== shownSet.size) setShownSet(newShown);
+  }, [groupIdx]);
+
+  const handleFlip = (origIdx) => {
+    setFlipped(f => ({ ...f, [origIdx]: !f[origIdx] }));
+    if (!readSet.has(origIdx)) {
+      const newRead = new Set(readSet); newRead.add(origIdx); setReadSet(newRead);
+      if (onCardRead) onCardRead(moduleId, newRead.size, shownSet.size, terms.length);
+    }
+  };
+  const statusText = t.flip_status.replace('{read}', readSet.size).replace('{shown}', shownSet.size).replace('{total}', terms.length);
+
+  return (
+    <div className="mt-8">
+      <h3 className="text-lg font-bold uppercase tracking-wider text-slate-500 mb-2">{t.key_terms}</h3>
+      <p className="text-sm text-slate-400 mb-4">{statusText}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {currentCardIndices.map((origIdx) => {
+          const term = terms[origIdx];
+          return (
+            <div key={origIdx} className="perspective cursor-pointer h-40" onClick={() => handleFlip(origIdx)}>
+              <div className={`transform-style-3d relative w-full h-full transition-transform duration-500 ${flipped[origIdx] ? 'rotate-y-180' : ''}`}>
+                <div className="backface-hidden absolute inset-0 bg-white dark:bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm">
+                  <p className="font-serif font-bold text-center text-[#004030] dark:text-[#D8C3A5]">{term.front}</p>
+                  <p className="text-xs text-slate-400 mt-2">{t.flip_prompt}</p>
+                </div>
+                <div className="backface-hidden rotate-y-180 absolute inset-0 bg-[#004030] dark:bg-slate-700 rounded-xl p-4 flex items-center justify-center">
+                  <p className="text-sm text-center text-[#D8C3A5] dark:text-slate-200 leading-relaxed">{term.back}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex items-center gap-3 mt-4">
+        <button onClick={() => { setGroupIdx(0); setFlipped({}); }}
+          className="px-4 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">{t.flip_retry}</button>
+        <button onClick={() => groupIdx < totalGroups - 1 && setGroupIdx(groupIdx + 1)} disabled={groupIdx >= totalGroups - 1}
+          className="px-4 py-2 text-sm bg-[#004030] dark:bg-[#D8C3A5] text-white dark:text-[#004030] font-bold rounded-lg disabled:opacity-40">{t.flip_next}</button>
+      </div>
+    </div>
+  );
+};
+
+const ModuleQuiz = ({ questions, t, moduleId, onQuizSubmit, moduleName }) => {
+  const [selected, setSelected] = useState({});
+  const [submitted, setSubmitted] = useState({});
+  const [groupIdx, setGroupIdx] = useState(0);
+  const groupSize = 2;
+  const [quizIndices] = useState(() => [...Array(questions.length).keys()].sort(() => Math.random() - 0.5));
+  const totalGroups = Math.ceil(quizIndices.length / groupSize);
+  const [shuffledMaps] = useState(() => quizIndices.map(qIdx => [...Array(questions[qIdx].opts.length).keys()].sort(() => Math.random() - 0.5)));
+
+  const totalAnswered = Object.keys(selected).length;
+  const computeCorrect = () => {
+    let c = 0;
+    quizIndices.forEach((qIdx, qi) => {
+      if (selected[qi] === undefined) return;
+      if (shuffledMaps[qi][selected[qi]] === _d(questions[qIdx].ans)) c++;
+    });
+    return c;
+  };
+  const statusText = t.quiz_status.replace('{correct}', computeCorrect()).replace('{answered}', totalAnswered).replace('{total}', quizIndices.length);
+  const currentStart = groupIdx * groupSize;
+  const currentIndices = quizIndices.slice(currentStart, currentStart + groupSize);
+
+  const handleGroupSubmit = () => {
+    const allDone = currentIndices.every((_, i) => selected[currentStart + i] !== undefined);
+    if (!allDone) return;
+    setSubmitted(s => ({ ...s, [groupIdx]: true }));
+    // 每組提交即回報（部分作答也計入）：答對 / 已答 / 總題數
+    const wrongQs = []; let correct = 0; let answered = 0;
+    quizIndices.forEach((qIdx, qi) => {
+      if (selected[qi] === undefined) return;
+      answered++;
+      if (shuffledMaps[qi][selected[qi]] === _d(questions[qIdx].ans)) correct++;
+      else wrongQs.push(questions[qIdx].q);
+    });
+    onQuizSubmit(moduleId, correct, quizIndices.length, wrongQs, moduleName, answered);
+  };
+
+  return (
+    <div className="mt-8 bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+      <h3 className="text-lg font-bold font-serif text-[#004030] dark:text-[#D8C3A5] mb-2">{t.quiz_title}</h3>
+      <p className="text-sm text-slate-400 mb-6">{statusText}</p>
+      {currentIndices.map((qIdx, localI) => {
+        const qi = currentStart + localI;
+        const q = questions[qIdx];
+        const sMap = shuffledMaps[qi];
+        const isGrpSub = !!submitted[groupIdx];
+        return (
+          <div key={qIdx} className="mb-6">
+            <p className="font-bold mb-3 text-base">{qi + 1}. {q.q}</p>
+            <div className="space-y-2">
+              {sMap.map((origIdx, dIdx) => {
+                const isCorrect = origIdx === _d(q.ans);
+                const isSel = selected[qi] === dIdx;
+                return (
+                  <button key={dIdx} onClick={() => !isGrpSub && setSelected(s => ({ ...s, [qi]: dIdx }))}
+                    className={`w-full text-left px-4 py-3 rounded-lg border transition-all text-sm
+                      ${isGrpSub
+                        ? isCorrect ? 'bg-green-100 border-green-500 dark:bg-green-900/30'
+                          : isSel ? 'bg-red-100 border-red-400 dark:bg-red-900/30' : 'border-slate-200 dark:border-slate-700'
+                        : isSel ? 'border-[#004030] dark:border-[#D8C3A5] bg-[#004030]/5 dark:bg-[#D8C3A5]/10' : 'border-slate-200 dark:border-slate-700 hover:border-slate-400'}`}>
+                    {q.opts[origIdx]}
+                  </button>
+                );
+              })}
+            </div>
+            {isGrpSub && (
+              <p className={`mt-2 text-sm italic ${shuffledMaps[qi][selected[qi]] === _d(q.ans) ? 'text-green-600 dark:text-green-400' : 'text-red-500 dark:text-red-400'}`}>
+                {shuffledMaps[qi][selected[qi]] === _d(q.ans) ? `✓ ${t.correct}` : `✗ ${t.incorrect}`} — {t.explanation}：{q.exp}
+              </p>
+            )}
+          </div>
+        );
+      })}
+      <div className="flex items-center gap-3 flex-wrap">
+        {!submitted[groupIdx]
+          ? <button onClick={handleGroupSubmit} disabled={!currentIndices.every((_, i) => selected[currentStart + i] !== undefined)}
+              className="px-6 py-2 bg-[#004030] dark:bg-[#D8C3A5] text-white dark:text-[#004030] font-bold rounded-lg disabled:opacity-40">{t.submit}</button>
+          : <>
+              {groupIdx < totalGroups - 1 && (
+                <button onClick={() => setGroupIdx(groupIdx + 1)} className="px-6 py-2 bg-[#004030] dark:bg-[#D8C3A5] text-white dark:text-[#004030] font-bold rounded-lg">{t.quiz_next}</button>
+              )}
+              <button onClick={() => { setGroupIdx(0); setSelected({}); setSubmitted({}); }}
+                className="px-6 py-2 border border-[#004030] dark:border-[#D8C3A5] text-[#004030] dark:text-[#D8C3A5] font-bold rounded-lg">{t.quiz_retry}</button>
+            </>}
+      </div>
+    </div>
+  );
+};
+
+/* ---------- Module diagrams (editable inline SVG) ---------- */
+const SvgWrap = ({ children, vb }) => (
+  <div className="w-full max-w-3xl" onContextMenu={guard}>
+    <svg viewBox={vb} className="w-full h-auto" draggable="false" style={{ fontFamily: 'Inter, "Noto Sans TC", "Microsoft JhengHei", sans-serif' }}>{children}</svg>
+  </div>
+);
+
+const ModuleDiagram = ({ m, lang, isDark, t }) => {
+  const P = palette(isDark);
+  const L = (en, zh) => (lang === 'zh' ? zh : en);
+  const S = t.stage_names;
+  if (m === 1) {
+    const layers = [
+      [L('L1 Strategy', 'L1 策略層'), L('Owner: PM (external)', '負責：PM（對外）'), true],
+      [L('L2 Orchestration', 'L2 編排層'), L('Owner: PjM (internal)', '負責：PjM（對內）'), true],
+      [L('L3 Execution', 'L3 執行層'), L('Operator: AI agents (R only)', '執行：AI 代理人（僅 R）'), false],
+      [L('L4 Assurance', 'L4 保證層'), L('Owner: System Architects', '負責：系統架構師'), true]
+    ];
+    return (
+      <SvgWrap vb="0 0 640 330">
+        {layers.map(([a, b, hum], i) => (
+          <g key={i}>
+            <rect x="40" y={20 + i * 72} width="420" height="60" rx="10" fill={hum ? P.pri : P.sec} stroke={P.pri} strokeWidth="2" strokeDasharray={hum ? '' : '7 5'} fillOpacity={hum ? 1 : 0.35} />
+            <text x="60" y={46 + i * 72} fontSize="17" fontWeight="700" fill={hum ? (isDark ? '#004030' : '#fff') : P.text}>{a}</text>
+            <text x="60" y={68 + i * 72} fontSize="13" fill={hum ? (isDark ? '#004030' : '#e2e8f0') : P.text}>{b}</text>
+            <rect x="480" y={34 + i * 72} width="120" height="32" rx="16" fill={hum ? P.soft : P.sec} stroke={P.pri} />
+            <text x="540" y={55 + i * 72} fontSize="13" fontWeight="700" textAnchor="middle" fill={P.pri}>{hum ? L('HUMAN · A', '人類 · A') : L('AGENT · R', '代理人 · R')}</text>
+          </g>
+        ))}
+        <text x="320" y="318" fontSize="13" textAnchor="middle" fill={P.mute}>{L('Accountability exists only in human layers', '當責只存在於人類所在的層級')}</text>
+      </SvgWrap>
+    );
+  }
+  if (m === 2) {
+    const cx = 320, cy = 175, R = 125;
+    const pts = S.map((_, i) => { const a = (-90 + i * 60) * Math.PI / 180; return [cx + R * Math.cos(a), cy + R * Math.sin(a)]; });
+    return (
+      <SvgWrap vb="0 0 640 350">
+        <defs><marker id="m2a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill={P.pri} /></marker>
+        <marker id="m2r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill={P.red} /></marker></defs>
+        {pts.map((p, i) => { const q = pts[(i + 1) % 6]; const dx = q[0] - p[0], dy = q[1] - p[1], d = Math.hypot(dx, dy); const k = 48 / d;
+          return <line key={'l' + i} x1={p[0] + dx * k} y1={p[1] + dy * k} x2={q[0] - dx * k} y2={q[1] - dy * k} stroke={P.pri} strokeWidth="2.5" markerEnd="url(#m2a)" />; })}
+        <path d={`M${pts[3][0] + 42},${pts[3][1] + 12} Q${pts[2][0] + 95},${pts[3][1] + 45} ${pts[2][0] + 46},${pts[2][1] + 14}`} fill="none" stroke={P.red} strokeWidth="2.2" strokeDasharray="6 4" markerEnd="url(#m2r)" />
+        <text x={pts[2][0] + 70} y={pts[3][1] + 30} fontSize="12.5" fill={P.red} fontWeight="700">{L('Fail → Build', '未通過 → 建置')}</text>
+        {pts.map((p, i) => (
+          <g key={'n' + i}>
+            <circle cx={p[0]} cy={p[1]} r="44" fill={i === 3 ? P.sec : P.card} stroke={P.pri} strokeWidth="2.5" />
+            <text x={p[0]} y={p[1] - 6} fontSize="15" fontWeight="800" textAnchor="middle" fill={P.pri}>{i + 1}</text>
+            <text x={p[0]} y={p[1] + 13} fontSize={S[i].length > 10 ? 10.5 : 12.5} fontWeight="600" textAnchor="middle" fill={isDark && i === 3 ? '#fff' : P.text}>{S[i]}</text>
+          </g>
+        ))}
+        <text x={cx} y={cy - 6} fontSize="12.5" textAnchor="middle" fill={P.mute}>{L('Input → Activities', '輸入 → 活動')}</text>
+        <text x={cx} y={cy + 14} fontSize="12.5" textAnchor="middle" fill={P.mute}>{L('→ Output → Gate', '→ 產出 → 關卡')}</text>
+      </SvgWrap>
+    );
+  }
+  if (m === 3) {
+    const roles = ['PM', 'PjM', L('Architects', '架構師'), L('AI Agents', 'AI 代理人')];
+    const grid = [['A','A','I','I','A','C'],['I','R','A','C','I','A'],['C','C','C','A','C','C'],['R','R','R','R','R','R']];
+    return (
+      <SvgWrap vb="0 0 640 260">
+        {S.map((s, j) => <g key={j}><text x={190 + j * 72} y="20" fontSize="12" fontWeight="800" textAnchor="middle" fill={P.pri}>{j + 1}</text><text x={190 + j * 72} y="38" fontSize={s.length > 10 ? 9.5 : 11.5} fontWeight="700" textAnchor="middle" fill={P.pri}>{s}</text></g>)}
+        {roles.map((r, i) => (
+          <g key={i}>
+            <text x="20" y={70 + i * 48} fontSize="14" fontWeight="700" fill={P.text}>{r}</text>
+            {grid[i].map((c, j) => {
+              const fill = c === 'A' ? P.pri : c === 'R' ? P.sec : c === 'C' ? P.soft : 'transparent';
+              const col = c === 'A' ? (isDark ? '#004030' : '#fff') : c === 'R' ? (isDark ? '#fff' : '#004030') : P.mute;
+              return <g key={j}><rect x={160 + j * 72} y={48 + i * 48} width="60" height="34" rx="7" fill={fill} stroke={P.line} /><text x={190 + j * 72} y={70 + i * 48} fontSize="14" fontWeight="700" textAnchor="middle" fill={col}>{c}</text></g>;
+            })}
+          </g>
+        ))}
+        <text x="320" y="250" fontSize="13" textAnchor="middle" fill={P.mute}>{L('One human A per stage · agents may be R, never A', '每階段一位人類 A · 代理人可為 R，永遠不能是 A')}</text>
+      </SvgWrap>
+    );
+  }
+  if (m === 4) {
+    const gates = [[L('G1 Direction', 'G1 方向'), L('Product Backlog', '產品待辦清單'), L('Product Goal', '產品目標'), L('Stage 1', '第 1 階段')],
+      [L('G2 Focus', 'G2 聚焦'), L('Sprint Backlog', 'Sprint 待辦清單'), L('Sprint Goal', 'Sprint 目標'), L('Stages 2–3', '第 2–3 階段')],
+      [L('G3 Quality ★', 'G3 品質 ★'), L('Increment', '增量'), L('Definition of Done', '完成的定義'), L('Stage 4', '第 4 階段')]];
+    return (
+      <SvgWrap vb="0 0 640 250">
+        <defs><marker id="m4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill={P.pri} /></marker></defs>
+        <line x1="30" y1="125" x2="610" y2="125" stroke={P.pri} strokeWidth="3" markerEnd="url(#m4a)" />
+        {gates.map((g, i) => { const x = 120 + i * 200; return (
+          <g key={i}>
+            <rect x={x - 80} y="30" width="160" height="40" rx="8" fill={P.card} stroke={P.line} />
+            <text x={x} y="55" fontSize="13" textAnchor="middle" fill={P.text}>{g[1]}</text>
+            <line x1={x} y1="70" x2={x} y2="95" stroke={P.line} strokeWidth="2" />
+            <polygon points={`${x},95 ${x + 30},125 ${x},155 ${x - 30},125`} fill={P.sec} stroke={P.pri} strokeWidth="2" />
+            <text x={x} y="180" fontSize="14" fontWeight="800" textAnchor="middle" fill={P.pri}>{g[0]}</text>
+            <text x={x} y="200" fontSize="13" textAnchor="middle" fill={P.text}>{g[2]}</text>
+            <text x={x} y="220" fontSize="12" textAnchor="middle" fill={P.mute}>{g[3]}</text>
+          </g>); })}
+      </SvgWrap>
+    );
+  }
+  if (m === 5) {
+    const dims = [[L('Customer', '客戶：互動協作'), L('Customer collaboration', '客戶協作重於合約協商'), L('Stage 1', '第 1 階段')],
+      [L('Development', '開發：漸進迭代'), L('Working software', '可用的軟體重於詳盡文件'), L('Stages 2–4', '第 2–4 階段')],
+      [L('MVP', 'MVP：回饋循環'), L('Responding to change', '回應變化重於遵循計畫'), L('Stage 5', '第 5 階段')],
+      [L('Organization', '組織：跨域融合'), L('Individuals & interactions', '個人與互動重於流程工具'), L('Stage 6 + cross-cutting', '第 6 階段＋貫穿全程')]];
+    return (
+      <SvgWrap vb="0 0 640 300">
+        {dims.map((d, i) => { const x = 30 + (i % 2) * 300, y = 20 + Math.floor(i / 2) * 135; return (
+          <g key={i}>
+            <rect x={x} y={y} width="280" height="120" rx="12" fill={P.card} stroke={P.pri} strokeWidth="2" />
+            <rect x={x} y={y} width="280" height="36" rx="12" fill={P.pri} />
+            <rect x={x} y={y + 24} width="280" height="12" fill={P.pri} />
+            <text x={x + 16} y={y + 24} fontSize="15" fontWeight="800" fill={isDark ? '#004030' : '#fff'}>{d[0]}</text>
+            <text x={x + 16} y={y + 64} fontSize="13" fontStyle="italic" fill={P.mute}>{d[1]}</text>
+            <rect x={x + 16} y={y + 78} width="180" height="28" rx="14" fill={P.sec} fillOpacity={isDark ? 0.6 : 1} />
+            <text x={x + 106} y={y + 97} fontSize="13" fontWeight="700" textAnchor="middle" fill={isDark ? '#fff' : '#004030'}>{d[2]}</text>
+          </g>); })}
+        <text x="320" y="292" fontSize="12.5" textAnchor="middle" fill={P.mute}>{L('≠ Scrum pillars: Transparency · Inspection · Adaptation', '≠ Scrum 三支柱：透明・檢視・調適')}</text>
+      </SvgWrap>
+    );
+  }
+  if (m === 6) {
+    const risks = [L('Synthetic feedback', '合成回饋'), L('Velocity distortion', '速度失真'), L('Guardrail breach', '逾越護欄'), L('Instability', '穩定度下降'), L('False MVP', '假 MVP'), L('Talent erosion', '人才斷層')];
+    const ctrls = [L('Human validation', '人類驗證'), L('Plan by review', '依審查規劃'), L('Guardrails + logs', '護欄＋稽核'), L('AI-aware DoD', 'AI 專屬 DoD'), L('Measurable hypothesis', '可衡量假設'), L('Learning roles', '學習角色')];
+    const sev = [2, 1, 2, 3, 1, 2];
+    return (
+      <SvgWrap vb="0 0 640 260">
+        <line x1="40" y1="130" x2="600" y2="130" stroke={P.pri} strokeWidth="3" />
+        {S.map((s, i) => { const x = 60 + i * 104; return (
+          <g key={i}>
+            <text x={x} y={i % 2 ? 42 : 24} fontSize="11.5" fontWeight="700" textAnchor="middle" fill={P.red}>{risks[i]}</text>
+            {[0, 1, 2].map(k => <circle key={k} cx={x - 12 + k * 12} cy="60" r="4.5" fill={k < sev[i] ? P.red : P.line} />)}
+            <line x1={x} y1="72" x2={x} y2="112" stroke={P.line} strokeDasharray="3 3" />
+            <circle cx={x} cy="130" r="18" fill={P.pri} />
+            <text x={x} y="135" fontSize="14" fontWeight="800" textAnchor="middle" fill={isDark ? '#004030' : '#fff'}>{i + 1}</text>
+            <text x={x} y="170" fontSize="12" fontWeight="600" textAnchor="middle" fill={P.text}>{s}</text>
+            <rect x={x - 50} y="186" width="100" height="40" rx="8" fill={P.soft} stroke={P.pri} />
+            {(() => { const w = ctrls[i]; const sp = w.length > 13 && w.includes(' ') ? [w.slice(0, w.lastIndexOf(' ', Math.ceil(w.length / 2) + 2)), w.slice(w.lastIndexOf(' ', Math.ceil(w.length / 2) + 2) + 1)] : [w];
+              return <text x={x} y={sp.length > 1 ? 203 : 211} fontSize="11" fontWeight="600" textAnchor="middle" fill={P.pri}>{sp.map((l, k) => <tspan key={k} x={x} dy={k ? 14 : 0}>{l}</tspan>)}</text>; })()}
+          </g>); })}
+        <text x="320" y="252" fontSize="12" textAnchor="middle" fill={P.mute}>{L('Top: risk and severity · Bottom: control', '上：風險與嚴重度 · 下：控制措施')}</text>
+      </SvgWrap>
+    );
+  }
+  return null;
+};
+
+/* ---------- Labs (top-level) ---------- */
+const LabCard = ({ title, desc, children }) => (
+  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+    <h3 className="font-serif font-bold text-lg text-[#004030] dark:text-[#D8C3A5]">{title}</h3>
+    <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">{desc}</p>
+    {children}
+  </div>
+);
+
+const ProcessSimLab = ({ t }) => {
+  const [stage, setStage] = useState(0);
+  const [decision, setDecision] = useState({});
+  const [msg, setMsg] = useState('');
+  const gate = t.sim_gates.find(g => g.stage === stage);
+  const decided = gate ? decision[stage] : true;
+  const correctN = t.sim_gates.filter(g => decision[g.stage] === g.correct).length;
+  const decide = (choice) => {
+    setDecision(d => ({ ...d, [stage]: choice }));
+    setMsg(choice === gate.correct ? `${t.sim_correct} ${gate.fb}` : `${t.sim_wrong} ${gate.fb}`);
+  };
+  const next = () => {
+    setMsg('');
+    if (gate && decision[stage] === 'fail' && stage === 3) { setStage(2); setMsg(t.sim_returned); return; }
+    if (stage === 5) { setStage(0); setMsg(t.sim_loop_done); return; }
+    setStage(stage + 1);
+  };
+  return (
+    <LabCard title={t.mlab_labs[0].title} desc={t.mlab_labs[0].desc}>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {t.stage_names.map((s, i) => (
+          <span key={i} className={`px-3 py-1 rounded-full text-xs font-bold border ${i === stage ? 'bg-[#004030] text-white dark:bg-[#D8C3A5] dark:text-[#004030] border-transparent' : 'border-slate-300 dark:border-slate-600 text-slate-500'}`}>{i + 1}. {s}</span>
+        ))}
+      </div>
+      <p className="text-sm mb-3"><strong>{stage + 1}. {t.stage_names[stage]}</strong> — {t.sim_stage_desc[stage]}</p>
+      {gate && (
+        <div className="p-4 rounded-lg bg-[#D8C3A5]/30 dark:bg-[#D8C3A5]/10 border border-[#D8C3A5] mb-3">
+          <p className="text-sm font-bold text-[#004030] dark:text-[#D8C3A5]">{gate.gate}</p>
+          <p className="text-sm mt-1">{gate.scenario}</p>
+          <div className="flex gap-2 mt-3">
+            <button disabled={!!decision[stage]} onClick={() => decide('pass')} className="px-4 py-1.5 text-sm rounded-lg bg-green-700 text-white disabled:opacity-40">{t.sim_pass}</button>
+            <button disabled={!!decision[stage]} onClick={() => decide('fail')} className="px-4 py-1.5 text-sm rounded-lg bg-red-700 text-white disabled:opacity-40">{t.sim_fail}</button>
+          </div>
+        </div>
+      )}
+      {msg && <p className="text-sm italic text-slate-600 dark:text-slate-300 mb-3">{msg}</p>}
+      <div className="flex items-center gap-3 flex-wrap">
+        <button disabled={!decided} onClick={next} className="px-4 py-2 text-sm bg-[#004030] dark:bg-[#D8C3A5] text-white dark:text-[#004030] font-bold rounded-lg disabled:opacity-40">{t.sim_next}</button>
+        <button onClick={() => { setStage(0); setDecision({}); setMsg(''); }} className="px-4 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-lg">{t.sim_restart}</button>
+        <span className="text-sm text-slate-500">{t.sim_score.replace('{n}', correctN)}</span>
+      </div>
+    </LabCard>
+  );
+};
+
+const RACI_REF = [['A','I','C','R','C'],['A','R','C','R','I'],['I','A','C','R','—'],['I','C','A','R','—'],['A','I','C','R','C'],['C','A','C','R','—']];
+const RACI_CYCLE = ['—','R','A','C','I'];
+const RaciLab = ({ t }) => {
+  const blank = () => Array(6).fill(0).map(() => Array(5).fill('—'));
+  const [grid, setGrid] = useState(blank);
+  const [result, setResult] = useState(null);
+  const [showRef, setShowRef] = useState(false);
+  const cycle = (i, j) => { setResult(null); setGrid(g => g.map((row, a) => row.map((c, b) => (a === i && b === j) ? RACI_CYCLE[(RACI_CYCLE.indexOf(c) + 1) % 5] : c))); };
+  const check = () => {
+    const errs = [];
+    grid.forEach((row, i) => {
+      const name = `${i + 1}. ${t.stage_names[i]}`;
+      if (row[3] === 'A' || row[4] === 'A') errs.push(t.raci_err_agentA.replace('{stage}', name));
+      else if (row.filter(c => c === 'A').length !== 1) errs.push(t.raci_err_oneA.replace('{stage}', name));
+    });
+    let n = 0; grid.forEach((row, i) => row.forEach((c, j) => { if (c === RACI_REF[i][j]) n++; }));
+    setResult({ errs, n });
+  };
+  const cellCls = (c) => c === 'A' ? 'bg-[#004030] text-white dark:bg-[#D8C3A5] dark:text-[#004030]' : c === 'R' ? 'bg-[#D8C3A5] text-[#004030] dark:bg-[#004030] dark:text-white' : c === 'C' ? 'bg-slate-200 dark:bg-slate-600' : c === 'I' ? 'bg-slate-100 dark:bg-slate-700' : 'text-slate-400';
+  const show = showRef ? RACI_REF : grid;
+  return (
+    <LabCard title={t.mlab_labs[1].title} desc={t.mlab_labs[1].desc}>
+      <p className="text-xs text-slate-500 mb-2">{t.raci_hint}</p>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border-collapse min-w-[460px]">
+          <thead><tr><th className="text-left p-2"></th>{t.raci_roles.map((r, j) => <th key={j} className="p-2 text-xs text-[#004030] dark:text-[#D8C3A5]">{r}</th>)}</tr></thead>
+          <tbody>{show.map((row, i) => (
+            <tr key={i} className="border-t border-slate-200 dark:border-slate-700">
+              <td className="p-2 font-bold text-xs">{i + 1}. {t.stage_names[i]}</td>
+              {row.map((c, j) => <td key={j} className="p-1 text-center"><button disabled={showRef} onClick={() => cycle(i, j)} className={`w-10 h-8 rounded font-bold ${cellCls(c)}`}>{c}</button></td>)}
+            </tr>))}</tbody>
+        </table>
+      </div>
+      <div className="flex gap-2 mt-4 flex-wrap">
+        <button onClick={check} disabled={showRef} className="px-4 py-2 text-sm bg-[#004030] dark:bg-[#D8C3A5] text-white dark:text-[#004030] font-bold rounded-lg disabled:opacity-40">{t.raci_check}</button>
+        <button onClick={() => { setGrid(blank()); setResult(null); }} className="px-4 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-lg">{t.raci_reset}</button>
+        <button onClick={() => setShowRef(!showRef)} className="px-4 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-lg">{showRef ? t.raci_hide : t.raci_show}</button>
+      </div>
+      {result && !showRef && (
+        <div className="mt-3 text-sm">
+          {result.errs.length ? result.errs.map((e, k) => <p key={k} className="text-red-600 dark:text-red-400">✗ {e}</p>) : <p className="text-green-700 dark:text-green-400">✓ {t.raci_ok}</p>}
+          <p className="text-slate-500 mt-1">{t.raci_match.replace('{n}', result.n)}</p>
+        </div>
+      )}
+    </LabCard>
+  );
+};
+
+const DodLab = ({ t }) => {
+  const [sel, setSel] = useState({});
+  const items = t.dod_items;
+  const risk = Math.max(0, 100 - items.reduce((s, it, i) => s + (sel[i] ? (it.ai ? 17 : 8) : 0), 0));
+  const level = risk >= 60 ? 2 : risk >= 30 ? 1 : 0;
+  const missing = items.filter((it, i) => it.ai && !sel[i]);
+  const bar = ['bg-green-600', 'bg-amber-500', 'bg-red-600'][level];
+  return (
+    <LabCard title={t.mlab_labs[2].title} desc={t.mlab_labs[2].desc}>
+      <p className="text-sm font-bold mb-2">{t.dod_title}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        {items.map((it, i) => (
+          <label key={i} className="flex items-start gap-2 text-sm p-2 rounded-lg border border-slate-200 dark:border-slate-700 cursor-pointer">
+            <input type="checkbox" checked={!!sel[i]} onChange={() => setSel(s => ({ ...s, [i]: !s[i] }))} className="mt-1 accent-[#004030]" />
+            <span>{it.label}{it.ai && <span className="ml-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#D8C3A5] text-[#004030]">AI</span>}</span>
+          </label>
+        ))}
+      </div>
+      <div className="mt-4">
+        <div className="flex justify-between text-sm mb-1"><span>{t.dod_risk}</span><span className="font-bold">{t.dod_levels[level]} · {risk}</span></div>
+        <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden"><div className={`h-3 ${bar} transition-all`} style={{ width: `${risk}%` }} /></div>
+        <p className="text-sm mt-2">{missing.length ? <><strong>{t.dod_missing}</strong> {missing.map(m => m.label).join('、')}</> : <span className="text-green-700 dark:text-green-400">✓ {t.dod_none}</span>}</p>
+      </div>
+    </LabCard>
+  );
+};
+
+const Slider = ({ label, v, set, min, maxV }) => (
+  <label className="block text-sm"><span className="flex justify-between"><span>{label}</span><strong>{v}</strong></span>
+    <input type="range" min={min} max={maxV} value={v} onChange={e => set(+e.target.value)} className="w-full accent-[#004030]" /></label>
+);
+const CapacityLab = ({ t }) => {
+  const [out, setOut] = useState(160);
+  const [rev, setRev] = useState(3);
+  const [rate, setRate] = useState(4);
+  const [days, setDays] = useState(10);
+  const cap = rev * rate * days;
+  const commit = Math.min(out, cap);
+  const backlog = Math.max(0, out - cap);
+  const util = Math.min(100, Math.round(out / cap * 100));
+  const max = Math.max(out, cap, 1);
+  return (
+    <LabCard title={t.mlab_labs[3].title} desc={t.mlab_labs[3].desc}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Slider label={t.cap_output} v={out} set={setOut} min={10} maxV={300} />
+        <Slider label={t.cap_reviewers} v={rev} set={setRev} min={1} maxV={10} />
+        <Slider label={t.cap_rate} v={rate} set={setRate} min={1} maxV={10} />
+        <Slider label={t.cap_days} v={days} set={setDays} min={5} maxV={20} />
+      </div>
+      <div className="mt-4 space-y-2 text-sm">
+        {[[t.cap_output, out, 'bg-[#D8C3A5]'], [t.cap_capacity, cap, 'bg-[#004030] dark:bg-emerald-500']].map(([l, v, c], i) => (
+          <div key={i}><div className="flex justify-between"><span>{l}</span><strong>{v}</strong></div>
+            <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden"><div className={`h-3 ${c}`} style={{ width: `${v / max * 100}%` }} /></div></div>
+        ))}
+      </div>
+      <div className="grid grid-cols-3 gap-2 mt-4 text-center">
+        {[[t.cap_commit, commit], [t.cap_backlog, backlog], [t.cap_util, util + '%']].map(([l, v], i) => (
+          <div key={i} className="p-3 rounded-lg bg-slate-100 dark:bg-slate-900"><div className="text-xl font-black font-serif text-[#004030] dark:text-[#D8C3A5]">{v}</div><div className="text-xs text-slate-500">{l}</div></div>
+        ))}
+      </div>
+      <p className={`text-sm mt-3 font-bold ${backlog > 0 ? 'text-red-600 dark:text-red-400' : 'text-green-700 dark:text-green-400'}`}>{backlog > 0 ? t.cap_bottleneck_review : t.cap_bottleneck_agent}</p>
+      <p className="text-xs text-slate-500 mt-1">{t.cap_note}</p>
+    </LabCard>
+  );
+};
+
+/* ---------- App ---------- */
+function App() {
+  const LS_KEY = 'AGILE_SPA_analytics';
+  const LS_STU = 'AGILE_SPA_student';
+  const LS_VER = 'AGILE_SPA_version';
+  const loadLS = (key, fb) => { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fb; } catch { return fb; } };
+  const emptyAnalytics = () => ({
+    time: Array(TOTAL).fill(0), clicks: Array(TOTAL).fill(0),
+    quizCorrect: Array(TOTAL).fill(0), quizTotal: Array(TOTAL).fill(0), quizAnswered: Array(TOTAL).fill(0),
+    cardsRead: Array(TOTAL).fill(0), cardsTotal: Array(TOTAL).fill(0),
+    visited: Array(TOTAL).fill(false), wrongTopics: {}
+  });
+
+  const [lang, setLang] = useState('en');
+  const [isDark, setIsDark] = useState(true);
+  const [module, setModule] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [ttsState, setTtsState] = useState('idle');
+  const [studentInfo, setStudentInfo] = useState(() => loadLS(LS_STU, { group: '', dept: '', id: '', nameEn: '', nameZh: '' }));
+  const [analytics, setAnalytics] = useState(() => {
+    const a = loadLS(LS_KEY, null);
+    if (!a || !Array.isArray(a.time) || a.time.length !== TOTAL) return emptyAnalytics();
+    return { ...emptyAnalytics(), ...a };
+  });
+  const menuRef = useRef(null);
+  const t = dict[lang];
+
+  const modulesList = Array.from({ length: TOTAL }, (_, i) => {
+    const key = i === 0 ? 'm0' : i <= NUM_LEARN ? `m${i}` : i === IDX_LAB ? 'mlab' : i === IDX_RES ? 'mres' : null;
+    const nav = key ? t[`${key}_nav`] : `${IDX_ANA}. ${t.analytics_title}`;
+    const title = key ? (t[`${key}_title`] || nav) : t.analytics_title;
+    return { id: i, num: i, icon: MODULE_ICONS[i], nav, title, short: nav.replace(/^\d+\.\s*/, '') };
+  });
+
+  useEffect(() => { document.documentElement.classList.toggle('dark', isDark); }, [isDark]);
+  useEffect(() => { document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en-GB'; }, [lang]);
+  useEffect(() => { try { localStorage.setItem(LS_KEY, JSON.stringify(analytics)); } catch {} }, [analytics]);
+  useEffect(() => { try { localStorage.setItem(LS_STU, JSON.stringify(studentInfo)); } catch {} }, [studentInfo]);
+  useEffect(() => {
+    try {
+      const v = localStorage.getItem(LS_VER);
+      if (v && v !== APP_VERSION && window.confirm(dict.zh.analytics_refresh_prompt + '\n' + dict.en.analytics_refresh_prompt)) {
+        setAnalytics(emptyAnalytics());
+      }
+      localStorage.setItem(LS_VER, APP_VERSION);
+    } catch {}
+  }, []);
+  useEffect(() => {
+    setAnalytics(a => { if (a.visited[module]) return a; const v = [...a.visited]; v[module] = true; return { ...a, visited: v }; });
+    const id = setInterval(() => {
+      if (document.visibilityState !== 'visible') return;
+      setAnalytics(a => { const tm = [...a.time]; tm[module] += 1; return { ...a, time: tm }; });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [module]);
+  useEffect(() => {
+    const h = (e) => { if (menuRef.current && !menuRef.current.contains(e.target)) setMenuOpen(false); };
+    document.addEventListener('mousedown', h); return () => document.removeEventListener('mousedown', h);
+  }, []);
+  useEffect(() => { if ('speechSynthesis' in window) { speechSynthesis.cancel(); setTtsState('idle'); } }, [module, lang]);
+
+  const go = (i) => { setModule(i); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const countClick = () => setAnalytics(a => { const c = [...a.clicks]; c[module] += 1; return { ...a, clicks: c }; });
+
+  const handleQuizSubmit = (mid, correct, total, wrongQs, moduleName, answered) => {
+    setAnalytics(a => {
+      const qc = [...a.quizCorrect], qt = [...a.quizTotal], qa = [...a.quizAnswered];
+      qc[mid] = correct; qt[mid] = total; qa[mid] = answered;
+      const wt = { ...a.wrongTopics }; wt[mid] = wrongQs || [];
+      return { ...a, quizCorrect: qc, quizTotal: qt, quizAnswered: qa, wrongTopics: wt };
+    });
+  };
+  const handleCardRead = (mid, readCount, shownCount, totalCount) => {
+    setAnalytics(a => {
+      const cr = [...a.cardsRead], ct = [...a.cardsTotal];
+      cr[mid] = Math.max(cr[mid], readCount); ct[mid] = totalCount;
+      return { ...a, cardsRead: cr, cardsTotal: ct };
+    });
+  };
+
+  const handleTTS = (action) => {
+    if (!('speechSynthesis' in window)) return;
+    if (action === 'stop') { speechSynthesis.cancel(); setTtsState('idle'); return; }
+    if (action === 'pause') { speechSynthesis.pause(); setTtsState('paused'); return; }
+    if (ttsState === 'paused') { speechSynthesis.resume(); setTtsState('playing'); return; }
+    speechSynthesis.cancel();
+    const sep = lang === 'zh' ? '。 ' : '. ';
+    let texts = [];
+    if (module === 0) {
+      texts = [t.m0_title, t.m0_intro, t.m0_why, t.m0_why_desc, ...t.m0_stats.map(s => `${s.label}: ${s.val}`), ...t.m0_modules.map(m => `${m.title}. ${m.desc}`), t.m0_map_title, t.m0_map_desc];
+    } else if (module >= 1 && module <= NUM_LEARN) {
+      const mk = `m${module}`;
+      texts = [t[`${mk}_title`], t.overview_label, t[`${mk}_overview`], ...(t[`${mk}_highlights`] || []),
+        ...[1, 2, 3, 4, 5].map(n => t[`${mk}_p${n}`]).filter(Boolean), t.wrapup_label, t[`${mk}_wrapup`],
+        ...(t[`${mk}_terms`] || []).flatMap(tm => [tm.front, tm.back])];
+      if (AUTHOR_NOTE_MODULES.includes(module)) texts.splice(1, 0, t.author_note);
+    } else if (module === IDX_LAB) {
+      texts = [t.mlab_title, t.mlab_desc, ...t.mlab_labs.map(l => `${l.title}. ${l.desc}`)];
+    } else if (module === IDX_RES) {
+      texts = [t.mres_title, t.mres_desc, ...t.mres_groups.flatMap(g => [g.name, ...g.links.map(l => `${l.label}. ${l.desc}`)])];
+    } else if (module === IDX_ANA) {
+      const tc = analytics.quizCorrect.reduce((a, b) => a + b, 0);
+      const ta = analytics.quizAnswered.reduce((a, b) => a + b, 0);
+      const oa = ta > 0 ? Math.round(tc / ta * 100) : 0;
+      const wk = [];
+      for (let i = 1; i <= NUM_LEARN; i++) if (analytics.quizAnswered[i] > 0) { const a = Math.round(analytics.quizCorrect[i] / analytics.quizAnswered[i] * 100); if (a < 75) wk.push({ name: modulesList[i].short, acc: a }); }
+      wk.sort((a, b) => a.acc - b.acc);
+      texts = [t.analytics_title, t.analytics_desc,
+        `${t.analytics_total_time}: ${analytics.time.reduce((a, b) => a + b, 0)}${t.analytics_sec}`,
+        `${t.analytics_total_clicks}: ${analytics.clicks.reduce((a, b) => a + b, 0)}${t.analytics_times}`,
+        `${t.analytics_overall_acc}: ${oa}%`];
+      if (wk.length) { texts.push(t.analytics_wp_tts_intro); wk.forEach(w => texts.push(t.analytics_wp_tts_module.replace('{name}', w.name).replace('{acc}', w.acc))); }
+      else if (ta > 0) texts.push(t.analytics_wp_tts_allpass);
+    }
+    texts = texts.filter(Boolean).map(s => String(s).replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu, ''));
+    const utt = new SpeechSynthesisUtterance(texts.join(sep));
+    utt.rate = 0.95;
+    const voices = speechSynthesis.getVoices();
+    if (lang === 'zh') {
+      const v = voices.find(v => v.lang === 'zh-TW' && v.name.includes('Yating')) || voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang.startsWith('zh'));
+      if (v) utt.voice = v; utt.lang = 'zh-TW';
+    } else {
+      const v = voices.find(v => v.lang === 'en-GB' && (v.name.includes('Male') || v.name.includes('Daniel'))) || voices.find(v => v.lang === 'en-GB') || voices.find(v => v.lang.startsWith('en'));
+      if (v) utt.voice = v; utt.lang = 'en-GB';
+    }
+    utt.onend = () => setTtsState('idle');
+    utt.onerror = () => setTtsState('idle');
+    speechSynthesis.speak(utt);
+    setTtsState('playing');
+  };
+
+  /* ---- CSV ---- */
+  const canExport = studentInfo.group && studentInfo.dept && studentInfo.id && studentInfo.nameEn && studentInfo.nameZh;
+  const exportCSV = () => {
+    if (!canExport) return;
+    const esc = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const rows = [
+      ['Group', studentInfo.group], ['Dept', studentInfo.dept], ['Student ID', studentInfo.id], ['Name (EN)', studentInfo.nameEn], ['Name (ZH)', studentInfo.nameZh],
+      ['Exported', new Date().toISOString()], [],
+      ['Module', 'Time (sec)', 'Clicks', 'Cards Read', 'Cards Total', 'Quiz Correct', 'Quiz Answered', 'Quiz Total', 'Accuracy (%)', 'Wrong Questions']
+    ];
+    modulesList.forEach((m, i) => {
+      const acc = analytics.quizAnswered[i] > 0 ? Math.round(analytics.quizCorrect[i] / analytics.quizAnswered[i] * 100) : '';
+      rows.push([m.nav, analytics.time[i], analytics.clicks[i], analytics.cardsRead[i], analytics.cardsTotal[i], analytics.quizCorrect[i], analytics.quizAnswered[i], analytics.quizTotal[i], acc, (analytics.wrongTopics[i] || []).join(' | ')]);
+    });
+    const csv = '﻿' + rows.map(r => r.map(esc).join(',')).join('\r\n');
+    const d = new Date(); const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+    const fname = `${dict.zh.brand} ${dict.zh.title}_${studentInfo.nameEn} ${studentInfo.nameZh}_${ymd}.csv`;
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+    const a = document.createElement('a'); a.href = url; a.download = fname; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+  const clearAll = () => {
+    if (!window.confirm(t.analytics_wp_clear_confirm)) return;
+    try { localStorage.removeItem(LS_KEY); localStorage.removeItem(LS_STU); } catch {}
+    setAnalytics(emptyAnalytics());
+    setStudentInfo({ group: '', dept: '', id: '', nameEn: '', nameZh: '' });
+  };
+  const sanitizeStudentId = (v) => v.replace(/[^0-9]/g, '').slice(0, 12);
+  const sanitizeName = (v) => v.replace(/[<>"'&\\]/g, '').slice(0, 50);
+
+  /* ---- Views ---- */
+  const Overview = () => (
+    <div className="space-y-8 animate-fade-in">
+      <div className="rounded-2xl bg-[#004030] text-white p-6 sm:p-10 relative overflow-hidden">
+        <p className="text-[#D8C3A5] font-bold tracking-widest text-sm mb-2">{t.brand} · {t.subtitle}</p>
+        <h1 className="font-serif font-black text-2xl sm:text-4xl leading-tight mb-4">{t.m0_title}</h1>
+        <p className="text-base sm:text-lg leading-relaxed text-slate-100">{t.m0_intro}</p>
+        <button onClick={() => go(1)} className="mt-6 px-6 py-3 bg-[#D8C3A5] text-[#004030] font-bold rounded-lg inline-flex items-center gap-2">{t.m0_start}</button>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {t.m0_stats.map((s, i) => (
+          <div key={i} className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 text-center">
+            <div className="text-4xl font-serif font-black text-[#004030] dark:text-[#D8C3A5]">{s.val}</div>
+            <div className="text-sm text-slate-500 mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-6 border-l-4 border-[#D8C3A5]">
+        <h3 className="font-serif font-bold text-xl text-[#004030] dark:text-[#D8C3A5] mb-2 flex items-center gap-2"><IconAlertTriangle size={20} />{t.m0_why}</h3>
+        <p className="leading-relaxed">{t.m0_why_desc}</p>
+      </div>
+      <div>
+        <h3 className="font-serif font-bold text-xl text-[#004030] dark:text-[#D8C3A5] mb-1">{t.m0_map_title}</h3>
+        <p className="text-sm text-slate-500 mb-3">{t.m0_map_desc}</p>
+        <div className="ovmap rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white" onContextMenu={guard}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(OVERVIEW_SVG, { USE_PROFILES: { svg: true, svgFilters: true } }) }} />
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {t.m0_modules.map((m, i) => (
+          <button key={i} onClick={() => go(i + 1)} className="text-left bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 hover:border-[#004030] dark:hover:border-[#D8C3A5] transition-all">
+            <div className="flex items-center gap-2 mb-1"><span className="text-xl">{MODULE_ICONS[i + 1]}</span><span className="font-serif font-black text-[#D8C3A5]">{m.num}</span></div>
+            <div className="font-bold text-[#004030] dark:text-[#D8C3A5]">{m.title}</div>
+            <p className="text-sm text-slate-500 mt-1">{m.desc}</p>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+
+  const LearnModule = () => {
+    const mk = `m${module}`;
+    return (
+      <div className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300 animate-fade-in">
+        <H2 icon={modulesList[module].icon} number={module}>{t[`${mk}_title`]}</H2>
+        {AUTHOR_NOTE_MODULES.includes(module) && <p className="text-sm px-4 py-2 rounded-lg bg-[#D8C3A5]/30 dark:bg-[#D8C3A5]/10 text-[#004030] dark:text-[#D8C3A5] font-medium">⚑ {t.author_note}</p>}
+        <div className="bg-[#004030]/5 dark:bg-[#D8C3A5]/5 rounded-xl p-5 border-l-4 border-[#D8C3A5]">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">{t.overview_label}</h3>
+          <p>{t[`${mk}_overview`]}</p>
+        </div>
+        <div>
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">{t.highlights_label}</h3>
+          <div className="flex flex-wrap gap-2">{t[`${mk}_highlights`].map((h, i) => <span key={i} className="px-3 py-1 bg-[#004030]/10 dark:bg-[#D8C3A5]/10 text-[#004030] dark:text-[#D8C3A5] rounded-full text-sm font-medium">{h}</span>)}</div>
+        </div>
+        <div className="space-y-4">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500">{t.deep_dive_label}</h3>
+          <p>{t[`${mk}_p1`]}</p>
+          <p className="p-4 bg-slate-100 dark:bg-slate-800 rounded-lg italic font-serif">{t[`${mk}_p2`]}</p>
+          <p>{t[`${mk}_p3`]}</p>
+          {t[`${mk}_p4`] && <p>{t[`${mk}_p4`]}</p>}
+          {t[`${mk}_p5`] && <p>{t[`${mk}_p5`]}</p>}
+        </div>
+        <div>
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">{t.diagram_label}</h3>
+          <div className="flex justify-center bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700"><ModuleDiagram m={module} lang={lang} isDark={isDark} t={t} /></div>
+        </div>
+        <FlipCardDeck key={`cards-${module}`} terms={t[`${mk}_terms`]} t={t} moduleId={module} onCardRead={handleCardRead} />
+        <div className="bg-slate-100 dark:bg-slate-800 rounded-xl p-5">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">{t.wrapup_label}</h3>
+          <p className="italic">{t[`${mk}_wrapup`]}</p>
+        </div>
+        <ModuleQuiz key={`quiz-${module}`} questions={t[`${mk}_q`]} t={t} moduleId={module} onQuizSubmit={handleQuizSubmit} moduleName={t[`${mk}_title`]} />
+      </div>
+    );
+  };
+
+  const LabView = () => (
+    <div className="space-y-6 animate-fade-in">
+      <H2 icon={modulesList[IDX_LAB].icon} number={IDX_LAB}>{t.mlab_title}</H2>
+      <p className="text-lg text-slate-600 dark:text-slate-300">{t.mlab_desc}</p>
+      <ProcessSimLab t={t} />
+      <RaciLab t={t} />
+      <DodLab t={t} />
+      <CapacityLab t={t} />
+    </div>
+  );
+
+  const ResView = () => (
+    <div className="space-y-6 animate-fade-in">
+      <H2 icon={modulesList[IDX_RES].icon} number={IDX_RES}>{t.mres_title}</H2>
+      <p className="text-lg text-slate-600 dark:text-slate-300">{t.mres_desc}</p>
+      {t.mres_groups.map((g, i) => (
+        <div key={i}>
+          <h3 className="font-serif font-bold text-lg text-[#004030] dark:text-[#D8C3A5] mb-3">{g.name}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">{g.links.map((l, j) => <LinkCard key={j} {...l} />)}</div>
+        </div>
+      ))}
+    </div>
+  );
+
+  const AnalyticsView = () => {
+    const tt = analytics.time.reduce((a, b) => a + b, 0);
+    const tcl = analytics.clicks.reduce((a, b) => a + b, 0);
+    const tc = analytics.quizCorrect.reduce((a, b) => a + b, 0);
+    const ta = analytics.quizAnswered.reduce((a, b) => a + b, 0);
+    const cr = analytics.cardsRead.reduce((a, b) => a + b, 0);
+    const ctot = [1, 2, 3, 4, 5, 6].reduce((s, i) => s + t[`m${i}_terms`].length, 0);
+    const visitedN = [...Array(NUM_LEARN)].filter((_, k) => analytics.visited[k + 1]).length;
+    const quizN = [...Array(NUM_LEARN)].filter((_, k) => analytics.quizTotal[k + 1] > 0 && analytics.quizAnswered[k + 1] >= analytics.quizTotal[k + 1]).length;
+    const weak = [];
+    for (let i = 1; i <= NUM_LEARN; i++) if (analytics.quizAnswered[i] > 0) { const a = Math.round(analytics.quizCorrect[i] / analytics.quizAnswered[i] * 100); if (a < 75) weak.push({ i, a }); }
+    weak.sort((x, y) => x.a - y.a);
+    const field = (k, label, ph, san) => (
+      <label className="block text-sm"><span className="font-medium">{label}</span>
+        <input value={studentInfo[k]} placeholder={ph} onChange={e => setStudentInfo(s => ({ ...s, [k]: san(e.target.value) }))}
+          className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900" /></label>
+    );
+    return (
+      <div className="space-y-6 animate-fade-in">
+        <H2 icon={modulesList[IDX_ANA].icon} number={IDX_ANA}>{t.analytics_title}</H2>
+        <p className="text-slate-600 dark:text-slate-300">{t.analytics_desc}</p>
+        <p className="text-xs text-slate-500">{t.analytics_wp_saved}</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[[t.analytics_total_time, `${tt}${t.analytics_sec}`], [t.analytics_total_clicks, `${tcl}${t.analytics_times}`], [t.analytics_overall_acc, ta ? `${Math.round(tc / ta * 100)}%` : '—'], [t.analytics_card_usage, `${Math.round(cr / ctot * 100)}%`]].map(([l, v], i) => (
+            <div key={i} className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 text-center">
+              <div className="text-2xl sm:text-3xl font-serif font-black text-[#004030] dark:text-[#D8C3A5]">{v}</div><div className="text-xs text-slate-500 mt-1">{l}</div></div>
+          ))}
+        </div>
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+          <h3 className="font-serif font-bold text-lg text-[#004030] dark:text-[#D8C3A5] mb-3">{t.analytics_progress_title}</h3>
+          <div className="text-sm mb-1">{t.analytics_progress_visited} {visitedN}/{NUM_LEARN} · {t.analytics_progress_quiz_done} {quizN}/{NUM_LEARN}</div>
+          <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-4"><div className="h-3 bg-[#004030] dark:bg-[#D8C3A5]" style={{ width: `${(visitedN + quizN) / (NUM_LEARN * 2) * 100}%` }} /></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            {modulesList.slice(1, NUM_LEARN + 1).map(m => (
+              <button key={m.id} onClick={() => go(m.id)} className="flex items-center justify-between text-left text-sm px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-[#004030] dark:hover:border-[#D8C3A5]">
+                <span className="truncate">{m.icon} {m.nav}</span>
+                <span className="text-xs shrink-0 ml-2">{analytics.quizTotal[m.id] > 0 && analytics.quizAnswered[m.id] >= analytics.quizTotal[m.id] ? '✅' : analytics.quizAnswered[m.id] > 0 ? `◐ ${analytics.quizAnswered[m.id]}/${analytics.quizTotal[m.id]}` : analytics.visited[m.id] ? '👁' : '○'}</span>
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-slate-500 mt-2">✅ {t.analytics_progress_quiz_done} · ◐ {t.analytics_progress_quiz_partial} · 👁 {t.analytics_progress_visited} · ○ {t.analytics_progress_not_visited}</p>
+        </div>
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+          <h3 className="font-serif font-bold text-lg text-[#004030] dark:text-[#D8C3A5] mb-3">{t.analytics_wp_title}</h3>
+          {ta === 0 ? <p className="text-sm text-slate-500">{t.analytics_no_data}</p> : weak.length === 0 ? <p className="text-sm text-green-700 dark:text-green-400">✓ {t.analytics_wp_allpass}</p> :
+            weak.map(w => (
+              <div key={w.i} className="mb-3 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
+                <div className="flex justify-between flex-wrap gap-2"><strong className="text-sm">{modulesList[w.i].nav}</strong><span className="text-sm text-red-600 dark:text-red-400 font-bold">{w.a}%</span></div>
+                <p className="text-xs mt-1 font-medium">{t.analytics_wp_incorrect}</p>
+                <ul className="text-xs list-disc ml-5">{(analytics.wrongTopics[w.i] || []).map((q, k) => <li key={k}>{q}</li>)}</ul>
+                <button onClick={() => go(w.i)} className="text-xs mt-2 font-bold text-[#004030] dark:text-[#D8C3A5] underline">{t.analytics_wp_goto}</button>
+              </div>))}
+        </div>
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 overflow-x-auto">
+          <table className="w-full text-sm min-w-[560px]">
+            <thead><tr className="text-left text-[#004030] dark:text-[#D8C3A5]"><th className="p-2">{t.analytics_module}</th><th className="p-2">{t.analytics_time}</th><th className="p-2">{t.analytics_clicks}</th><th className="p-2">{t.analytics_cards_read_total}</th><th className="p-2">{t.analytics_correct_ans_total}</th></tr></thead>
+            <tbody>{modulesList.map((m, i) => (
+              <tr key={i} className="border-t border-slate-200 dark:border-slate-700">
+                <td className="p-2">{m.nav}</td><td className="p-2">{analytics.time[i]}{t.analytics_sec}</td><td className="p-2">{analytics.clicks[i]}</td>
+                <td className="p-2">{i >= 1 && i <= NUM_LEARN ? `${analytics.cardsRead[i]} / ${t[`m${i}_terms`].length}` : '—'}</td>
+                <td className="p-2">{i >= 1 && i <= NUM_LEARN ? (analytics.quizAnswered[i] > 0 ? `${analytics.quizCorrect[i]} / ${analytics.quizAnswered[i]} / ${t[`m${i}_q`].length}` : t.analytics_no_data) : '—'}</td>
+              </tr>))}</tbody>
+          </table>
+        </div>
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+          <h3 className="font-serif font-bold text-lg text-[#004030] dark:text-[#D8C3A5] mb-3">{t.analytics_form_title}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label className="block text-sm"><span className="font-medium">{t.analytics_group}</span>
+              <select value={studentInfo.group} onChange={e => setStudentInfo(s => ({ ...s, group: e.target.value }))} className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900">
+                <option value="">{t.analytics_group_select}</option>{t.group_options.map(g => <option key={g} value={g}>{g}</option>)}</select></label>
+            {field('dept', t.analytics_dept, t.analytics_dept_ph, v => sanitizeName(v).slice(0, 20))}
+            {field('id', t.analytics_id, t.analytics_id_ph, sanitizeStudentId)}
+            {field('nameEn', t.analytics_name_en, t.analytics_name_en_ph, sanitizeName)}
+            {field('nameZh', t.analytics_name_zh, t.analytics_name_zh_ph, sanitizeName)}
+          </div>
+          <div className="flex gap-3 mt-4 flex-wrap items-center">
+            <button onClick={exportCSV} disabled={!canExport} className="px-5 py-2 bg-[#004030] dark:bg-[#D8C3A5] text-white dark:text-[#004030] font-bold rounded-lg disabled:opacity-40">{t.analytics_export_csv}</button>
+            <button onClick={clearAll} className="px-5 py-2 bg-red-600 text-white font-bold rounded-lg">{t.analytics_wp_clear}</button>
+            {!canExport && <span className="text-xs text-slate-500">{t.analytics_fill_required}</span>}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const sideIcon = (i) => i === IDX_LAB ? <IconZapLab size={16} /> : i === IDX_RES ? <IconGlobe size={16} /> : i === IDX_ANA ? <IconActivity size={16} /> : <span aria-hidden="true">{MODULE_ICONS[i]}</span>;
+
+  return (
+    <div className="min-h-screen flex flex-col bg-[#f4f4f4] dark:bg-[#121212] text-slate-800 dark:text-slate-200 pt-16 overflow-x-hidden selection:bg-[#004030] selection:text-white dark:selection:bg-[#D8C3A5] dark:selection:text-[#004030]">
+      <header className="fixed top-0 left-0 right-0 h-16 bg-[#004030] dark:bg-slate-900 text-white z-50 shadow-lg border-b border-[#D8C3A5]/30">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 h-16 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 min-w-0">
+            <div className="relative" ref={menuRef}>
+              <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 hover:bg-white/10 rounded-lg" aria-label={t.nav_modules}>{menuOpen ? <IconX /> : <IconMenu />}</button>
+              {menuOpen && (
+                <div className="absolute top-full left-0 mt-1 w-72 max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 z-[100] text-slate-800 dark:text-slate-200">
+                  <p className="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wider text-slate-400">{t.nav_modules}</p>
+                  {modulesList.map(m => (
+                    <button key={m.id} onClick={() => go(m.id)} className={`w-full flex items-center gap-3 px-4 py-3 text-sm text-left hover:bg-slate-100 dark:hover:bg-slate-700 ${module === m.id ? 'font-bold text-[#004030] dark:text-[#D8C3A5]' : ''}`}>
+                      <span className="w-5 flex justify-center">{sideIcon(m.id)}</span><span className="truncate">{m.nav}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button onClick={() => go(0)} className="p-2 hover:bg-white/10 rounded-lg" aria-label={t.nav_home}><IconHome size={18} /></button>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 min-w-0">
+              <span className="font-serif font-black text-[#D8C3A5] text-lg tracking-widest">{t.brand}</span>
+              <span className="hidden lg:inline font-serif font-bold text-sm md:text-base truncate">{t.title}</span>
+            </button>
+          </div>
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+            <button onClick={() => handleTTS(ttsState === 'playing' ? 'pause' : 'play')} className="p-2 hover:bg-white/10 rounded-lg flex items-center gap-1" aria-label={t.audio_read} title={t.audio_read}>
+              {ttsState === 'playing' ? <IconPause size={18} /> : <IconPlay size={18} />}<span className="hidden md:inline text-xs">{ttsState === 'playing' ? t.audio_pause : t.audio_read}</span></button>
+            {ttsState !== 'idle' && <button onClick={() => handleTTS('stop')} className="p-2 hover:bg-white/10 rounded-lg" aria-label={t.audio_stop}><IconSquare size={16} /></button>}
+            <button onClick={() => setLang(lang === 'en' ? 'zh' : 'en')} className="px-2 sm:px-3 py-1.5 border border-[#D8C3A5]/60 rounded-lg text-xs sm:text-sm font-bold text-[#D8C3A5] hover:bg-white/10">{t.lang_toggle}</button>
+            <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-white/10 rounded-lg" aria-label={t.theme_toggle}>{isDark ? <IconSun size={18} /> : <IconMoon size={18} />}</button>
+          </div>
+        </div>
+      </header>
+
+      <div className="flex-1 w-full max-w-7xl mx-auto flex">
+        <aside className="hidden md:block w-64 shrink-0 border-r border-slate-200 dark:border-slate-800 py-6 pr-2">
+          <div className="sticky top-20">
+            <p className="px-4 pb-2 text-xs font-bold uppercase tracking-wider text-slate-400">{t.nav_modules}</p>
+            {modulesList.map(m => (
+              <button key={m.id} onClick={() => go(m.id)} className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left rounded-r-lg border-l-4 transition-all ${module === m.id ? 'border-[#D8C3A5] bg-[#004030]/10 dark:bg-[#D8C3A5]/10 font-bold text-[#004030] dark:text-[#D8C3A5]' : 'border-transparent hover:bg-slate-200/60 dark:hover:bg-slate-800'}`}>
+                <span className="w-5 flex justify-center shrink-0">{sideIcon(m.id)}</span><span className="truncate">{m.nav}</span>
+              </button>
+            ))}
+          </div>
+        </aside>
+        <main key={`main-${module}`} className="flex-1 min-w-0 px-4 sm:px-8 py-8" onClick={countClick}>
+          {module === 0 && Overview()}
+          {module >= 1 && module <= NUM_LEARN && LearnModule()}
+          {module === IDX_LAB && LabView()}
+          {module === IDX_RES && ResView()}
+          {module === IDX_ANA && AnalyticsView()}
+          <div className="mt-12 flex justify-between items-center pt-8 border-t border-slate-300 dark:border-slate-700">
+            <button onClick={() => go(Math.max(0, module - 1))} disabled={module === 0} className="px-5 py-2 rounded-lg border border-[#004030] dark:border-[#D8C3A5] text-[#004030] dark:text-[#D8C3A5] font-bold disabled:opacity-0">← {t.nav_prev}</button>
+            <button onClick={() => go(Math.min(TOTAL - 1, module + 1))} disabled={module === TOTAL - 1} className="px-5 py-2 rounded-lg bg-[#004030] dark:bg-[#D8C3A5] text-white dark:text-[#004030] font-bold disabled:opacity-0 inline-flex items-center gap-1">{t.nav_next} <IconChevronRight size={16} /></button>
+          </div>
+        </main>
+      </div>
+
+      <footer className="h-8 bg-[#004030] flex items-center justify-between px-4 shrink-0 gap-2">
+        <span className="text-[#D8C3A5]/60 text-[10px] sm:text-xs truncate">{t.date} · {t.copyright}</span>
+        <span className="text-[#D8C3A5]/60 text-[10px] sm:text-xs flex items-center gap-3 shrink-0">
+          <span>{t.architect_label}&nbsp;<a href={t.architect_url} target="_blank" rel="noopener noreferrer" className="text-[#D8C3A5] hover:text-white underline">{t.architect_name}</a></span>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[#D8C3A5] hover:text-white font-bold">Top ↑</button>
+        </span>
+      </footer>
+    </div>
+  );
+}
+
+if (!window.__AGILE_BLOCKED__) ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+</body>
+</html>
